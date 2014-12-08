@@ -1,0 +1,9 @@
+package com.sage.sale.domain.services;
+
+import java.util.ArrayList;
+
+public class Questionnaire {
+	
+	String question;
+	ArrayList<String> answers = new ArrayList<String>();
+}

@@ -1,0 +1,10 @@
+package com.sage.sale.domain.services;
+
+import java.util.ArrayList;
+
+public interface IQuestionnaire {
+
+	 Product GetResult();
+	 int getAnswer(int answerIndex);
+	 ArrayList<Questionnaire> getQuestionnaire();
+}

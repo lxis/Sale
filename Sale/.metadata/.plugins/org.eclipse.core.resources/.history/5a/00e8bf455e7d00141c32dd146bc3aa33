@@ -1,0 +1,222 @@
+package com.sage.sale.ui;
+
+import java.util.ArrayList;
+
+import com.sage.sale.R;
+import com.sage.sale.domain.services.IQuestionnaire;
+import com.sage.sale.domain.services.Product;
+import com.sage.sale.domain.services.Question;
+import com.sage.sale.domain.services.QuestionnaireFacade;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
+import android.view.Window;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationSet;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+	// 全部的业务内容都在这
+	IQuestionnaire questionnaire = new QuestionnaireFacade();
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.activity_main);
+
+		showQuestion();
+	}
+
+	private void addAnswer(String answer, final int index) {
+		TextView textView = getAnswerTextView();
+		textView.setText(answer);
+		textView.setOnClickListener(getMoveNextClickListener(index));
+		((LinearLayout) findViewById(R.id.answerLayout)).addView(textView, getAnswerTextViewLayoutParam());
+	}
+
+	private TextView getAnswerTextView() {
+		TextView textView = new TextView(this);
+		textView.setTextSize(25);
+		textView.setGravity(Gravity.CENTER);
+		textView.setBackgroundResource(R.drawable.button_press_style_selector);
+		textView.setPadding(50, 50, 50, 50);
+		return textView;
+	}
+
+	private LinearLayout.LayoutParams getAnswerTextViewLayoutParam() {
+		LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(800, LayoutParams.WRAP_CONTENT);
+		layoutParam.setMargins(0, 50, 0, 50);
+		layoutParam.gravity = Gravity.CENTER;
+		return layoutParam;
+	}
+
+	private void restart() {
+		hideWithAnimation(findViewById(R.id.resultLayout), new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				questionnaire = new QuestionnaireFacade();
+				((TextView) findViewById(R.id.textViewTitle)).setText("买什么手机");
+				findViewById(R.id.questionLayout).setVisibility(View.VISIBLE);
+				findViewById(R.id.resultLayout).setVisibility(View.GONE);
+				showQuestion();
+			}});
+		
+
+	}
+
+	private void showQuestion() {
+		Question question = questionnaire.getQuestion();
+		String questionText = question.getQuestion();
+		((TextView) findViewById(R.id.textViewQuestion)).setText(questionText);
+		((LinearLayout) findViewById(R.id.answerLayout)).removeAllViews();
+		ArrayList<String> answers = question.getAnswers();
+		for (int i = 0; i < answers.size(); i++)
+			addAnswer(answers.get(i), i);
+		ProgressBar progressBarProgress = (ProgressBar) findViewById(R.id.progressBarProgress);
+		progressBarProgress.setMax(100);
+		progressBarProgress.setProgress((int) (questionnaire.getProgress() * 100));
+		showWithAnimation(findViewById(R.id.linearLayoutQuestionContent));
+		
+	}
+
+	private void setAnswer(final int index) {
+		questionnaire.setAnswer(index);
+		hideWithAnimation(findViewById(R.id.linearLayoutQuestionContent), new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				if (questionnaire.getQuestion() == null)
+					showResult();
+				else
+					showQuestion();
+			}});
+
+	}
+	
+	private void showWithAnimation(View view)
+	{
+		AnimationSet animationSet = new AnimationSet(true);
+		AlphaAnimation alphaAnimation = new AlphaAnimation(0,1);
+		alphaAnimation.setDuration(500);
+		animationSet.addAnimation(alphaAnimation);
+		view.startAnimation(animationSet);
+		view.setAnimation(animationSet);		
+	}
+	
+	private void hideWithAnimation(final View view,final OnClickListener listener)
+	{
+		AnimationSet animationSet = new AnimationSet(true);
+		AlphaAnimation alphaAnimation = new AlphaAnimation(1,0);
+		alphaAnimation.setDuration(500);
+		alphaAnimation.setAnimationListener(new AnimationListener(){
+
+			@Override
+			public void onAnimationEnd(Animation arg0) {
+				listener.onClick(view);				
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onAnimationStart(Animation arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		animationSet.addAnimation(alphaAnimation);
+		view.startAnimation(animationSet);
+		view.setAnimation(animationSet);		
+	}
+
+	private void showResult() {
+		((TextView) findViewById(R.id.textViewTitle)).setText("推荐你购买");
+		findViewById(R.id.questionLayout).setVisibility(View.GONE);
+		View resultLayout = findViewById(R.id.resultLayout);
+		resultLayout.setVisibility(View.VISIBLE);
+		Product result = questionnaire.getResult();
+		((TextView) findViewById(R.id.textViewResult)).setText(result.getName());
+		((ImageView) findViewById(R.id.imageViewResult)).setImageResource(result.getImageResourceId());
+		findViewById(R.id.textViewBuy).setOnClickListener(getBuyProductListener(result.getUrl()));
+		findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
+		showWithAnimation(resultLayout);
+	}
+
+	private void buyProduct(final String url) {
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.VIEW");
+		intent.setData(Uri.parse(url));
+		startActivity(intent);
+	}
+
+	OnClickListener getRestartListener() {
+		return new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				restart();
+			}
+		};
+	}
+
+	OnClickListener getBuyProductListener(final String url) {
+		return new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				buyProduct(url);
+			}
+		};
+	}
+
+	OnClickListener getMoveNextClickListener(final int index) {
+		return new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				setAnswer(index);
+			}
+		};
+	}
+	
+	long preTime;
+	public static final long TWO_SECOND = 2 * 1000;
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// 截获后退键
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			long currentTime = new Date().getTime();
+
+			// 如果时间间隔大于2秒, 不处理
+			if ((currentTime - preTime) > TWO_SECOND) {
+				// 显示消息
+				Toast.makeText(this, "put back again to exit.",
+						Toast.LENGTH_SHORT).show();
+
+				// 更新时间
+				preTime = currentTime;
+
+				// 截获事件,不再处理
+				return true;
+			}
+		}
+
+		return super.onKeyDown(keyCode, event);
+	}
+}

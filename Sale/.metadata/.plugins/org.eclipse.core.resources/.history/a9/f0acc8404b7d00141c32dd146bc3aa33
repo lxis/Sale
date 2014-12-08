@@ -1,0 +1,14 @@
+package com.sage.sale.domain.services;
+
+import java.util.ArrayList;
+
+public interface IQuestionnaire {
+
+	Product GetResult();
+
+	Question getQuestion();
+
+	double getProgress();
+
+	void moveNext();
+}

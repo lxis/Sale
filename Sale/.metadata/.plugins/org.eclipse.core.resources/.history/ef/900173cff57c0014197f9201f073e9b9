@@ -1,0 +1,49 @@
+package com.sage.sale.domain.services;
+
+public class CalculateResult {
+	
+	public CalculateResult()
+	{
+		
+	}
+	
+	public CalculateResult(String url,String name,String imagePath)
+	{
+		this.url = url;
+		this.name = name;
+	}
+	
+	private String url;
+	private String name;
+	private int percent;
+	private String imagePath;
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getPercent() {
+		return percent;
+	}
+
+	public void setPercent(int percent) {
+		this.percent = percent;
+	}
+	
+	public void addPercent(int percent)
+	{
+		this.percent+=percent;
+	}
+}

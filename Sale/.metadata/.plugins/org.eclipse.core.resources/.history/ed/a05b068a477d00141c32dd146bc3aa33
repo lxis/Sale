@@ -1,0 +1,6 @@
+package com.sage.sale.domain.services;
+
+public interface IQuestionnaire {
+
+	
+}

@@ -1,0 +1,7 @@
+package com.sage.sale.domain.services;
+
+public class Questionnaire {
+	
+	String question;
+	ArrayList<String> answers = new ArrayList<String>();
+}

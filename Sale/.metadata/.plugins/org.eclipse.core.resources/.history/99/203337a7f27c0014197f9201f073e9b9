@@ -1,0 +1,156 @@
+package com.sage.sale.domain.services;
+
+import java.util.ArrayList;
+
+public class QuestionnaireFacade {
+	private ArrayList<Questionnaire> lists = new ArrayList<Questionnaire>();
+	
+	public QuestionnaireFacade()
+	{
+		GenerateQuestionnaire();
+	}
+	
+	public CalculateResult GetResult()
+	{
+		CalculateResult result = new CalculateResult();
+		CalculateResult mi4Result = new CalculateResult("http://www.mi.com/mi4","小米4");
+		CalculateResult mi3Result = new CalculateResult("http://www.mi.com/mi3","小米3");
+		CalculateResult hm1sResult = new CalculateResult("http://www.mi.com/hongmi1s4g","红米1S");
+		CalculateResult hmNoteResult = new CalculateResult("http://www.mi.com/note4g","红米Note");
+		CalculateResult iphone6Result = new CalculateResult("http://item.jd.com/1217505.html","iPhone 6");
+		CalculateResult iphone6PlusResult = new CalculateResult("http://item.jd.com/1217534.html","iPhone 6 Plus");
+		
+		ArrayList<CalculateResult> results = new ArrayList<CalculateResult>();
+		
+		
+		if(getAnswer(0)==1)
+		{
+			hm1sResult.addPercent(1000);
+			hmNoteResult.addPercent(1000);
+		}
+		
+		if(getAnswer(1)==1)
+		{
+			iphone6Result.addPercent(50);
+			iphone6PlusResult.addPercent(50);
+		}
+		
+		
+		switch(getAnswer(2))
+		{
+			case 0:{
+				hm1sResult.addPercent(100);
+				hmNoteResult.addPercent(100);
+				break;
+					}
+			case 1:{
+				mi3Result.addPercent(100);
+				mi4Result.addPercent(100);
+				break;
+			}
+			case 2:{
+				mi3Result.addPercent(100);
+				mi4Result.addPercent(100);
+				break;
+			}
+			case 3:{
+				iphone6Result.addPercent(100);
+				iphone6PlusResult.addPercent(100);
+				break;
+			}
+		}
+		
+		if(getAnswer(3)==1)
+		{
+			iphone6Result.addPercent(50);
+			iphone6PlusResult.addPercent(50);
+		}
+		
+		if(getAnswer(4)==0)
+		{
+			mi4Result.addPercent(30);
+			mi3Result.addPercent(30);
+			hm1sResult.addPercent(30);
+			iphone6Result.addPercent(30); 
+		}
+			else
+			{
+
+				hmNoteResult.addPercent(30);
+				iphone6PlusResult.addPercent(30); 
+			}
+		if(getAnswer(5)==1)
+		{
+
+			mi4Result.addPercent(20);
+			iphone6Result.addPercent(50); 
+			iphone6PlusResult.addPercent(50); 
+		}
+			
+		
+		
+		if(lists.get(0).getAnswer()==0)		
+			if(lists.get(1).getAnswer()==0)						
+				return mi3Result;			
+			else						
+				return mi4Result;			
+		else		
+			if(lists.get(1).getAnswer()==0)						
+				return hm1sResult;			
+			else			
+				return hmNoteResult;			
+	}
+	
+	
+	
+	public int getAnswer(int answerIndex)
+	{
+		return lists.get(answerIndex).getAnswer();
+	}
+
+	public ArrayList<Questionnaire> getQuestionnaire() {
+		return lists;
+	}
+
+	private void GenerateQuestionnaire() {		
+		
+		Questionnaire q0 = new Questionnaire();
+		q0.setQuestion("你岁数大吗？");
+		q0.addAnswer("55以下");
+		q0.addAnswer("55以上");		
+		lists.add(q0);
+		
+		Questionnaire q1 = new Questionnaire();
+		q1.setQuestion("你是否希望手机很有面子？");
+		q1.addAnswer("是的");
+		q1.addAnswer("无所谓");		
+		lists.add(q1);
+		
+		Questionnaire q2 = new Questionnaire();
+		q2.setQuestion("你的预算有多少？");
+		q2.addAnswer("1000以内");
+		q2.addAnswer("1000-2000");
+		q2.addAnswer("2000-3000");
+		q2.addAnswer("3000以上");				
+		lists.add(q2);
+		
+		Questionnaire q3 = new Questionnaire();
+		q3.setQuestion("你是不是特别看重质量？");
+		q3.addAnswer("能用一年就行");
+		q3.addAnswer("需要能用很多年");				
+		lists.add(q3);
+				
+		Questionnaire q4 = new Questionnaire();
+		q4.setQuestion("多大屏幕？");
+		q4.addAnswer("正常屏幕");
+		q4.addAnswer("喜欢特大的");				
+		lists.add(q4);
+		
+		Questionnaire q5 = new Questionnaire();
+		q5.setQuestion("你的性别是？");
+		q5.addAnswer("男");
+		q5.addAnswer("女");				
+		lists.add(q5);
+		
+	}
+}
