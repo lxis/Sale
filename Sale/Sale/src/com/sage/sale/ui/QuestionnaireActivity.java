@@ -1,18 +1,26 @@
 package com.sage.sale.ui;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.google.gson.Gson;
 import com.sage.sale.R;
-import com.sage.sale.domain.services.IQuestionnaire;
 import com.sage.sale.domain.services.Product;
-import com.sage.sale.domain.services.Question;
-import com.sage.sale.domain.services.QuestionnaireFacade;
+import com.sage.sale.domain.services.categories.Category;
+import com.sage.sale.domain.services.questionnaires.IQuestionnaire;
+import com.sage.sale.domain.services.questionnaires.Question;
+import com.sage.sale.domain.services.questionnaires.QuestionnaireFactory;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -27,19 +35,22 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class QuestionnaireActivity extends Activity {
 
 	// 全部的业务内容都在这
-	IQuestionnaire questionnaire = new QuestionnaireFacade();
+	IQuestionnaire questionnaire;
+	Category category;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.questionnaire_activity);
 
+		category = new Gson().fromJson(getIntent().getStringExtra("Category"),CategorySerializeHelper.class).getCategory(); 
+		questionnaire = new QuestionnaireFactory().getQuestionnaire(category);
+		((TextView) findViewById(R.id.textViewTitle)).setText("买什么"+category.getName());
 		showQuestion();
 	}
 
@@ -71,8 +82,8 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				questionnaire = new QuestionnaireFacade();
-				((TextView) findViewById(R.id.textViewTitle)).setText("买什么手机");
+				questionnaire = new QuestionnaireFactory().getQuestionnaire(category);
+				((TextView) findViewById(R.id.textViewTitle)).setText("买什么"+category.getName());
 				findViewById(R.id.questionLayout).setVisibility(View.VISIBLE);
 				findViewById(R.id.resultLayout).setVisibility(View.GONE);
 				showQuestion();
@@ -154,9 +165,43 @@ public class MainActivity extends Activity {
 		findViewById(R.id.questionLayout).setVisibility(View.GONE);
 		View resultLayout = findViewById(R.id.resultLayout);
 		resultLayout.setVisibility(View.VISIBLE);
-		Product result = questionnaire.getResult();
+		final Product result = questionnaire.getResult();
 		((TextView) findViewById(R.id.textViewResult)).setText(result.getName());
-		((ImageView) findViewById(R.id.imageViewResult)).setImageResource(result.getImageResourceId());
+		final ImageView imageViewResult = ((ImageView) findViewById(R.id.imageViewResult));
+		int imageResourceId = result.getImageResourceId();
+		if(imageResourceId>0)
+		{
+			imageViewResult.setImageResource(imageResourceId);
+		}
+		else
+		{
+			new AsyncTask<String, Integer, Drawable>() {
+
+				@Override
+				protected Drawable doInBackground(String... params) {
+					URL thumb_u = null;
+					try {
+						thumb_u = new URL(result.getImageUrl());
+					} catch (MalformedURLException e) {
+						e.printStackTrace();
+					} 
+				    Drawable thumb_d = null;
+					try {
+						thumb_d = Drawable.createFromStream(thumb_u.openStream(), "src");
+					} catch (IOException e) {
+						e.printStackTrace();
+					} 
+					
+					return thumb_d;
+				}
+				
+				@Override
+				protected void onPostExecute(Drawable result) {
+					imageViewResult.setImageDrawable(result);	
+				}
+			}.execute("");
+		    
+		}
 		findViewById(R.id.textViewBuy).setOnClickListener(getBuyProductListener(result.getUrl()));
 		findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
 		showWithAnimation(resultLayout);
@@ -197,24 +242,5 @@ public class MainActivity extends Activity {
 		};
 	}
 
-	long prePressBackTime;
 
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// 截获后退键
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			long currentTime = new Date().getTime();
-			// 如果时间间隔大于2秒, 不处理
-			if ((currentTime - prePressBackTime) > 2 * 1000) {
-				// 显示消息
-				Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
-				// 更新时间
-				prePressBackTime = currentTime;
-				// 截获事件,不再处理
-				return true;
-			}
-		}
-
-		return super.onKeyDown(keyCode, event);
-	}
 }

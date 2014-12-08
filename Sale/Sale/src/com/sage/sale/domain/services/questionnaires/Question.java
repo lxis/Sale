@@ -1,4 +1,4 @@
-package com.sage.sale.domain.services;
+package com.sage.sale.domain.services.questionnaires;
 
 import java.util.ArrayList;
 

@@ -9,9 +9,8 @@ public class SplashActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-		SplashActivity.this.startActivity(intent);
+		
+		SplashActivity.this.startActivity(new Intent(SplashActivity.this, CategorySelectorActivity.class));
 		SplashActivity.this.finish();
 	}
 }

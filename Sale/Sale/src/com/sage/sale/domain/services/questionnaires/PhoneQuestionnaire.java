@@ -1,15 +1,16 @@
-package com.sage.sale.domain.services;
+package com.sage.sale.domain.services.questionnaires;
 
 import java.util.ArrayList;
 
 import com.sage.sale.R;
+import com.sage.sale.domain.services.Product;
 
-public class QuestionnaireFacade implements IQuestionnaire {
+public class PhoneQuestionnaire implements IQuestionnaire {
 	private ArrayList<Question> lists = new ArrayList<Question>();
 
-	private int index = 0;
+	private int index = 0;	
 
-	public QuestionnaireFacade() {
+	public PhoneQuestionnaire() {		
 		GenerateQuestionnaire();
 	}
 

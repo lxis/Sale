@@ -14,10 +14,18 @@ public class Product {
 		this.imageResourceId = imageResourceId;
 	}
 	
+	public Product(String url,String name,String imageUrl)
+	{
+		this.url = url;
+		this.name = name;
+		this.setImageUrl(imageUrl);
+	}
+	
 	private String url;
 	private String name;
 	private int percent;
 	private int imageResourceId;
+	private String imageUrl;
 
 	public String getUrl() {
 		return url;
@@ -54,5 +62,13 @@ public class Product {
 
 	public void setImageResourceId(int imageResourceId) {
 		this.imageResourceId = imageResourceId;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 }
