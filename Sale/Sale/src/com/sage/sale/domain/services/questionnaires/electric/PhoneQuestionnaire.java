@@ -1,9 +1,11 @@
-package com.sage.sale.domain.services.questionnaires;
+package com.sage.sale.domain.services.questionnaires.electric;
 
 import java.util.ArrayList;
 
 import com.sage.sale.R;
 import com.sage.sale.domain.services.Product;
+import com.sage.sale.domain.services.questionnaires.IQuestionnaire;
+import com.sage.sale.domain.services.questionnaires.Question;
 
 public class PhoneQuestionnaire implements IQuestionnaire {
 	private ArrayList<Question> lists = new ArrayList<Question>();

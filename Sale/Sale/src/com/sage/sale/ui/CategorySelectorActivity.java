@@ -23,14 +23,9 @@ public class CategorySelectorActivity extends Activity {
 	}
 
 	private void InitDatas() {
-		ArrayList<Category> categories = new ArrayList<Category>();
-		categories.add(new Phone());
-		categories.add(new LapTop());
-		categories.add(new Tablet());
-		categories.add(new TV());
-		categories.add(new PC());
+		
 		ListView listViewProducts = (ListView)findViewById(R.id.listViewProducts);
-		listViewProducts.setAdapter(new CategoryAdapter(categories,this,R.layout.category_listitem));
+		listViewProducts.setAdapter(new CategoryAdapter(new CategoryFactory().getAllCategory(),this,R.layout.category_listitem));
 		
 		
 	}

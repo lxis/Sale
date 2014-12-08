@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.sage.sale.R;
 import com.sage.sale.domain.services.categories.Category;
-import com.sage.sale.domain.services.categories.Phone;
-import com.sage.sale.domain.services.categories.Tablet;
+import com.sage.sale.domain.services.categories.electric.Phone;
+import com.sage.sale.domain.services.categories.electric.Tablet;
 
 import android.content.Context;
 import android.content.Intent;
