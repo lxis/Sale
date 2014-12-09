@@ -119,7 +119,7 @@
                     android:layout_marginTop="125px"
                     android:text="你看重质量还是价格？"
                     android:textColor="@color/plaint_text_color"
-                    android:textSize="20sp" />
+                    android:textSize="22sp" />
 
                 <LinearLayout
                     android:id="@+id/answerLayout"
