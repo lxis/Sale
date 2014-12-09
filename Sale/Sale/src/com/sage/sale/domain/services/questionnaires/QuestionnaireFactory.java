@@ -10,6 +10,8 @@ public class QuestionnaireFactory {
 	{
 		if(category instanceof MianMo)
 			return new MianMoQuestionnaire();
+		else if(category instanceof HuaZhuangShui)
+			return new HuaZhuangShuiQuestionnaire();
 		throw new RuntimeException();
 	}
 
