@@ -16,21 +16,21 @@ public class XiMianNaiQuestionnaire   implements IQuestionnaire {
 	}
 
 	public Product getResult() {
-		Product prox = new Product("http://cosme.pclady.com.cn/product/95015.html", 
-				"Pro-X White 纯白方程式更新角质保湿高机能水",
-				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/95015/95015-5_500x500.jpg");
-		Product skii = new Product("http://cosme.pclady.com.cn/product/1682.html", 
-				"SK-II 神仙水（SK-II 护肤精华露）",
-				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/1682/1682-1_500x500.jpg");
-		Product yayang = new Product("http://cosme.pclady.com.cn/product/95.html",
-				"雅漾 舒护活泉喷雾", 
-				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1402/12/c0/31189803_1392187832230_400x400.jpg");
-		Product kose = new Product("http://cosme.pclady.com.cn/product/2263.html",
-				"高丝 雪肌精化妆水", 
-				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/2263/2263-4_500x500.jpg");
-		Product yashi = new Product("http://cosme.pclady.com.cn/product/48630.html",
-				"雅诗兰黛 全新鲜亮焕采精粹水（清爽型）", 
-				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1305/03/c0/20509818_1367568227596_400x400.jpg");
+		Product prox = new Product("http://cosme.pclady.com.cn/product/66638.html", 
+				"资生堂洗颜专科 柔澈泡沫洁面乳",
+				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/66638/66638-5_500x500.jpg");
+		Product skii = new Product("http://cosme.pclady.com.cn/product/12977.html", 
+				"露得清 深层净化洗面乳）",
+				"http://img.pclady.com.cn/images/pclady/brand/brand_logo/20124/23/13351733837274000_s3.jpg");
+		Product yayang = new Product("http://cosme.pclady.com.cn/product/28468.html",
+				"丝塔芙 洗面奶200ml", 
+				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/28468/28468-1_500x500.jpg");
+		Product kose = new Product("http://cosme.pclady.com.cn/product/11192.html",
+				"倩碧 液体洁面皂（温和型）", 
+				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/11192/11192-2_500x500.jpg");
+		Product yashi = new Product("http://cosme.pclady.com.cn/product/12979.html",
+				"露得清 深层柔珠洗面乳", 
+				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/12979/12979-1_500x500.jpg");
 
 		ArrayList<Product> results = new ArrayList<Product>();
 		results.add(prox);

@@ -16,21 +16,21 @@ public class GeLiQuestionnaire   implements IQuestionnaire {
 	}
 
 	public Product getResult() {
-		Product prox = new Product("http://cosme.pclady.com.cn/product/95015.html", 
-				"Pro-X White 纯白方程式更新角质保湿高机能水",
-				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/95015/95015-5_500x500.jpg");
-		Product skii = new Product("http://cosme.pclady.com.cn/product/1682.html", 
-				"SK-II 神仙水（SK-II 护肤精华露）",
-				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/1682/1682-1_500x500.jpg");
-		Product yayang = new Product("http://cosme.pclady.com.cn/product/95.html",
-				"雅漾 舒护活泉喷雾", 
-				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1402/12/c0/31189803_1392187832230_400x400.jpg");
-		Product kose = new Product("http://cosme.pclady.com.cn/product/2263.html",
-				"高丝 雪肌精化妆水", 
-				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/2263/2263-4_500x500.jpg");
-		Product yashi = new Product("http://cosme.pclady.com.cn/product/48630.html",
-				"雅诗兰黛 全新鲜亮焕采精粹水（清爽型）", 
-				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1305/03/c0/20509818_1367568227596_400x400.jpg");
+		Product prox = new Product("http://cosme.pclady.com.cn/product/110771.html", 
+				"雅漾 清爽倍护便携防晒乳SPF30+（雅漾防晒小金刚）",
+				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1402/18/c0/31350206_1392706020017_400x400.jpg");
+		Product skii = new Product("http://cosme.pclady.com.cn/product/94060.html", 
+				"露得清 活采皙白多护防晒乳液SPF30+ PA+++）",
+				"http://img.pclady.com.cn/images/pclady/brand/brand_logo/20125/14/13369827477916140_s3.jpg");
+		Product yayang = new Product("http://cosme.pclady.com.cn/product/11164.html",
+				"姬芮 新能真皙美白隔离霜SPF26/PA++", 
+				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/11164/11164-1_500x500.jpg");
+		Product kose = new Product("http://cosme.pclady.com.cn/product/286.html",
+				"露得清 轻透防晒乳SPF50", 
+				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/286/286-1_500x500.jpg");
+		Product yashi = new Product("http://cosme.pclady.com.cn/product/94482.html",
+				"法国娇兰 珍珠肌透白UV隔离乳液", 
+				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/94482/94482-1_500x500.jpg");
 
 		ArrayList<Product> results = new ArrayList<Product>();
 		results.add(prox);
