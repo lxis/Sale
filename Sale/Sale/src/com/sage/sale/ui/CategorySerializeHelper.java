@@ -1,10 +1,7 @@
 package com.sage.sale.ui;
 
 import com.sage.sale.domain.services.categories.*;
-<<<<<<< HEAD
 import com.sage.sale.domain.services.categories.beauty.*;
-=======
->>>>>>> origin/master
 import com.sage.sale.domain.services.categories.electric.Fridge;
 import com.sage.sale.domain.services.categories.electric.LapTop;
 import com.sage.sale.domain.services.categories.electric.PC;

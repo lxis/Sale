@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.sage.sale.R;
 import com.sage.sale.domain.services.categories.Category;
-<<<<<<< HEAD
 import com.sage.sale.domain.services.categories.beauty.MianMo;
-=======
->>>>>>> origin/master
 import com.sage.sale.domain.services.categories.electric.Phone;
 import com.sage.sale.domain.services.categories.electric.Tablet;
 
