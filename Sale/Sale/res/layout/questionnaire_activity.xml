@@ -61,7 +61,7 @@
             android:background="@drawable/button_press_style_selector"
             android:padding="50px"
             android:text="立即购买"
-            android:textSize="25sp" >
+            android:textSize="20sp" >
         </TextView>
 
         <TextView
@@ -72,7 +72,7 @@
             android:background="@drawable/button_press_style_selector"
             android:padding="50px"
             android:text="再选一次"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -105,7 +105,7 @@
                     android:layout_marginBottom="100px"
                     android:text="你看重质量还是价格？"
                     android:textColor="#ffffff"
-                    android:textSize="25sp" />
+                    android:textSize="20sp" />
 
                 <LinearLayout
                     android:id="@+id/answerLayout"

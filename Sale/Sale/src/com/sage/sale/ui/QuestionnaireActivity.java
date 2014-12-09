@@ -63,7 +63,7 @@ public class QuestionnaireActivity extends Activity {
 
 	private TextView getAnswerTextView() {
 		TextView textView = new TextView(this);
-		textView.setTextSize(25);
+		textView.setTextSize(20);
 		textView.setGravity(Gravity.CENTER);
 		textView.setBackgroundResource(R.drawable.button_press_style_selector);
 		textView.setPadding(50, 50, 50, 50);
