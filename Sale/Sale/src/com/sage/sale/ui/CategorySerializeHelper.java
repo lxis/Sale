@@ -30,6 +30,8 @@ public class CategorySerializeHelper {
 			return new MianShuang();
 		case 5:
 			return new YanShuang();
+		case 6:
+			return new XiMianNai();
 		default:
 			break;
 		}

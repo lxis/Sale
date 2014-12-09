@@ -12,6 +12,11 @@ public class QuestionnaireFactory {
 			return new MianMoQuestionnaire();
 		else if(category instanceof HuaZhuangShui)
 			return new HuaZhuangShuiQuestionnaire();
+		else if(category instanceof GeLi)
+			return new GeLiQuestionnaire();
+		else if(category instanceof XiMianNai)
+			return new XiMianNaiQuestionnaire();
+		 
 		throw new RuntimeException();
 	}
 
