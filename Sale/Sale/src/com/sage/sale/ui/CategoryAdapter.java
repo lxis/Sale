@@ -5,8 +5,9 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.sage.sale.R;
 import com.sage.sale.domain.services.categories.Category;
-import com.sage.sale.domain.services.categories.Phone;
-import com.sage.sale.domain.services.categories.Tablet;
+import com.sage.sale.domain.services.categories.beauty.MianMo;
+import com.sage.sale.domain.services.categories.electric.Phone;
+import com.sage.sale.domain.services.categories.electric.Tablet;
 
 import android.content.Context;
 import android.content.Intent;
@@ -35,7 +36,7 @@ public class CategoryAdapter extends SimpleAdapter<Category> {
 
 			@Override
 			public void onClick(View v) {
-				if(!((item instanceof Phone)||(item instanceof Tablet)) )
+				if(!((item instanceof MianMo)) )
 				{
 					Toast.makeText(context, "¿ª·¢ÖÐ", 3000).show();
 					return;

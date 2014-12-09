@@ -1,33 +1,35 @@
-package com.sage.sale.domain.services.questionnaires;
+package com.sage.sale.domain.services.questionnaires.beauty;
 
 import java.util.ArrayList;
 
 import com.sage.sale.R;
 import com.sage.sale.domain.services.Product;
+import com.sage.sale.domain.services.questionnaires.IQuestionnaire;
+import com.sage.sale.domain.services.questionnaires.Question;
 
-public class PhoneQuestionnaire implements IQuestionnaire {
+public class MianMoQuestionnaire  implements IQuestionnaire {
 	private ArrayList<Question> lists = new ArrayList<Question>();
 
 	private int index = 0;	
 
-	public PhoneQuestionnaire() {		
+	public MianMoQuestionnaire() {		
 		GenerateQuestionnaire();
 	}
 
 	public Product getResult() {
-		Product mi4Result = new Product("http://www.mi.com/mi4", "小米4",
-				R.drawable.mi4);
-		Product mi3Result = new Product("http://www.mi.com/mi3", "小米3",
-				R.drawable.mi3);
-		Product hm1sResult = new Product("http://www.mi.com/hongmi1s4g",
-				"红米1S", R.drawable.hm1s);
-		Product hmNoteResult = new Product("http://www.mi.com/note4g",
-				"红米Note", R.drawable.hm_note);
-		Product iphone6Result = new Product("http://item.jd.com/1217505.html",
-				"iPhone 6", R.drawable.iphone6);
+		Product mi4Result = new Product("http://detail.tmall.com/item.htm?spm=a230r.1.14.1.ew7Ows&id=20005421504&abbucket=10", "凯梵蒂 蜗牛原液面膜贴",
+				"http://gi2.md.alicdn.com/bao/uploaded/i2/TB1syFZGXXXXXc4aXXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg");
+		Product mi3Result = new Product("http://detail.tmall.com/item.htm?spm=a230r.1.14.8.ew7Ows&id=20517144462&abbucket=10", "水尚绿豆泥浆面膜",
+				"http://gi4.md.alicdn.com/bao/uploaded/i4/TB1xCsSGXXXXXcYaXXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg");
+		Product hm1sResult = new Product("http://detail.tmall.com/item.htm?spm=a230r.1.14.23.ew7Ows&id=22101484185&abbucket=10",
+				"BEELY芦荟保湿补水面膜", "http://gi3.md.alicdn.com/bao/uploaded/i3/TB1OQ6iGVXXXXXdXFXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg");
+		Product hmNoteResult = new Product("http://detail.tmall.com/item.htm?spm=a230r.1.14.30.ew7Ows&id=41483139428&abbucket=10",
+				"蓝莓奇迹面膜", "http://gi3.md.alicdn.com/bao/uploaded/i3/TB1d.xZGpXXXXceXFXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg");
+		Product iphone6Result = new Product("http://detail.tmall.com/item.htm?spm=a230r.1.14.37.ew7Ows&id=18785954277&abbucket=10",
+				"皙肤泉萃白修护面膜", "http://gi1.md.alicdn.com/bao/uploaded/i1/TB1saamGVXXXXXKXXXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg");
 		Product iphone6PlusResult = new Product(
-				"http://item.jd.com/1217534.html", "iPhone 6 Plus",
-				R.drawable.iphone6plus);
+				"http://detail.tmall.com/item.htm?spm=a230r.1.14.45.ew7Ows&id=13898573818&abbucket=10", "JCare澳洲山羊奶面膜",
+				"http://gi2.md.alicdn.com/bao/uploaded/i2/TB11e8CGXXXXXcfXpXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg");
 
 		ArrayList<Product> results = new ArrayList<Product>();
 		results.add(mi4Result);
@@ -103,35 +105,38 @@ public class PhoneQuestionnaire implements IQuestionnaire {
 	private void GenerateQuestionnaire() {
 
 		Question q1 = new Question();
-		q1.setQuestion("是否希望手机很有面子？");
-		q1.addAnswer("是的");
-		q1.addAnswer("无所谓");
+		q1.setQuestion("看重美白还是补水？");
+		q1.addAnswer("美白");
+		q1.addAnswer("补水");
 		lists.add(q1);
 
 		Question q2 = new Question();
 		q2.setQuestion("预算有多少？");
-		q2.addAnswer("1000以内");
-		q2.addAnswer("1000-2000");
-		q2.addAnswer("2000-3000");
-		q2.addAnswer("3000以上");
+		q2.addAnswer("100以内");
+		q2.addAnswer("100-200");
+		q2.addAnswer("200-300");
+		q2.addAnswer("300以上");
 		lists.add(q2);
 
 		Question q3 = new Question();
-		q3.setQuestion("是不是特别看重质量？");
-		q3.addAnswer("能用一年就行");
-		q3.addAnswer("需要能用很多年");
+		q3.setQuestion("是不是特别看重使用时舒服？");
+		q3.addAnswer("必须舒服");
+		q3.addAnswer("有功效就行");
 		lists.add(q3);
 
 		Question q4 = new Question();
-		q4.setQuestion("多大屏幕？");
-		q4.addAnswer("正常屏幕");
-		q4.addAnswer("喜欢特大的");
+		q4.setQuestion("是否需要控油？");
+		q4.addAnswer("必须要");
+		q4.addAnswer("有没有都行");
 		lists.add(q4);
 
 		Question q5 = new Question();
-		q5.setQuestion("性别是？");
-		q5.addAnswer("男");
-		q5.addAnswer("女");
+		q5.setQuestion("年龄是？");
+		q5.addAnswer("小于20");
+		q5.addAnswer("20-25");
+		q5.addAnswer("25-30");
+		q5.addAnswer("30-40");
+		q5.addAnswer("40以上");		
 		lists.add(q5);
 	}
 

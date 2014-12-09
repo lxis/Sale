@@ -86,6 +86,9 @@ public class QuestionnaireActivity extends Activity {
 				((TextView) findViewById(R.id.textViewTitle)).setText("ÂòÊ²Ã´"+category.getName());
 				findViewById(R.id.questionLayout).setVisibility(View.VISIBLE);
 				findViewById(R.id.resultLayout).setVisibility(View.GONE);
+				ImageView imageViewResult = ((ImageView) findViewById(R.id.imageViewResult));
+				imageViewResult.setVisibility(View.INVISIBLE);
+				((TextView) findViewById(R.id.textViewResult)).setText("");
 				showQuestion();
 			}
 		});
@@ -166,7 +169,7 @@ public class QuestionnaireActivity extends Activity {
 		View resultLayout = findViewById(R.id.resultLayout);
 		resultLayout.setVisibility(View.VISIBLE);
 		final Product result = questionnaire.getResult();
-		((TextView) findViewById(R.id.textViewResult)).setText(result.getName());
+		
 		final ImageView imageViewResult = ((ImageView) findViewById(R.id.imageViewResult));
 		int imageResourceId = result.getImageResourceId();
 		if(imageResourceId>0)
@@ -196,14 +199,22 @@ public class QuestionnaireActivity extends Activity {
 				}
 				
 				@Override
-				protected void onPostExecute(Drawable result) {
-					imageViewResult.setImageDrawable(result);	
+				protected void onPostExecute(Drawable resultPic) {
+					imageViewResult.setImageDrawable(resultPic);	
+					imageViewResult.setVisibility(View.VISIBLE);
+					showWithAnimation(imageViewResult);
+					
+					
+					//showWithAnimation(textViewResult);
+					
 				}
 			}.execute("");
 		    
 		}
 		findViewById(R.id.textViewBuy).setOnClickListener(getBuyProductListener(result.getUrl()));
 		findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
+		TextView textViewResult = (TextView) findViewById(R.id.textViewResult);
+		textViewResult.setText(result.getName());
 		showWithAnimation(resultLayout);
 	}
 
