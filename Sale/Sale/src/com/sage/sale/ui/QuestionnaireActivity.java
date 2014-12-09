@@ -98,7 +98,7 @@ public class QuestionnaireActivity extends Activity {
 
 	private void showQuestion() {
 		Question question = questionnaire.getQuestion();
-		String questionText = question.getQuestion();
+		String questionText = question.getQuestion();		
 		((TextView) findViewById(R.id.textViewQuestion)).setText(questionText);
 		((LinearLayout) findViewById(R.id.answerLayout)).removeAllViews();
 		ArrayList<String> answers = question.getAnswers();

@@ -21,40 +21,37 @@
             android:layout_gravity="center"
             android:layout_margin="20px"
             android:textColor="#ffffff"
-            android:visibility="gone"
-            android:textSize="22sp" >
+            android:textSize="22sp"
+            android:visibility="gone" >
         </TextView>
     </LinearLayout>
-    
+
     <LinearLayout
         android:id="@+id/resultLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="100px"
         android:orientation="vertical"
-        android:visibility="gone"        
-        android:layout_marginTop="100px" 
-        >
+        android:visibility="gone" >
 
-        <TextView            
-            android:text="推荐你购买"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="20px"
+            android:text="推荐你购买"
             android:textColor="#ffffff"
-            android:textSize="22sp"
-            >
-            
+            android:textSize="22sp" >
         </TextView>
+
         <ImageView
             android:id="@+id/imageViewResult"
             android:layout_width="500px"
             android:layout_height="500px"
             android:layout_gravity="center"
             android:layout_marginBottom="100px"
-            android:layout_marginTop="100px" 
-             >
+            android:layout_marginTop="100px" >
         </ImageView>
 
         <TextView
@@ -94,34 +91,33 @@
         android:id="@+id/questionLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical" >
+
+
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0px"
             android:layout_gravity="center"
-            android:layout_marginTop="100px"
             android:layout_weight="1"
             android:scrollbars="vertical" >
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:id="@+id/linearLayoutQuestionContent"
-                 >
-
-                <TextView
-                    android:id="@+id/textViewQuestion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="100px"
-                    android:text="你看重质量还是价格？"
-                    android:textColor="#ffffff"
-                    android:textSize="20sp" />
-
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical" >
+        <TextView
+            android:id="@+id/textViewQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="100px"
+            android:layout_marginTop="125px"
+            android:text="你看重质量还是价格？"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
                 <LinearLayout
                     android:id="@+id/answerLayout"
                     android:layout_width="match_parent"
