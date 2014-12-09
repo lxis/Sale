@@ -11,8 +11,8 @@ public class CategoryFactory {
 		categories.add(new HuaZhuangShui());
 		categories.add(new MianMo());
 		categories.add(new GeLi());
-		categories.add(new MianShuang());
-		categories.add(new YanShuang());
+		//categories.add(new MianShuang());
+		//categories.add(new YanShuang());
 		categories.add(new XiMianNai());
 		return categories;
 	}
