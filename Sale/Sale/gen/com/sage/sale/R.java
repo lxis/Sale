@@ -800,6 +800,8 @@ containing a value of this type.
         public static final int abc_search_url_text_selected=0x7f070001;
         public static final int background_color=0x7f070006;
         public static final int button_background_color=0x7f070005;
+        /**  <color name="button_text_color">#af375c</color> 
+         */
         public static final int button_text_color=0x7f070004;
         public static final int plaint_text_color=0x7f070003;
     }
@@ -990,22 +992,23 @@ containing a value of this type.
         public static final int background2=0x7f020059;
         public static final int background3=0x7f02005a;
         public static final int background4=0x7f02005b;
-        public static final int button_press_style_selector=0x7f02005c;
-        public static final int button_pressed_style=0x7f02005d;
-        public static final int button_style=0x7f02005e;
-        public static final int categories_ge_li=0x7f02005f;
-        public static final int categories_hua_zhuang_shui=0x7f020060;
-        public static final int categories_mian_mo=0x7f020061;
-        public static final int categories_mian_shuang=0x7f020062;
-        public static final int categories_xi_mian_nai=0x7f020063;
-        public static final int categories_yan_shuang=0x7f020064;
-        public static final int hm1s=0x7f020065;
-        public static final int hm_note=0x7f020066;
-        public static final int ic_launcher=0x7f020067;
-        public static final int iphone6=0x7f020068;
-        public static final int iphone6plus=0x7f020069;
-        public static final int mi3=0x7f02006a;
-        public static final int mi4=0x7f02006b;
+        public static final int background5=0x7f02005c;
+        public static final int button_press_style_selector=0x7f02005d;
+        public static final int button_pressed_style=0x7f02005e;
+        public static final int button_style=0x7f02005f;
+        public static final int categories_ge_li=0x7f020060;
+        public static final int categories_hua_zhuang_shui=0x7f020061;
+        public static final int categories_mian_mo=0x7f020062;
+        public static final int categories_mian_shuang=0x7f020063;
+        public static final int categories_xi_mian_nai=0x7f020064;
+        public static final int categories_yan_shuang=0x7f020065;
+        public static final int hm1s=0x7f020066;
+        public static final int hm_note=0x7f020067;
+        public static final int ic_launcher=0x7f020068;
+        public static final int iphone6=0x7f020069;
+        public static final int iphone6plus=0x7f02006a;
+        public static final int mi3=0x7f02006b;
+        public static final int mi4=0x7f02006c;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
