@@ -65,6 +65,7 @@ public class QuestionnaireActivity extends Activity {
 	private TextView getAnswerTextView() {
 		TextView textView = new TextView(this);
 		textView.setTextSize(20);
+		textView.setTextColor(this.getResources().getColor(R.color.button_text_color));
 		textView.setGravity(Gravity.CENTER);
 		textView.setBackgroundResource(R.drawable.button_press_style_selector);
 		textView.setPadding(50, 50, 50, 50);
