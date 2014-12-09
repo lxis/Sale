@@ -2,13 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#493C4A"
+    android:background="@drawable/background1"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
         android:orientation="vertical" >
 
         <TextView
@@ -16,7 +15,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="20px"
-            android:text="买什么"
+            android:textColor="#ffffff"
+            android:text="想买什么"
             android:textSize="25sp" >
         </TextView>
     </LinearLayout>

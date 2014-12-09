@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#493C4A"
+    android:background="@drawable/background1"
     android:orientation="vertical"
     tools:context="com.sage.sale.ui.QuestionnaireActivity"
     tools:ignore="MergeRootFrame" >
@@ -12,7 +12,6 @@
         android:id="@+id/linearLayoutTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
         android:orientation="vertical" >
 
         <TextView
@@ -21,7 +20,9 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="20px"
-            android:textSize="25sp" >
+            android:textColor="#ffffff"
+            android:visibility="gone"
+            android:textSize="22sp" >
         </TextView>
     </LinearLayout>
     
@@ -31,15 +32,29 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:visibility="gone" >
+        android:visibility="gone"        
+        android:layout_marginTop="100px" 
+        >
 
+        <TextView            
+            android:text="推荐你购买"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="20px"
+            android:textColor="#ffffff"
+            android:textSize="22sp"
+            >
+            
+        </TextView>
         <ImageView
             android:id="@+id/imageViewResult"
             android:layout_width="500px"
             android:layout_height="500px"
             android:layout_gravity="center"
             android:layout_marginBottom="100px"
-            android:layout_marginTop="200px" >
+            android:layout_marginTop="100px" 
+             >
         </ImageView>
 
         <TextView

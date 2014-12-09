@@ -35,6 +35,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class QuestionnaireActivity extends Activity {
 
@@ -251,6 +252,36 @@ public class QuestionnaireActivity extends Activity {
 				setAnswer(index);
 			}
 		};
+	}
+	
+	
+
+	long prePressBackTime;
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// 截获后退键
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			if(isTesting())
+			{
+			long currentTime = new Date().getTime();
+			// 如果时间间隔大于2秒, 不处理
+			if ((currentTime - prePressBackTime) > 2 * 1000) {
+				// 显示消息
+				Toast.makeText(this, "再按一次退出推荐", Toast.LENGTH_SHORT).show();
+				// 更新时间
+				prePressBackTime = currentTime;
+				// 截获事件,不再处理
+				return true;
+			}
+			}
+		}
+
+		return super.onKeyDown(keyCode, event);
+	}
+
+	private boolean isTesting() {
+		return findViewById(R.id.questionLayout).getVisibility() == View.VISIBLE;
 	}
 
 
