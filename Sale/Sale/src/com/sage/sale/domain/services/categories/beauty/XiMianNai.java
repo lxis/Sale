@@ -3,19 +3,19 @@ package com.sage.sale.domain.services.categories.beauty;
 import com.sage.sale.R;
 import com.sage.sale.domain.services.categories.Category;
 
-public class MianShuang  extends Category {
+public class XiMianNai   extends Category {
 	@Override
 	public String getName() {
-		return "ÃæËª";
+		return "Ï´ÃæÄÌ";
 	}
 
 	@Override
 	public int getId() {
-		return 4;
-	}
+		return 6;
+	}	
 	
 	@Override
 	public int getImageId() {
-		return R.drawable.categories_mian_shuang;
+		return R.drawable.categories_xi_mian_nai;
 	}
 }

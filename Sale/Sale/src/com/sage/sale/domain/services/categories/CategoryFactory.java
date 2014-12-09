@@ -13,6 +13,7 @@ public class CategoryFactory {
 		categories.add(new MianMo());
 		categories.add(new MianShuang());
 		categories.add(new YanShuang());
+		categories.add(new XiMianNai());
 		return categories;
 	}
 	
