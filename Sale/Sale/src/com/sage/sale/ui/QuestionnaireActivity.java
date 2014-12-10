@@ -206,7 +206,7 @@ public class QuestionnaireActivity extends Activity {
 
 		}
 		findViewById(R.id.textViewBuy).setOnClickListener(getBuyProductListener(result.getUrl()));
-		// findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
+		findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
 		findViewById(R.id.textViewBack).setOnClickListener(getBackListener());
 		TextView textViewResult = (TextView) findViewById(R.id.textViewResult);
 		textViewResult.setText(result.getName());

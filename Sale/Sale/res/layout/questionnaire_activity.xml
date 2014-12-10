@@ -53,13 +53,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="100px"
+            android:layout_marginBottom="50px"
             android:background="@drawable/button_press_style_selector"
             android:padding="50px"
             android:text="立即购买"
             android:textColor="@color/button_text_color"
             android:textSize="20sp" >
         </TextView>
+        
+        <TextView
+            android:id="@+id/textViewRestart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50px"
+            android:background="@drawable/button_press_style_selector"
+            android:padding="50px"
+            android:text="再测一次"
+            android:textColor="@color/button_text_color"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textViewBack"
