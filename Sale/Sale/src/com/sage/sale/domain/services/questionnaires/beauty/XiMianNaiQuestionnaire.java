@@ -1,21 +1,12 @@
 package com.sage.sale.domain.services.questionnaires.beauty;
 
-
 import com.sage.sale.domain.services.products.beauty.XiMianNaiProductRepository;
 import com.sage.sale.domain.services.questionnaires.Question;
 
-public class XiMianNaiQuestionnaire  extends BaseQuestionnaire<XiMianNaiProductRepository> {
-
+public class XiMianNaiQuestionnaire extends BaseQuestionnaire<XiMianNaiProductRepository> {
 
 	public XiMianNaiQuestionnaire() {
 		super(XiMianNaiProductRepository.class);
-	}	
-	
-	@Override
-	protected void CalculateScore() {
-		if (getAnswer(0) == 1) {
-			productRepository.getProduct(17).addPercent(50);
-		}		
 	}
 
 	protected void GenerateQuestionnaire() {
@@ -24,5 +15,12 @@ public class XiMianNaiQuestionnaire  extends BaseQuestionnaire<XiMianNaiProductR
 		lists.add(new Question().setQuestion("是不是特别看重使用时舒服？").addAnswer("必须舒服").addAnswer("有功效就行"));
 		lists.add(new Question().setQuestion("是否需要控油？").addAnswer("必须要").addAnswer("有没有都行"));
 		lists.add(new Question().setQuestion("年龄是？").addAnswer("小于20").addAnswer("20-25").addAnswer("25-30").addAnswer("30-40").addAnswer("40以上"));
+	}
+
+	@Override
+	protected void CalculateScore() {
+		if (getAnswer(0) == 1) {
+			productRepository.getProduct(17).addPercent(50);
+		}
 	}
 }

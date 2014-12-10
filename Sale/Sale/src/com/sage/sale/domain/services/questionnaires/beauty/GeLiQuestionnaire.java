@@ -7,14 +7,7 @@ public class GeLiQuestionnaire extends BaseQuestionnaire<GeLiProductRepository> 
 
 	public GeLiQuestionnaire() {
 		super(GeLiProductRepository.class);
-	}	
-	
-	@Override
-	protected void CalculateScore() {
-		if (getAnswer(0) == 1) {
-			productRepository.getProduct(4).addPercent(50);
-		}		
-	}
+	}		
 
 	protected void GenerateQuestionnaire() {
 		lists.add(new Question().setQuestion("看重美白还是补水？").addAnswer("美白").addAnswer("补水"));
@@ -24,5 +17,10 @@ public class GeLiQuestionnaire extends BaseQuestionnaire<GeLiProductRepository> 
 		lists.add(new Question().setQuestion("年龄是？").addAnswer("小于20").addAnswer("20-25").addAnswer("25-30").addAnswer("30-40").addAnswer("40以上"));
 	}
 
-
+	@Override
+	protected void CalculateScore() {
+		if (getAnswer(0) == 1) {
+			productRepository.getProduct(4).addPercent(50);
+		}		
+	}
 }

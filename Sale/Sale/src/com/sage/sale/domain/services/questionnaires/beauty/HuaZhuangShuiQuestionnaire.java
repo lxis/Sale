@@ -5,17 +5,9 @@ import com.sage.sale.domain.services.questionnaires.Question;
 
 public class HuaZhuangShuiQuestionnaire  extends BaseQuestionnaire<HuaZhuangShuiProductRepository>{
 
-
 	public HuaZhuangShuiQuestionnaire() {
 		super(HuaZhuangShuiProductRepository.class);
-	}	
-	
-	@Override
-	protected void CalculateScore() {
-		if (getAnswer(0) == 1) {
-			productRepository.getProduct(6).addPercent(50);
-		}		
-	}
+	}		
 
 	protected void GenerateQuestionnaire() {
 
@@ -24,5 +16,11 @@ public class HuaZhuangShuiQuestionnaire  extends BaseQuestionnaire<HuaZhuangShui
 		lists.add(new Question().setQuestion("是不是特别看重使用时舒服？").addAnswer("必须舒服").addAnswer("有功效就行"));
 		lists.add(new Question().setQuestion("是否需要控油？").addAnswer("必须要").addAnswer("有没有都行"));
 		lists.add(new Question().setQuestion("年龄是？").addAnswer("小于20").addAnswer("20-25").addAnswer("25-30").addAnswer("30-40").addAnswer("40以上"));
+	}
+	@Override
+	protected void CalculateScore() {
+		if (getAnswer(0) == 1) {
+			productRepository.getProduct(6).addPercent(50);
+		}		
 	}
 }
