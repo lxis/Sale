@@ -2,7 +2,6 @@
 <resources>
     <color name="plaint_text_color">#ffffff</color>
     <color name="button_text_color">#7d2943</color> 
-    <!--<color name="button_text_color">#FFFFFF</color>-->
     <color name="button_background_color">#FFFFFF</color>    
     <color name="background_color">#ffffff</color>    
     <color name="category_background_color">#00000000</color>
