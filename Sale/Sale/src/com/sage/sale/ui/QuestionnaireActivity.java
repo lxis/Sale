@@ -49,9 +49,9 @@ public class QuestionnaireActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.questionnaire_activity);
 
-		category = new Gson().fromJson(getIntent().getStringExtra("Category"),CategorySerializeHelper.class).getCategory(); 
+		category = new Gson().fromJson(getIntent().getStringExtra("Category"), CategorySerializeHelper.class).getCategory();
 		questionnaire = new QuestionnaireFactory().getQuestionnaire(category);
-		((TextView) findViewById(R.id.textViewTitle)).setText("买什么"+category.getName());
+		((TextView) findViewById(R.id.textViewTitle)).setText("买什么" + category.getName());
 		showQuestion();
 	}
 
@@ -85,7 +85,7 @@ public class QuestionnaireActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				questionnaire = new QuestionnaireFactory().getQuestionnaire(category);
-				((TextView) findViewById(R.id.textViewTitle)).setText("买什么"+category.getName());
+				((TextView) findViewById(R.id.textViewTitle)).setText("买什么" + category.getName());
 				findViewById(R.id.questionLayout).setVisibility(View.VISIBLE);
 				findViewById(R.id.resultLayout).setVisibility(View.GONE);
 				ImageView imageViewResult = ((ImageView) findViewById(R.id.imageViewResult));
@@ -99,7 +99,7 @@ public class QuestionnaireActivity extends Activity {
 
 	private void showQuestion() {
 		Question question = questionnaire.getQuestion();
-		String questionText = question.getQuestion();		
+		String questionText = question.getQuestion();
 		((TextView) findViewById(R.id.textViewQuestion)).setText(questionText);
 		((LinearLayout) findViewById(R.id.answerLayout)).removeAllViews();
 		ArrayList<String> answers = question.getAnswers();
@@ -171,15 +171,12 @@ public class QuestionnaireActivity extends Activity {
 		View resultLayout = findViewById(R.id.resultLayout);
 		resultLayout.setVisibility(View.VISIBLE);
 		final Product result = questionnaire.getResult();
-		
+
 		final ImageView imageViewResult = ((ImageView) findViewById(R.id.imageViewResult));
 		int imageResourceId = result.getImageResourceId();
-		if(imageResourceId>0)
-		{
+		if (imageResourceId > 0) {
 			imageViewResult.setImageResource(imageResourceId);
-		}
-		else
-		{
+		} else {
 			new AsyncTask<String, Integer, Drawable>() {
 
 				@Override
@@ -189,35 +186,45 @@ public class QuestionnaireActivity extends Activity {
 						thumb_u = new URL(result.getImageUrl());
 					} catch (MalformedURLException e) {
 						e.printStackTrace();
-					} 
-				    Drawable thumb_d = null;
+					}
+					Drawable thumb_d = null;
 					try {
 						thumb_d = Drawable.createFromStream(thumb_u.openStream(), "src");
 					} catch (IOException e) {
 						e.printStackTrace();
-					} 
-					
+					}
+
 					return thumb_d;
 				}
-				
+
 				@Override
 				protected void onPostExecute(Drawable resultPic) {
-					imageViewResult.setImageDrawable(resultPic);	
+					imageViewResult.setImageDrawable(resultPic);
 					imageViewResult.setVisibility(View.VISIBLE);
 					showWithAnimation(imageViewResult);
-					
-					
-					//showWithAnimation(textViewResult);
-					
+
+					// showWithAnimation(textViewResult);
+
 				}
 			}.execute("");
-		    
+
 		}
 		findViewById(R.id.textViewBuy).setOnClickListener(getBuyProductListener(result.getUrl()));
-		findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
+		//findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
+		findViewById(R.id.textViewBack).setOnClickListener(getBackListener());
 		TextView textViewResult = (TextView) findViewById(R.id.textViewResult);
 		textViewResult.setText(result.getName());
 		showWithAnimation(resultLayout);
+	}
+
+	private OnClickListener getBackListener() {
+		return new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		};
 	}
 
 	private void buyProduct(final String url) {
@@ -254,27 +261,24 @@ public class QuestionnaireActivity extends Activity {
 			}
 		};
 	}
-	
-	
 
 	long prePressBackTime;
-	
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// 截获后退键
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			if(isTesting())
-			{
-			long currentTime = new Date().getTime();
-			// 如果时间间隔大于2秒, 不处理
-			if ((currentTime - prePressBackTime) > 2 * 1000) {
-				// 显示消息
-				Toast.makeText(this, "再按一次退出推荐", Toast.LENGTH_SHORT).show();
-				// 更新时间
-				prePressBackTime = currentTime;
-				// 截获事件,不再处理
-				return true;
-			}
+			if (isTesting()) {
+				long currentTime = new Date().getTime();
+				// 如果时间间隔大于2秒, 不处理
+				if ((currentTime - prePressBackTime) > 2 * 1000) {
+					// 显示消息
+					Toast.makeText(this, "再按一次退出推荐", Toast.LENGTH_SHORT).show();
+					// 更新时间
+					prePressBackTime = currentTime;
+					// 截获事件,不再处理
+					return true;
+				}
 			}
 		}
 
@@ -284,6 +288,5 @@ public class QuestionnaireActivity extends Activity {
 	private boolean isTesting() {
 		return findViewById(R.id.questionLayout).getVisibility() == View.VISIBLE;
 	}
-
 
 }

@@ -1079,10 +1079,10 @@ containing a value of this type.
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
+        public static final int textViewBack=0x7f050046;
         public static final int textViewBuy=0x7f050045;
         public static final int textViewCategory=0x7f05003e;
         public static final int textViewQuestion=0x7f050049;
-        public static final int textViewRestart=0x7f050046;
         public static final int textViewResult=0x7f050044;
         public static final int textViewTitle=0x7f050041;
         public static final int title=0x7f05002b;

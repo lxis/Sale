@@ -79,7 +79,7 @@
             android:textSize="20sp" >
         </TextView>
 
-        <TextView
+        <!-- <TextView
             android:id="@+id/textViewRestart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,6 +87,16 @@
             android:background="@drawable/button_press_style_selector"
             android:padding="50px"
             android:text="再选一次"
+            android:textColor="@color/button_text_color"
+            android:textSize="20sp" /> -->
+        <TextView
+            android:id="@+id/textViewBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_press_style_selector"
+            android:padding="50px"
+            android:text="返回首页"
             android:textColor="@color/button_text_color"
             android:textSize="20sp" />
     </LinearLayout>

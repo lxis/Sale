@@ -320,10 +320,10 @@ int id showTitle 0x7f050006
 int id split_action_bar 0x7f05001e
 int id submit_area 0x7f050039
 int id tabMode 0x7f050002
+int id textViewBack 0x7f050046
 int id textViewBuy 0x7f050045
 int id textViewCategory 0x7f05003e
 int id textViewQuestion 0x7f050049
-int id textViewRestart 0x7f050046
 int id textViewResult 0x7f050044
 int id textViewTitle 0x7f050041
 int id title 0x7f05002b
