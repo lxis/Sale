@@ -40,6 +40,10 @@ public abstract class BaseQuestionnaire<T extends BaseProductRepository>   imple
 	protected int getAnswer(int answerIndex) {
 		return lists.get(answerIndex).getAnswer();
 	}
+	
+	protected Product getProduct(int id) {
+		return productRepository.getProduct(id);
+	}
 
 	protected abstract void GenerateQuestionnaire(); 
 
