@@ -7,7 +7,7 @@ public class Product {
 		
 	}
 	
-	public Product(String url,String name,int imageResourceId,int id)
+	public Product(String name,String url,int imageResourceId,int id)
 	{
 		this.url = url;
 		this.name = name;
@@ -15,7 +15,7 @@ public class Product {
 		this.id=id;
 	}
 	
-	public Product(String url,String name,String imageUrl,int id)
+	public Product(String name,String url,String imageUrl,int id)
 	{
 		this.url = url;
 		this.name = name;
