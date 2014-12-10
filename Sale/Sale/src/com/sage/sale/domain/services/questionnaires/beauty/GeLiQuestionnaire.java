@@ -3,17 +3,10 @@ package com.sage.sale.domain.services.questionnaires.beauty;
 import java.util.ArrayList;
 
 import com.sage.sale.domain.services.Product;
-import com.sage.sale.domain.services.questionnaires.IQuestionnaire;
 import com.sage.sale.domain.services.questionnaires.Question;
 
-public class GeLiQuestionnaire   implements IQuestionnaire {
-	private ArrayList<Question> lists = new ArrayList<Question>();
+public class GeLiQuestionnaire extends BaseQuestionnaire {
 
-	private int index = 0;	
-
-	public GeLiQuestionnaire() {		
-		GenerateQuestionnaire();
-	}
 
 	public Product getResult() {
 		Product prox = new Product("http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3DoQng8XbMTNi6k0Or%252B%252BH4tLnFEATj2r0JZ6U672N6gVGLltG5xFicOdXrTUTgh9sMDPIwxrc30rgx5xFFx04TdSznQSvJ8jguXAYRM2Y%252BniwwzXBeaT5xzlRmtaud%252B0v%252B0B6QeGMsXe9g4cqQEFfhVQ%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_106624709_8422695_28408068", 
@@ -91,11 +84,8 @@ public class GeLiQuestionnaire   implements IQuestionnaire {
 		return results.get(maxIndex);
 	}
 
-	private int getAnswer(int answerIndex) {
-		return lists.get(answerIndex).getAnswer();
-	}
 
-	private void GenerateQuestionnaire() {
+	protected void GenerateQuestionnaire() {
 
 		Question q1 = new Question();
 		q1.setQuestion("看重美白还是补水？");
@@ -131,23 +121,5 @@ public class GeLiQuestionnaire   implements IQuestionnaire {
 		q5.addAnswer("30-40");
 		q5.addAnswer("40以上");		
 		lists.add(q5);
-	}
-
-	@Override
-	public double getProgress() {
-		return ((double)index)/((double)lists.size());
-	}
-
-	@Override
-	public Question getQuestion() {
-		if(index>=lists.size())
-			return null;
-		return lists.get(index);
-	}
-
-	@Override
-	public void setAnswer(int answer) {
-		lists.get(index).setAnswer(answer);
-		index++;		
 	}
 }
