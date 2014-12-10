@@ -25,6 +25,13 @@ public class GeLiQuestionnaire extends BaseQuestionnaire<GeLiProductRepository> 
 	@Override
 	protected void CalculateScore() {
 		
+		//本身价值
+		getProduct(1).addPercent(100);
+		getProduct(2).addPercent(80);
+		getProduct(3).addPercent(60);
+		getProduct(4).addPercent(40);
+		getProduct(5).addPercent(20);
+		
 		if(getAnswer(0)==0)
 		{
 			getProduct(1).addPercent(-500);
