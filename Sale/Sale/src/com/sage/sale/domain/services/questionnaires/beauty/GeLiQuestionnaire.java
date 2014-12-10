@@ -86,40 +86,10 @@ public class GeLiQuestionnaire extends BaseQuestionnaire {
 
 
 	protected void GenerateQuestionnaire() {
-
-		Question q1 = new Question();
-		q1.setQuestion("看重美白还是补水？");
-		q1.addAnswer("美白");
-		q1.addAnswer("补水");
-		lists.add(q1);
-
-		Question q2 = new Question();
-		q2.setQuestion("预算有多少？");
-		q2.addAnswer("100以内");
-		q2.addAnswer("100-200");
-		q2.addAnswer("200-300");
-		q2.addAnswer("300以上");
-		lists.add(q2);
-
-		Question q3 = new Question();
-		q3.setQuestion("是不是特别看重使用时舒服？");
-		q3.addAnswer("必须舒服");
-		q3.addAnswer("有功效就行");
-		lists.add(q3);
-
-		Question q4 = new Question();
-		q4.setQuestion("是否需要控油？");
-		q4.addAnswer("必须要");
-		q4.addAnswer("有没有都行");
-		lists.add(q4);
-
-		Question q5 = new Question();
-		q5.setQuestion("年龄是？");
-		q5.addAnswer("小于20");
-		q5.addAnswer("20-25");
-		q5.addAnswer("25-30");
-		q5.addAnswer("30-40");
-		q5.addAnswer("40以上");		
-		lists.add(q5);
+		lists.add(new Question().setQuestion("看重美白还是补水？").addAnswer("美白").addAnswer("补水"));
+		lists.add(new Question().setQuestion("预算有多少？").addAnswer("100以内").addAnswer("100-200").addAnswer("200-300").addAnswer("300以上"));
+		lists.add(new Question().setQuestion("是不是特别看重使用时舒服？").addAnswer("必须舒服").addAnswer("有功效就行"));
+		lists.add(new Question().setQuestion("是否需要控油？").addAnswer("必须要").addAnswer("有没有都行"));
+		lists.add(new Question().setQuestion("年龄是？").addAnswer("小于20").addAnswer("20-25").addAnswer("25-30").addAnswer("30-40").addAnswer("40以上"));
 	}
 }

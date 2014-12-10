@@ -11,8 +11,9 @@ public class Question {
 	public String getQuestion() {
 		return question;
 	}
-	public void setQuestion(String question) {
+	public Question setQuestion(String question) {
 		this.question = question;
+		return this;
 	}
 	public ArrayList<String> getAnswers() {
 		return answers;
@@ -26,8 +27,9 @@ public class Question {
 	public void setAnswer(int answer) {
 		this.answer = answer;
 	}
-	public void addAnswer(String answer)
+	public Question addAnswer(String answer)
 	{
 		answers.add(answer);
-	}
+		return this;
+	}		
 }
