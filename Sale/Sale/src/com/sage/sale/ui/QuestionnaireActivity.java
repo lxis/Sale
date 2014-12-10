@@ -51,7 +51,6 @@ public class QuestionnaireActivity extends Activity {
 
 		category = new Gson().fromJson(getIntent().getStringExtra("Category"), CategorySerializeHelper.class).getCategory();
 		questionnaire = new QuestionnaireFactory().getQuestionnaire(category);
-		((TextView) findViewById(R.id.textViewTitle)).setText("ÂòÊ²Ã´" + category.getName());
 		showQuestion();
 	}
 
@@ -85,7 +84,6 @@ public class QuestionnaireActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				questionnaire = new QuestionnaireFactory().getQuestionnaire(category);
-				((TextView) findViewById(R.id.textViewTitle)).setText("ÂòÊ²Ã´" + category.getName());
 				findViewById(R.id.questionLayout).setVisibility(View.VISIBLE);
 				findViewById(R.id.resultLayout).setVisibility(View.GONE);
 				ImageView imageViewResult = ((ImageView) findViewById(R.id.imageViewResult));
@@ -166,7 +164,6 @@ public class QuestionnaireActivity extends Activity {
 	}
 
 	private void showResult() {
-		((TextView) findViewById(R.id.textViewTitle)).setText("ÍÆ¼öÄã¹ºÂò");
 		findViewById(R.id.questionLayout).setVisibility(View.GONE);
 		View resultLayout = findViewById(R.id.resultLayout);
 		resultLayout.setVisibility(View.VISIBLE);
@@ -210,7 +207,7 @@ public class QuestionnaireActivity extends Activity {
 
 		}
 		findViewById(R.id.textViewBuy).setOnClickListener(getBuyProductListener(result.getUrl()));
-		//findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
+		// findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
 		findViewById(R.id.textViewBack).setOnClickListener(getBackListener());
 		TextView textViewResult = (TextView) findViewById(R.id.textViewResult);
 		textViewResult.setText(result.getName());
