@@ -41,9 +41,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="100px"
             android:layout_marginLeft="100px"
             android:layout_marginRight="100px"
-            android:layout_marginBottom="100px"
             android:textColor="@color/plaint_text_color"
             android:textSize="25sp" >
         </TextView>
@@ -60,6 +60,7 @@
             android:textColor="@color/button_text_color"
             android:textSize="20sp" >
         </TextView>
+
         <TextView
             android:id="@+id/textViewBack"
             android:layout_width="wrap_content"
@@ -76,40 +77,38 @@
         android:id="@+id/questionLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" 
-        >
+        android:orientation="vertical" >
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0px"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:scrollbars="vertical"
-            android:fillViewport="true"            
-         >
+            android:fillViewport="true"
+            android:scrollbars="vertical" >
 
             <LinearLayout
                 android:id="@+id/linearLayoutQuestionContent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_gravity="center_vertical"
-                 >
- 
-				<TextView 
-				    android:layout_width="match_parent"
-				    android:layout_height="0px"
-				    android:layout_weight="1"
-				    ></TextView>
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_weight="1" >
+                </TextView>
+
                 <TextView
                     android:id="@+id/textViewQuestion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="150px"
-                	android:layout_marginLeft="100px"
-                	android:layout_marginRight="100px"
                     android:layout_marginBottom="150px"
+                    android:layout_marginLeft="100px"
+                    android:layout_marginRight="100px"
+                    android:layout_marginTop="150px"
                     android:text="你看重质量还是价格？"
                     android:textColor="@color/plaint_text_color"
                     android:textSize="22sp" />
@@ -121,26 +120,25 @@
                     android:layout_gravity="center_horizontal"
                     android:orientation="vertical" >
                 </LinearLayout>
-                <TextView 
-				    android:layout_width="match_parent"
-				    android:layout_height="0px"
-				    android:layout_weight="2"
-				    ></TextView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_weight="2" >
+                </TextView>
             </LinearLayout>
         </ScrollView>
 
         <ProgressBar
             android:id="@+id/progressBarProgress"
-            style="?android:attr/progressBarStyleHorizontal"            
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="500px"
+            android:layout_height="5px"
             android:layout_gravity="center"
             android:layout_marginBottom="50px"
-            android:layout_height="5px"
-            android:progressDrawable="@drawable/progress_bar"
-            android:layout_marginTop="50px" />
- <!--        
-            android:layout_height="wrap_content"
-         -->
+            android:layout_marginTop="50px"
+            android:progressDrawable="@drawable/progress_bar" />
+<!--             android:layout_height="wrap_content" -->
     </LinearLayout>
 
 </LinearLayout>
