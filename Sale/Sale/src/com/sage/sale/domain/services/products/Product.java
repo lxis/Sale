@@ -1,4 +1,4 @@
-package com.sage.sale.domain.services;
+package com.sage.sale.domain.services.products;
 
 public class Product {
 	
@@ -7,18 +7,20 @@ public class Product {
 		
 	}
 	
-	public Product(String url,String name,int imageResourceId)
+	public Product(String url,String name,int imageResourceId,int id)
 	{
 		this.url = url;
 		this.name = name;
 		this.imageResourceId = imageResourceId;
+		this.id=id;
 	}
 	
-	public Product(String url,String name,String imageUrl)
+	public Product(String url,String name,String imageUrl,int id)
 	{
 		this.url = url;
 		this.name = name;
 		this.setImageUrl(imageUrl);
+		this.id = id;
 	}
 	
 	private String url;
@@ -26,6 +28,7 @@ public class Product {
 	private int percent;
 	private int imageResourceId;
 	private String imageUrl;
+	private int id;
 
 	public String getUrl() {
 		return url;
@@ -70,5 +73,13 @@ public class Product {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

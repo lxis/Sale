@@ -20,10 +20,6 @@ public class CategorySerializeHelper {
 			return new HuaZhuangShui();
 		case 3:
 			return new MianMo();
-		case 4:
-			return new MianShuang();
-		case 5:
-			return new YanShuang();
 		case 6:
 			return new XiMianNai();
 		default:

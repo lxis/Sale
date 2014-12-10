@@ -5,18 +5,15 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.sage.sale.R;
 import com.sage.sale.domain.services.categories.Category;
-import com.sage.sale.domain.services.categories.beauty.*;
 
 
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class CategoryAdapter extends SimpleAdapter<Category> {
 

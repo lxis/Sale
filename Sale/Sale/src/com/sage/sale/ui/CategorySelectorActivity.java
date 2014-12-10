@@ -1,6 +1,5 @@
 package com.sage.sale.ui;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import com.sage.sale.R;
@@ -11,7 +10,6 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 public class CategorySelectorActivity extends Activity {

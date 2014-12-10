@@ -8,8 +8,8 @@ import java.util.Date;
 
 import com.google.gson.Gson;
 import com.sage.sale.R;
-import com.sage.sale.domain.services.Product;
 import com.sage.sale.domain.services.categories.Category;
+import com.sage.sale.domain.services.products.Product;
 import com.sage.sale.domain.services.questionnaires.IQuestionnaire;
 import com.sage.sale.domain.services.questionnaires.Question;
 import com.sage.sale.domain.services.questionnaires.QuestionnaireFactory;
@@ -20,7 +20,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;

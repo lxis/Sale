@@ -1,6 +1,6 @@
 package com.sage.sale.domain.services.questionnaires;
 
-import com.sage.sale.domain.services.Product;
+import com.sage.sale.domain.services.products.Product;
 
 
 public interface IQuestionnaire {
