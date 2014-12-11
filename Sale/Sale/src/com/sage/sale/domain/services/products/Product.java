@@ -18,8 +18,6 @@ public class Product {
 		this.id = id;
 		this.setEvaluation(evaluation);
 
-		matches.add(new Match("温和不刺激",8));
-		matches.add(new Match("美白效果强",9));
 	}
 	
 	private String evaluation;
@@ -45,21 +43,8 @@ public class Product {
 	
 	public ArrayList<Match> getMatches()
 	{
-		ArrayList<Match> percentMatches = new ArrayList<Match>();
-		for(Match match:matches)		
-			if(match.getScore() != 0)
-				percentMatches.add(match);
-		return percentMatches;
-	}
-	
-	public ArrayList<Match> getCheckedMatches()
-	{
-		ArrayList<Match> checkedMatches = new ArrayList<Match>();
-		for(Match match:matches)		
-			if(match.getScore() == 0)
-				checkedMatches.add(match);
-		return checkedMatches;		
-	}
+		return matches;
+	}	
 
 	public String getUrl() {
 		return url;

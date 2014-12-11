@@ -11,6 +11,7 @@ import com.sage.sale.R;
 import com.sage.sale.domain.services.categories.Category;
 import com.sage.sale.domain.services.categories.CategoryFactory;
 import com.sage.sale.domain.services.categories.CategoryStorage;
+import com.sage.sale.domain.services.products.Match;
 import com.sage.sale.domain.services.products.Product;
 import com.sage.sale.domain.services.questionnaires.IQuestionnaire;
 import com.sage.sale.domain.services.questionnaires.Question;
@@ -22,9 +23,11 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -56,13 +59,13 @@ public class QuestionnaireActivity extends Activity {
 		String categoryJson = getIntent().getStringExtra("Category");
 		category = new Gson().fromJson(categoryJson, CategorySerializeHelper.class).getCategory();
 		questionnaire = new QuestionnaireFactory().getQuestionnaire(category);
-		
+
 		Product testedProduct = category.getTestedResult(this);
-		if(testedProduct == null)
+		if (testedProduct == null)
 			showQuestion();
 		else
 			showResult(testedProduct);
-		((ListView)findViewById(R.id.listViewMatches)).setDivider(null);
+		// ((LinearLayout)findViewById(R.id.listViewMatches)).setDivider(null);
 	}
 
 	private void addAnswer(String answer, final int index) {
@@ -173,9 +176,8 @@ public class QuestionnaireActivity extends Activity {
 		view.startAnimation(animationSet);
 		view.setAnimation(animationSet);
 	}
-	
-	private void generateAndShowResult()
-	{
+
+	private void generateAndShowResult() {
 		final Product result = questionnaire.getResult();
 		showResult(result);
 		category.saveTestedResult(this, result);
@@ -229,12 +231,14 @@ public class QuestionnaireActivity extends Activity {
 		findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
 		findViewById(R.id.textViewBack).setOnClickListener(getBackListener());
 		TextView textViewResult = (TextView) findViewById(R.id.textViewResult);
-		
-		((TextView)findViewById(R.id.textViewEvaluation)).setText(Html.fromHtml(result.getEvaluation()));
-		ListView listViewMatches = (ListView)findViewById(R.id.listViewMatches);	
-		listViewMatches.setAdapter(new MatchAdapter(result.getMatches(),this,R.layout.questionnaire_match_percent_listitem));
-		GridView listViewCheckedMatches = (GridView)findViewById(R.id.listViewCheckedMatches);
-		listViewCheckedMatches.setAdapter(new MatchCheckedAdapter(result.getCheckedMatches(),this,R.layout.questionnaire_match_checked_listitem));
+
+		((TextView) findViewById(R.id.textViewEvaluation)).setText(Html.fromHtml(result.getEvaluation()));
+		LinearLayout listViewMatches = (LinearLayout) findViewById(R.id.listViewMatches);
+		for (Match match : result.getMatches()) {
+			View matchView = createPercentMatchView(match);
+			listViewMatches.addView(matchView);
+		}
+
 		textViewResult.setText(result.getName());
 		showWithAnimation(resultLayout);
 	}
@@ -309,6 +313,22 @@ public class QuestionnaireActivity extends Activity {
 
 	private boolean isTesting() {
 		return findViewById(R.id.questionLayout).getVisibility() == View.VISIBLE;
+	}
+
+	private View createPercentMatchView(Match item) {
+		View view = LayoutInflater.from(this).inflate(R.layout.questionnaire_match_listitem, null);
+
+		TextView textViewCategory = (TextView) view.findViewById(R.id.textViewMatchText);
+		textViewCategory.setText(item.getText());
+		ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBarMatch);
+
+		progressBar.setMax(10);
+		int score = item.getScore();
+		if (score != 0)
+			progressBar.setProgress(score);
+		else
+			progressBar.setProgress(10);
+		return view;
 	}
 
 }

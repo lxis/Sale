@@ -8,35 +8,26 @@
         android:id="@+id/textViewMatchText"
         android:layout_width="0px"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_gravity="center_vertical"
+        android:layout_weight="1"
         android:gravity="center_vertical|left"
         android:textColor="@color/plaint_text_color"
         android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="400px"
-        android:layout_height="wrap_content" 
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            >
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center" >
 
         <ProgressBar
             android:id="@+id/progressBarMatch"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="400px"
-            android:layout_height="wrap_content"
+            android:layout_height="20px"
             android:layout_gravity="center_vertical"
             android:gravity="center"
             android:progressDrawable="@drawable/progress_bar" />
-
-        <ImageView
-            android:id="@+id/textViewMatchChecked"
-            android:layout_width="50px"
-            android:layout_height="50px"
-            android:layout_gravity="center"
-            android:background="@drawable/questionnaire_match_checked"
-            android:gravity="center" />
     </LinearLayout>
 
 </LinearLayout>
