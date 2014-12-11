@@ -42,7 +42,7 @@ public abstract class BaseQuestionnaire<T extends BaseProductRepository>   imple
 	}
 	
 	protected Product getProduct(int id) {
-		return productRepository.getProduct(id);
+		return  productRepository.getProduct(id);
 	}
 
 	protected abstract void GenerateQuestionnaire(); 

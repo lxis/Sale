@@ -65,7 +65,6 @@ public class QuestionnaireActivity extends Activity {
 			showQuestion();
 		else
 			showResult(testedProduct);
-		// ((LinearLayout)findViewById(R.id.listViewMatches)).setDivider(null);
 	}
 
 	private void addAnswer(String answer, final int index) {
@@ -234,6 +233,7 @@ public class QuestionnaireActivity extends Activity {
 
 		((TextView) findViewById(R.id.textViewEvaluation)).setText(Html.fromHtml(result.getEvaluation()));
 		LinearLayout listViewMatches = (LinearLayout) findViewById(R.id.listViewMatches);
+		listViewMatches.removeAllViews();
 		for (Match match : result.getMatches()) {
 			View matchView = createPercentMatchView(match);
 			listViewMatches.addView(matchView);

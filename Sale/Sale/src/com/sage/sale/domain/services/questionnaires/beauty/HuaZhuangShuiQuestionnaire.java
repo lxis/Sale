@@ -1,6 +1,5 @@
 package com.sage.sale.domain.services.questionnaires.beauty;
 
-import com.sage.sale.domain.services.products.Product;
 import com.sage.sale.domain.services.products.beauty.HuaZhuangShuiProductRepository;
 import com.sage.sale.domain.services.questionnaires.Question;
 
@@ -8,12 +7,13 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 
 	public HuaZhuangShuiQuestionnaire() {
 		super(HuaZhuangShuiProductRepository.class);
-	}	
-//			"Pro-X White 纯白方程式更新角质保湿高机能水",6  ￥ 340      
-//			"SK-II 神仙水（SK-II 护肤精华露）",7  ￥ 1,040
-//			"雅漾 舒护活泉喷雾",8  ￥ 125
-//			"高丝 雪肌精化妆水",9   285
-//			"雅诗兰黛 全新鲜亮焕采精粹水（清爽型）",10   360
+	}
+
+	// "Pro-X White 纯白方程式更新角质保湿高机能水",6 ￥ 340
+	// "SK-II 神仙水（SK-II 护肤精华露）",7 ￥ 1,040
+	// "雅漾 舒护活泉喷雾",8 ￥ 125
+	// "高丝 雪肌精化妆水",9 285
+	// "雅诗兰黛 全新鲜亮焕采精粹水（清爽型）",10 360
 
 	protected void GenerateQuestionnaire() {
 		lists.add(new Question().setQuestion("美白功能是否特别重要？").addAnswer("非常重要").addAnswer("一般重要"));
@@ -23,26 +23,22 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 		lists.add(new Question().setQuestion("年龄是？").addAnswer("小于20").addAnswer("21-25").addAnswer("26-30").addAnswer("31-40").addAnswer("41以上"));
 	}
 
-	
-	
 	@Override
 	protected void CalculateScore() {
-		//本身价值
-		getProduct(6).addPercent(100).addMatch("销量冠军").addMatch("不刺激").addMatch("无酒精");
+		// 本身价值
+		getProduct(6).addPercent(100).addMatch("销量冠军");
 		getProduct(7).addPercent(80).addMatch("销量领先");
 		getProduct(8).addPercent(60).addMatch("销量领先");
 		getProduct(9).addPercent(40);
 		getProduct(10).addPercent(20);
-		
-		if(getAnswer(0)==0)
-		{
-			getProduct(6).addPercent(100);
-			getProduct(9).addPercent(100);
+
+		if (getAnswer(0) == 0) {
+			getProduct(6).addPercent(100).addMatch("美白", 9);
+			getProduct(9).addPercent(100).addMatch("美白", 9);
 		}
-		
+
 		switch (getAnswer(1)) {
-		case 0:
-		{
+		case 0: {
 			getProduct(6).addPercent(-300);
 			getProduct(7).addPercent(-1000);
 			getProduct(8).addPercent(200);
@@ -50,8 +46,7 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 			getProduct(10).addPercent(-300);
 			break;
 		}
-		case 1:
-		{
+		case 1: {
 			getProduct(6).addPercent(100);
 			getProduct(7).addPercent(-300);
 			getProduct(8).addPercent(0);
@@ -59,8 +54,7 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 			getProduct(10).addPercent(100);
 			break;
 		}
-		case 2:
-		{
+		case 2: {
 			getProduct(6).addPercent(100);
 			getProduct(7).addPercent(-500);
 			getProduct(8).addPercent(100);
@@ -68,8 +62,7 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 			getProduct(10).addPercent(100);
 			break;
 		}
-		case 3:
-		{
+		case 3: {
 			getProduct(6).addPercent(0);
 			getProduct(7).addPercent(100);
 			getProduct(8).addPercent(0);
@@ -79,21 +72,18 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 		}
 		default:
 			break;
-		} 
-		
-		if(getAnswer(2) == 0)
-		{
+		}
+
+		if (getAnswer(2) == 0) {
 			getProduct(9).addPercent(-100);
 		}
-		
-		if(getAnswer(3) == 0)
-		{
+
+		if (getAnswer(3) == 0) {
 			getProduct(8).addPercent(100);
 		}
-		
-		if(getAnswer(4) == 3 ||getAnswer(4) == 4)
-		{
+
+		if (getAnswer(4) == 3 || getAnswer(4) == 4) {
 			getProduct(10).addPercent(100);
-		}				
+		}
 	}
 }
