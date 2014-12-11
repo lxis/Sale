@@ -5,15 +5,7 @@ public class Product {
 	public Product()
 	{
 		
-	}
-	
-	public Product(String name,String url,int imageResourceId,int id)
-	{
-		this.url = url;
-		this.name = name;
-		this.imageResourceId = imageResourceId;
-		this.id=id;
-	}
+	}	
 	
 	public Product(String name,String url,String imageUrl,int id)
 	{
@@ -23,6 +15,16 @@ public class Product {
 		this.id = id;
 	}
 	
+	public Product(String name,String url,String imageUrl,String evaluation,int id)
+	{
+		this.url = url;
+		this.name = name;
+		this.setImageUrl(imageUrl);
+		this.id = id;
+		this.setEvaluation(evaluation);
+	}
+	
+	private String evaluation;
 	private String url;
 	private String name;
 	private int percent;
@@ -81,5 +83,13 @@ public class Product {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getEvaluation() {
+		return evaluation;
+	}
+
+	public void setEvaluation(String evaluation) {
+		this.evaluation = evaluation;
 	}
 }

@@ -224,6 +224,7 @@ public class QuestionnaireActivity extends Activity {
 		findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
 		findViewById(R.id.textViewBack).setOnClickListener(getBackListener());
 		TextView textViewResult = (TextView) findViewById(R.id.textViewResult);
+		((TextView)findViewById(R.id.textViewEvaluation)).setText(result.getEvaluation());
 		textViewResult.setText(result.getName());
 		showWithAnimation(resultLayout);
 	}

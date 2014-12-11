@@ -10,79 +10,116 @@
 
     <LinearLayout
         android:id="@+id/resultLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_marginTop="100px"
         android:orientation="vertical"
         android:visibility="gone" >
-	
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="20px"
-            android:text="推荐你购买"
-            android:textColor="@color/plaint_text_color"
-            android:textSize="22sp" >
-        </TextView>
 
-        <ImageView
-            android:id="@+id/imageViewResult"
-            android:layout_width="500px"
-            android:layout_height="500px"
-            android:layout_gravity="center"
-            android:layout_marginBottom="50px"
-            android:layout_marginTop="50px" >
-        </ImageView>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:fillViewport="true" >
 
-        <TextView
-            android:id="@+id/textViewResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="100px"
-            android:layout_marginLeft="100px"
-            android:layout_marginRight="100px"
-            android:textColor="@color/plaint_text_color"
-            android:textSize="25sp" >
-        </TextView>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/textViewBuy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="50px"
-            android:background="@drawable/button_press_style_selector"
-            android:padding="50px"
-            android:text="立即购买"
-            android:textColor="@color/button_text_color"
-            android:textSize="20sp" >
-        </TextView>
-        
-        <TextView
-            android:id="@+id/textViewRestart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="50px"
-            android:background="@drawable/button_press_style_selector"
-            android:padding="50px"
-            android:text="再测一次"
-            android:textColor="@color/button_text_color"
-            android:textSize="20sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="20px"
+                    android:text="推荐你购买"
+                    android:textColor="@color/plaint_text_color"
+                    android:textSize="22sp" >
+                </TextView>
 
-        <TextView
-            android:id="@+id/textViewBack"
-            android:layout_width="wrap_content"
+                <ImageView
+                    android:id="@+id/imageViewResult"
+                    android:layout_width="500px"
+                    android:layout_height="500px"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="50px"
+                    android:layout_marginTop="50px" >
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/textViewResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="100px"
+                    android:layout_marginLeft="100px"
+                    android:layout_marginRight="100px"
+                    android:textColor="@color/plaint_text_color"
+                    android:textSize="25sp" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/textViewEvaluation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="100px"
+                    android:layout_marginLeft="100px"
+                    android:layout_marginRight="100px"
+                    android:gravity="center"
+                    android:textColor="@color/plaint_text_color"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutResultButtons"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/button_press_style_selector"
-            android:padding="50px"
-            android:text="返回首页"
-            android:textColor="@color/button_text_color"
-            android:textSize="20sp" />
+            android:orientation="horizontal"
+            android:layout_marginTop="50px"
+             >
+
+            <TextView
+                android:id="@+id/textViewBuy"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20px"
+                android:background="@drawable/button_press_style_selector"
+                android:padding="40px"
+                android:text="立即购买"
+                android:textColor="@color/button_text_color"
+                android:textSize="20sp" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/textViewRestart"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20px"
+                android:background="@drawable/button_press_style_selector"
+                android:padding="40px"
+                android:text="再测一次"
+                android:textColor="@color/button_text_color"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textViewBack"
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20px"
+                android:background="@drawable/button_press_style_selector"
+                android:padding="40px"
+                android:text="返回首页"
+                android:textColor="@color/button_text_color"
+                android:textSize="20sp" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -150,7 +187,7 @@
             android:layout_marginBottom="50px"
             android:layout_marginTop="50px"
             android:progressDrawable="@drawable/progress_bar" />
-<!--             android:layout_height="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
     </LinearLayout>
 
 </LinearLayout>
