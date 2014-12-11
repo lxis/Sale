@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="0px"
             android:layout_weight="1"
-            android:fillViewport="true" >
+            android:fillViewport="true" > 
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -58,18 +58,20 @@
                     android:textColor="@color/plaint_text_color"
                     android:textSize="25sp" >
                 </TextView>
-                <ListView
-                    android:id="@+id/listViewMatchesChecked"                    
+
+                <GridView
+                    android:id="@+id/listViewCheckedMatches"                    
                     android:layout_width="match_parent"
-                    android:layout_height="300px"                    
+                    android:layout_height="wrap_content"                    
                     android:layout_marginLeft="100px"
                     android:layout_marginRight="100px"
                     android:gravity="left"
-                    ></ListView>
+                    android:numColumns="2"
+                    ></GridView>
                 <ListView
                     android:id="@+id/listViewMatches"                    
                     android:layout_width="match_parent"
-                    android:layout_height="300px"                    
+                    android:layout_height="wrap_content"                    
                     android:layout_marginLeft="100px"
                     android:layout_marginRight="100px"
                     android:gravity="left"
@@ -99,7 +101,7 @@
                     />
                 
             </LinearLayout>
-        </ScrollView>
+         </ScrollView>
 
         <LinearLayout
             android:id="@+id/linearLayoutResultButtons"
@@ -216,7 +218,6 @@
             android:layout_marginBottom="50px"
             android:layout_marginTop="50px"
             android:progressDrawable="@drawable/progress_bar" />
-        <!-- android:layout_height="wrap_content" -->
     </LinearLayout>
 
 </LinearLayout>

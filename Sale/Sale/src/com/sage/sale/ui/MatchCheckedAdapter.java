@@ -20,23 +20,8 @@ public class MatchCheckedAdapter extends SimpleAdapter<Match> {
 	protected View createView(int layoutId, Match item) {
 		View view = super.createView(layoutId, item);		
 
-		TextView textViewCategory = (TextView) view.findViewById(R.id.textViewMatchText);
+		TextView textViewCategory = (TextView) view.findViewById(R.id.textViewCheckedMatchText);
 		textViewCategory.setText(item.getText());
-		ProgressBar progressBar = (ProgressBar)view.findViewById(R.id.progressBarMatch);
-		
-		View  textViewMatchChecked =(View)view.findViewById(R.id.textViewMatchChecked);
-		
-		progressBar.setMax(10);
-		int score = item.getScore();
-		if(score!=0)
-		{
-			progressBar.setProgress(score);
-			textViewMatchChecked.setVisibility(View.GONE);
-		}
-		else
-		{
-			progressBar.setVisibility(View.GONE);			
-		}
 		return view;
 	}
 }
