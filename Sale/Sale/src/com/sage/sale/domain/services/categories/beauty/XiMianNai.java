@@ -4,6 +4,12 @@ import com.sage.sale.R;
 import com.sage.sale.domain.services.categories.Category;
 
 public class XiMianNai   extends Category {
+	
+	public XiMianNai()
+	{
+		id = 6;
+	}
+	
 	@Override
 	public String getName() {
 		return "Ï´ÃæÄÌ";
@@ -11,7 +17,7 @@ public class XiMianNai   extends Category {
 
 	@Override
 	public int getId() {
-		return 6;
+		return id;
 	}	
 	
 	@Override

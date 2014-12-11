@@ -9,6 +9,7 @@ import java.util.Date;
 import com.google.gson.Gson;
 import com.sage.sale.R;
 import com.sage.sale.domain.services.categories.Category;
+import com.sage.sale.domain.services.categories.CategoryStorage;
 import com.sage.sale.domain.services.products.Product;
 import com.sage.sale.domain.services.questionnaires.IQuestionnaire;
 import com.sage.sale.domain.services.questionnaires.Question;
@@ -48,9 +49,15 @@ public class QuestionnaireActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.questionnaire_activity);
 
-		category = new Gson().fromJson(getIntent().getStringExtra("Category"), CategorySerializeHelper.class).getCategory();
+		String categoryJson = getIntent().getStringExtra("Category");
+		category = new Gson().fromJson(categoryJson, CategorySerializeHelper.class).getCategory();
 		questionnaire = new QuestionnaireFactory().getQuestionnaire(category);
-		showQuestion();
+		
+		Product testedProduct = category.getTestedResult(this);
+		if(testedProduct == null)
+			showQuestion();
+		else
+			showResult(testedProduct);
 	}
 
 	private void addAnswer(String answer, final int index) {
@@ -116,7 +123,7 @@ public class QuestionnaireActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				if (questionnaire.getQuestion() == null)
-					showResult();
+					generateAndShowResult();
 				else
 					showQuestion();
 			}
@@ -161,12 +168,20 @@ public class QuestionnaireActivity extends Activity {
 		view.startAnimation(animationSet);
 		view.setAnimation(animationSet);
 	}
+	
+	private void generateAndShowResult()
+	{
+		final Product result = questionnaire.getResult();
+		showResult(result);
+		category.saveTestedResult(this, result);
+	}
 
-	private void showResult() {
+	private void showResult(final Product result) {
 		findViewById(R.id.questionLayout).setVisibility(View.GONE);
 		View resultLayout = findViewById(R.id.resultLayout);
 		resultLayout.setVisibility(View.VISIBLE);
-		final Product result = questionnaire.getResult();
+		findViewById(R.id.questionLayout).setVisibility(View.GONE);
+		resultLayout.setVisibility(View.VISIBLE);
 
 		final ImageView imageViewResult = ((ImageView) findViewById(R.id.imageViewResult));
 		int imageResourceId = result.getImageResourceId();

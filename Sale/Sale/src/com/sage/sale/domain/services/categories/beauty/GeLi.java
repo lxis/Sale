@@ -4,6 +4,12 @@ import com.sage.sale.R;
 import com.sage.sale.domain.services.categories.Category;
 
 public class GeLi  extends Category {
+	
+	public GeLi()
+	{
+		id = 1;
+	}
+	
 	@Override
 	public String getName() {
 		return "∏Ù¿Î";
@@ -11,7 +17,7 @@ public class GeLi  extends Category {
 
 	@Override
 	public int getId() {
-		return 1;
+		return id;
 	}
 	
 	@Override

@@ -4,6 +4,12 @@ import com.sage.sale.R;
 import com.sage.sale.domain.services.categories.Category;
 
 public class HuaZhuangShui  extends Category {
+	
+	public HuaZhuangShui()
+	{
+		id = 2;
+	}
+	
 	@Override
 	public String getName() {
 		return "»¯×±Ë®";
@@ -11,7 +17,7 @@ public class HuaZhuangShui  extends Category {
 
 	@Override
 	public int getId() {
-		return 2;
+		return id;
 	}
 	
 	
