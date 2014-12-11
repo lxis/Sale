@@ -41,6 +41,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -183,6 +184,7 @@ public class QuestionnaireActivity extends Activity {
 	}
 
 	private void showResult(final Product result) {
+		((ScrollView)findViewById(R.id.scrollViewResult)).scrollTo(0, 0);
 		findViewById(R.id.questionLayout).setVisibility(View.GONE);
 		View resultLayout = findViewById(R.id.resultLayout);
 		resultLayout.setVisibility(View.VISIBLE);

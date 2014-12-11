@@ -27,8 +27,8 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 	protected void CalculateScore() {
 		// 本身价值
 		getProduct(6).addPercent(100).addMatch("销量冠军");
-		getProduct(7).addPercent(80).addMatch("销量领先");
-		getProduct(8).addPercent(60).addMatch("销量领先");
+		getProduct(7).addPercent(80).addMatch("销量领先",9);
+		getProduct(8).addPercent(60).addMatch("销量领先",9);
 		getProduct(9).addPercent(40);
 		getProduct(10).addPercent(20);
 
@@ -79,11 +79,11 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 		}
 
 		if (getAnswer(3) == 0) {
-			getProduct(8).addPercent(100);
+			getProduct(8).addPercent(100).addMatch("温和",10);
 		}
 
 		if (getAnswer(4) == 3 || getAnswer(4) == 4) {
-			getProduct(10).addPercent(100);
+			getProduct(10).addPercent(100).addMatch("抗衰老",9);
 		}
 	}
 }

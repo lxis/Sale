@@ -27,9 +27,9 @@ public class MianMoQuestionnaire extends BaseQuestionnaire<MianMoProductReposito
 	protected void CalculateScore() {
 		
 		//本身价值
-		getProduct(11).addPercent(100);
-		getProduct(12).addPercent(80);
-		getProduct(13).addPercent(60);
+		getProduct(11).addPercent(100).addMatch("销量冠军");
+		getProduct(12).addPercent(80).addMatch("销量领先",9);
+		getProduct(13).addPercent(60).addMatch("销量领先",9);
 		getProduct(14).addPercent(40);
 		getProduct(15).addPercent(20);
 		
@@ -84,17 +84,17 @@ public class MianMoQuestionnaire extends BaseQuestionnaire<MianMoProductReposito
 		case 0:
 		case 1:
 		{
-			getProduct(13).addPercent(100);
-			getProduct(15).addPercent(100);
+			getProduct(13).addPercent(100).addMatch("温和",10);
+			getProduct(15).addPercent(100).addMatch("温和",10);
 			
 			break;
 		}
 		case 2:
 		case 3:
 		{
-			getProduct(11).addPercent(100);
-			getProduct(12).addPercent(100);
-			getProduct(14).addPercent(100);
+			getProduct(11).addPercent(100).addMatch("抗衰老");
+			getProduct(12).addPercent(100).addMatch("抗衰老");
+			getProduct(14).addPercent(100).addMatch("抗衰老");
 			break;
 		}
 		default:

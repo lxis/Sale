@@ -26,14 +26,15 @@ public class GeLiQuestionnaire extends BaseQuestionnaire<GeLiProductRepository> 
 	protected void CalculateScore() {
 		
 		//本身价值
-		getProduct(1).addPercent(100);
-		getProduct(2).addPercent(80);
-		getProduct(3).addPercent(60);
+		getProduct(1).addPercent(100).addMatch("销量冠军");
+		getProduct(2).addPercent(80).addMatch("销量领先",9);
+		getProduct(3).addPercent(60).addMatch("销量领先",9);
 		getProduct(4).addPercent(40);
 		getProduct(5).addPercent(20);
 		
 		if(getAnswer(0)==0)
 		{
+			getProduct(0).addMatch("高倍防晒");
 			getProduct(1).addPercent(-500);
 			getProduct(2).addPercent(-500);
 			getProduct(3).addPercent(-500);			
@@ -77,9 +78,9 @@ public class GeLiQuestionnaire extends BaseQuestionnaire<GeLiProductRepository> 
 			break;
 		}
 		if (getAnswer(2) == 0) {
-			getProduct(1).addPercent(100);
-			getProduct(2).addPercent(100);
-			getProduct(3).addPercent(100);			
+			getProduct(1).addPercent(100).addMatch("清爽不油腻",9);
+			getProduct(2).addPercent(100).addMatch("清爽不油腻",9);
+			getProduct(3).addPercent(100).addMatch("清爽不油腻",9);			
 		}
 	}
 }
