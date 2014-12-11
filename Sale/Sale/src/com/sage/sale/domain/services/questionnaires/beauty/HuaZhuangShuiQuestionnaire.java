@@ -28,9 +28,9 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 	@Override
 	protected void CalculateScore() {
 		//本身价值
-		getProduct(6).addPercent(100);
-		getProduct(7).addPercent(80);
-		getProduct(8).addPercent(60);
+		getProduct(6).addPercent(100).addMatch("销量冠军");
+		getProduct(7).addPercent(80).addMatch("销量领先");
+		getProduct(8).addPercent(60).addMatch("销量领先");
 		getProduct(9).addPercent(40);
 		getProduct(10).addPercent(20);
 		

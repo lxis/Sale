@@ -9,6 +9,7 @@ import java.util.Date;
 import com.google.gson.Gson;
 import com.sage.sale.R;
 import com.sage.sale.domain.services.categories.Category;
+import com.sage.sale.domain.services.categories.CategoryFactory;
 import com.sage.sale.domain.services.categories.CategoryStorage;
 import com.sage.sale.domain.services.products.Product;
 import com.sage.sale.domain.services.questionnaires.IQuestionnaire;
@@ -21,6 +22,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -33,6 +35,7 @@ import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,6 +61,7 @@ public class QuestionnaireActivity extends Activity {
 			showQuestion();
 		else
 			showResult(testedProduct);
+		((ListView)findViewById(R.id.listViewMatches)).setDivider(null);
 	}
 
 	private void addAnswer(String answer, final int index) {
@@ -224,7 +228,10 @@ public class QuestionnaireActivity extends Activity {
 		findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
 		findViewById(R.id.textViewBack).setOnClickListener(getBackListener());
 		TextView textViewResult = (TextView) findViewById(R.id.textViewResult);
-		((TextView)findViewById(R.id.textViewEvaluation)).setText(result.getEvaluation());
+		
+		((TextView)findViewById(R.id.textViewEvaluation)).setText(Html.fromHtml(result.getEvaluation()));
+		ListView listViewMatches = (ListView)findViewById(R.id.listViewMatches);
+		listViewMatches.setAdapter(new MatchAdapter(result.getMatches(),this,R.layout.questionnaire_match_listitem));		
 		textViewResult.setText(result.getName());
 		showWithAnimation(resultLayout);
 	}

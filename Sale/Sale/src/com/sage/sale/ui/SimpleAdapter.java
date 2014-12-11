@@ -39,7 +39,7 @@ public class SimpleAdapter<T>  extends BaseAdapter {
 		
 		if (data.get(position) == null)
 			return null;
-		if (convertView == null)		
+		//if (convertView == null)		
 			convertView = createView(layoutId,data.get(position));
 		return convertView;
 	}

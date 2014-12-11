@@ -44,10 +44,6 @@ public class CategoryAdapter extends SimpleAdapter<Category> {
 
 			@Override
 			public void onClick(View v) {
-//				if (!((item instanceof MianMo)||(item instanceof HuaZhuangShui))) {
-//					Toast.makeText(context, "¿ª·¢ÖÐ", 3000).show();
-//					return;
-//				}
 				Intent intent = new Intent(context, QuestionnaireActivity.class);
 				String itemJson = new Gson().toJson(new CategorySerializeHelper(item));
 				intent.putExtra("Category", itemJson);

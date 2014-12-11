@@ -1,19 +1,14 @@
 package com.sage.sale.domain.services.products;
 
+import java.util.ArrayList;
+
 public class Product {
 	
 	public Product()
 	{
 		
 	}	
-	
-	public Product(String name,String url,String imageUrl,int id)
-	{
-		this.url = url;
-		this.name = name;
-		this.setImageUrl(imageUrl);
-		this.id = id;
-	}
+
 	
 	public Product(String name,String url,String imageUrl,String evaluation,int id)
 	{
@@ -22,6 +17,9 @@ public class Product {
 		this.setImageUrl(imageUrl);
 		this.id = id;
 		this.setEvaluation(evaluation);
+
+		matches.add(new Match("温和不刺激",8));
+		matches.add(new Match("美白效果强",9));
 	}
 	
 	private String evaluation;
@@ -31,6 +29,24 @@ public class Product {
 	private int imageResourceId;
 	private String imageUrl;
 	private int id;
+	private ArrayList<Match> matches = new ArrayList<Match>();
+	
+	public Product addMatch(String matchText,int score)
+	{
+		matches.add(new Match(matchText, score));
+		return this;
+	}
+	
+	public Product addMatch(String matchText)
+	{
+		matches.add(new Match(matchText));
+		return this;
+	}
+	
+	public ArrayList<Match> getMatches()
+	{
+		return matches;
+	}
 
 	public String getUrl() {
 		return url;
@@ -56,9 +72,10 @@ public class Product {
 		this.percent = percent;
 	}
 	
-	public void addPercent(int percent)
+	public Product addPercent(int percent)
 	{
 		this.percent+=percent;
+		return this;
 	}
 
 	public int getImageResourceId() {
