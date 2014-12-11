@@ -45,7 +45,20 @@ public class Product {
 	
 	public ArrayList<Match> getMatches()
 	{
-		return matches;
+		ArrayList<Match> percentMatches = new ArrayList<Match>();
+		for(Match match:matches)		
+			if(match.getScore() != 0)
+				percentMatches.add(match);
+		return percentMatches;
+	}
+	
+	public ArrayList<Match> getCheckedMatches()
+	{
+		ArrayList<Match> checkedMatches = new ArrayList<Match>();
+		for(Match match:matches)		
+			if(match.getScore() == 0)
+				checkedMatches.add(match);
+		return checkedMatches;		
 	}
 
 	public String getUrl() {

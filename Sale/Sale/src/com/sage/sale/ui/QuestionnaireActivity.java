@@ -231,7 +231,8 @@ public class QuestionnaireActivity extends Activity {
 		
 		((TextView)findViewById(R.id.textViewEvaluation)).setText(Html.fromHtml(result.getEvaluation()));
 		ListView listViewMatches = (ListView)findViewById(R.id.listViewMatches);
-		listViewMatches.setAdapter(new MatchAdapter(result.getMatches(),this,R.layout.questionnaire_match_listitem));		
+		listViewMatches.setAdapter(new MatchAdapter(result.getMatches(),this,R.layout.questionnaire_match_percent_listitem));
+		//listViewMatchesChecked.setAdapter(new MatchCheckedAdapter(result.getCheckedMatches(),this,R.layout.questionnaire_match_percent_listitem));		
 		textViewResult.setText(result.getName());
 		showWithAnimation(resultLayout);
 	}

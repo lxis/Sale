@@ -59,6 +59,14 @@
                     android:textSize="25sp" >
                 </TextView>
                 <ListView
+                    android:id="@+id/listViewMatchesChecked"                    
+                    android:layout_width="match_parent"
+                    android:layout_height="300px"                    
+                    android:layout_marginLeft="100px"
+                    android:layout_marginRight="100px"
+                    android:gravity="left"
+                    ></ListView>
+                <ListView
                     android:id="@+id/listViewMatches"                    
                     android:layout_width="match_parent"
                     android:layout_height="300px"                    
