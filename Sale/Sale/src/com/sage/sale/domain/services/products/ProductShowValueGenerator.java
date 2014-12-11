@@ -1,0 +1,26 @@
+package com.sage.sale.domain.services.products;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class ProductShowValueGenerator {
+	@SuppressWarnings("unchecked")
+	public ArrayList<ProductShowValue> getProductShowValue(ArrayList<ProductValue> productValues)
+	{
+		ArrayList<ProductShowValue> productShowValues = new ArrayList<ProductShowValue>();		
+		Collections.sort(productValues, new SortByValue());
+		double mutipy = (double)1/(double)(productValues.get(0).getValue()); 
+		for(ProductValue productValue:productValues)
+			productShowValues.add(new ProductShowValue(productValue.getText(),productValue.getValue()*mutipy));			
+		return productShowValues;
+	}
+	
+	class SortByValue implements Comparator {
+		 public int compare(Object o1, Object o2) {
+			 ProductValue s1 = (ProductValue) o1;
+			 ProductValue s2 = (ProductValue) o2;
+			 return s2.getValue() - s1.getValue();
+		 }
+	}
+}

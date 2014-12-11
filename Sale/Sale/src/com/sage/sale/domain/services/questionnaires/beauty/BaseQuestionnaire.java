@@ -28,8 +28,8 @@ public abstract class BaseQuestionnaire<T extends BaseProductRepository>   imple
 		CalculateScore();
 		int maxIndex = 0;
 		for (int i = 1; i < productRepository.getProducts().size(); i++) {
-			if (productRepository.getProducts().get(i).getPercent() > productRepository.getProducts().get(maxIndex)
-					.getPercent())
+			if (productRepository.getProducts().get(i).getValue() > productRepository.getProducts().get(maxIndex)
+					.getValue())
 				maxIndex = i;
 		}
 		return productRepository.getProducts().get(maxIndex);		

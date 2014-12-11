@@ -10,7 +10,7 @@ public class XiMianNaiProductRepository extends BaseProductRepository {
 				"资生堂洗颜专科 柔澈泡沫洁面乳",
 				"http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3DpicRogIj6J3ghojqVNxKsQO7rSEMGMPvsMiqaJ97LhaLltG5xFicOdXrTUTgh9sMDPIwxrc30rgx5xFFx04TdSznQSvJ8jguXAYRM2Y%252BniwwzXBeaT5xzlRmtaud%252B0v%252B0B6QeGMsXe%252FVb5j0o418lQ%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_106624709_8422695_28408068",				
 				"http://img.pconline.com.cn/images/upload/upc/tx/lady_cosme/1311/11/zz/66638/66638-5_500x500.jpg",
-				"资生堂Perfect Whip欣颜专科轻柔泡沫洁面乳,有丰富的泡沫，洗后感觉滑爽不紧绷。它还蕴涵天然植物紧肤成分在洁面的同时更能滋润肌肤，令面部肌肤细滑有弹性！ <p>适合各种肌肤的这款洁面产品，无皂质，温和决不刺激。细滑的膏体彻底洗净残余污垢，让肌肤柔滑，避免毛孔阻塞，防止暗疮的产生。 菌类植物提取液，可重建肌肤凌乱的皮脂膜，细腻的圆形颗粒给予肌肤温柔的接触，软化表皮的角质层，有效地将这些角质细胞去掉，内涵温和的柔软因子，可使肌肤变得柔软细致。 增加皮肤透明度，迅速补充水份及紧肤功效，使皮肤紧致，有弹性。 微小的泡沫能深入毛孔,特有吸附成份,深层去除毛孔污垢 同时刺激肌肤细胞活力,增强肌肤弹性及柔软度 在清洁皮肤的同时,能保护肌肤锁水层免受伤害,令肌肤保持滋润细嫩",
+				"资生堂Perfect Whip欣颜专科轻柔泡沫洁面乳,有丰富的泡沫，洗后感觉滑爽不紧绷。它还蕴涵天然植物紧肤成分在洁面的同时更能滋润肌肤，令面部肌肤细滑有弹性！ <p>适合各种肌肤的这款洁面产品，无皂质，温和决不刺激。细滑的膏体彻底洗净残余污垢，让肌肤柔滑，避免毛孔阻塞，防止暗疮的产生。 菌类植物提取液，可重建肌肤凌乱的皮脂膜，细腻的圆形颗粒给予肌肤温柔的接触，软化表皮的角质层，有效地将这些角质细胞去掉，内涵温和的柔软因子，可使肌肤变得柔软细致。 <p>增加皮肤透明度，迅速补充水份及紧肤功效，使皮肤紧致，有弹性。 微小的泡沫能深入毛孔,特有吸附成份,深层去除毛孔污垢 同时刺激肌肤细胞活力,增强肌肤弹性及柔软度 在清洁皮肤的同时,能保护肌肤锁水层免受伤害,令肌肤保持滋润细嫩",
 				17));
 		products.add(new Product(
 				"露得清 深层净化洗面乳）",

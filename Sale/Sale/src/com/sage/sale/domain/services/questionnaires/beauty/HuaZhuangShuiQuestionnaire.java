@@ -25,49 +25,50 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 
 	@Override
 	protected void CalculateScore() {
-		// 本身价值
-		getProduct(6).addPercent(100).addMatch("销量冠军");
-		getProduct(7).addPercent(80).addMatch("销量领先",9);
-		getProduct(8).addPercent(60).addMatch("销量领先",9);
-		getProduct(9).addPercent(40);
-		getProduct(10).addPercent(20);
+		
+		// 本身价值			
+		getProduct(6).addValue(100);
+		getProduct(7).addValue(80);
+		getProduct(8).addValue(60);
+		getProduct(9).addValue(40);
+		getProduct(10).addValue(20);
 
 		if (getAnswer(0) == 0) {
-			getProduct(6).addPercent(100).addMatch("美白", 9);
-			getProduct(9).addPercent(100).addMatch("美白", 9);
+			getProduct(6).addValue(100,"美白");
+			getProduct(9).addValue(100,"美白");
 		}
 
 		switch (getAnswer(1)) {
 		case 0: {
-			getProduct(6).addPercent(-300);
-			getProduct(7).addPercent(-1000);
-			getProduct(8).addPercent(200);
-			getProduct(9).addPercent(-100);
-			getProduct(10).addPercent(-300);
+			getProduct(6).addValue(-300);
+			getProduct(7).addValue(-1000);
+			getProduct(8).addValue(200,"性价比高");
+			getProduct(9).addValue(-100);
+			getProduct(10).addValue(-300);
 			break;
 		}
 		case 1: {
-			getProduct(6).addPercent(100);
-			getProduct(7).addPercent(-300);
-			getProduct(8).addPercent(0);
-			getProduct(9).addPercent(100);
-			getProduct(10).addPercent(100);
+			getProduct(6).addValue(100);
+			getProduct(7).addValue(-300);
+			getProduct(8).addValue(0);
+			getProduct(9).addValue(100);
+			getProduct(10).addValue(100);
 			break;
 		}
 		case 2: {
-			getProduct(6).addPercent(100);
-			getProduct(7).addPercent(-500);
-			getProduct(8).addPercent(100);
-			getProduct(9).addPercent(0);
-			getProduct(10).addPercent(100);
+			getProduct(6).addValue(100);
+			getProduct(7).addValue(-500);
+			getProduct(8).addValue(100);
+			getProduct(9).addValue(0);
+			getProduct(10).addValue(100);
 			break;
 		}
 		case 3: {
-			getProduct(6).addPercent(0);
-			getProduct(7).addPercent(100);
-			getProduct(8).addPercent(0);
-			getProduct(9).addPercent(0);
-			getProduct(10).addPercent(0);
+			getProduct(6).addValue(0);
+			getProduct(7).addValue(100);
+			getProduct(8).addValue(0);
+			getProduct(9).addValue(0);
+			getProduct(10).addValue(0);
 			break;
 		}
 		default:
@@ -75,15 +76,15 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 		}
 
 		if (getAnswer(2) == 0) {
-			getProduct(9).addPercent(-100);
+			getProduct(9).addValue(-100);
 		}
 
 		if (getAnswer(3) == 0) {
-			getProduct(8).addPercent(100).addMatch("温和",10);
+			getProduct(8).addValue(100,"温和");
 		}
 
 		if (getAnswer(4) == 3 || getAnswer(4) == 4) {
-			getProduct(10).addPercent(100).addMatch("抗衰老",9);
+			getProduct(10).addValue(100,"抗衰老");
 		}
 	}
 }

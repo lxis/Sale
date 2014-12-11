@@ -23,25 +23,25 @@ public class Product {
 	private String evaluation;
 	private String url;
 	private String name;
-	private int percent;
+	private int value;
 	private int imageResourceId;
 	private String imageUrl;
 	private int id;
-	private ArrayList<Match> matches = new ArrayList<Match>();
+	private ArrayList<ProductValue> matches = new ArrayList<ProductValue>();
 	
 	public Product addMatch(String matchText,int score)
 	{
-		matches.add(new Match(matchText, score));
+		matches.add(new ProductValue(matchText, score));
 		return this;
 	}
 	
 	public Product addMatch(String matchText)
 	{
-		matches.add(new Match(matchText));
+		matches.add(new ProductValue(matchText));
 		return this;
 	}
 	
-	public ArrayList<Match> getMatches()
+	public ArrayList<ProductValue> getMatches()
 	{
 		return matches;
 	}	
@@ -62,17 +62,26 @@ public class Product {
 		this.name = name;
 	}
 
-	public int getPercent() {
-		return percent;
+	public int getValue() {
+		return value;
 	}
 
-	public void setPercent(int percent) {
-		this.percent = percent;
+	public void setValue(int percent) {
+		this.value = percent;
 	}
 	
-	public Product addPercent(int percent)
+	
+	
+	public Product addValue(int percent)
 	{
-		this.percent+=percent;
+		this.value+=percent;
+		return this;
+	}
+	
+	public Product addValue(int value,String text)
+	{
+		this.value+=value;
+		matches.add(new ProductValue(text, value));
 		return this;
 	}
 

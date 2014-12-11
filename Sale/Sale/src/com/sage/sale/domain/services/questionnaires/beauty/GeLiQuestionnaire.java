@@ -26,61 +26,57 @@ public class GeLiQuestionnaire extends BaseQuestionnaire<GeLiProductRepository> 
 	protected void CalculateScore() {
 		
 		//本身价值
-		getProduct(1).addPercent(100).addMatch("销量冠军");
-		getProduct(2).addPercent(80).addMatch("销量领先",9);
-		getProduct(3).addPercent(60).addMatch("销量领先",9);
-		getProduct(4).addPercent(40);
-		getProduct(5).addPercent(20);
+		getProduct(1).addValue(100);
+		getProduct(2).addValue(80);
+		getProduct(3).addValue(60);
+		getProduct(4).addValue(40);
+		getProduct(5).addValue(20);
 		
 		if(getAnswer(0)==0)
 		{
-			getProduct(0).addMatch("高倍防晒");
-			getProduct(1).addPercent(-500);
-			getProduct(2).addPercent(-500);
-			getProduct(3).addPercent(-500);			
-			getProduct(5).addPercent(-500);
+			getProduct(0).addValue(500,"高倍防晒");
 		}
 		
 		switch (getAnswer(1)) {
 		case 0: {
-			getProduct(1).addPercent(-1000);
-			getProduct(2).addPercent(-500);
-			getProduct(3).addPercent(100);
-			getProduct(4).addPercent(100);
-			getProduct(5).addPercent(-1000);
+			getProduct(1).addValue(-1000);
+			getProduct(2).addValue(-500);
+			getProduct(3).addValue(100,"性价比高");
+			getProduct(4).addValue(100,"性价比高");
+			getProduct(5).addValue(-1000);
 			break;
 		}
 		case 1: {
-			getProduct(1).addPercent(-900);
-			getProduct(2).addPercent(-300);
-			getProduct(3).addPercent(0);
-			getProduct(4).addPercent(0);
-			getProduct(5).addPercent(-900);
+			getProduct(1).addValue(-900);
+			getProduct(2).addValue(-300);
+			getProduct(3).addValue(0);
+			getProduct(4).addValue(0);
+			getProduct(5).addValue(-900);
 			break;
 		}
 		case 2: {
-			getProduct(1).addPercent(-400);
-			getProduct(2).addPercent(100);
-			getProduct(3).addPercent(0);
-			getProduct(4).addPercent(0);
-			getProduct(5).addPercent(-400);
+			getProduct(1).addValue(-400);
+			getProduct(2).addValue(100);
+			getProduct(3).addValue(0);
+			getProduct(4).addValue(0);
+			getProduct(5).addValue(-400);
 			break;
 		}
 		case 3: {
-			getProduct(1).addPercent(100);
-			getProduct(2).addPercent(0);
-			getProduct(3).addPercent(0);
-			getProduct(4).addPercent(0);
-			getProduct(5).addPercent(100);
+			getProduct(1).addValue(100);
+			getProduct(2).addValue(0);
+			getProduct(3).addValue(0);
+			getProduct(4).addValue(0);
+			getProduct(5).addValue(100);
 			break;
 		}
 		default:
 			break;
 		}
 		if (getAnswer(2) == 0) {
-			getProduct(1).addPercent(100).addMatch("清爽不油腻",9);
-			getProduct(2).addPercent(100).addMatch("清爽不油腻",9);
-			getProduct(3).addPercent(100).addMatch("清爽不油腻",9);			
+			getProduct(1).addValue(100,"清爽不油腻");
+			getProduct(2).addValue(100,"清爽不油腻");
+			getProduct(3).addValue(100,"清爽不油腻");			
 		}
 	}
 }

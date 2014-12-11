@@ -28,45 +28,45 @@ public class XiMianNaiQuestionnaire extends BaseQuestionnaire<XiMianNaiProductRe
 	@Override
 	protected void CalculateScore() {
 		//本身价值
-		getProduct(17).addPercent(100).addMatch("销量冠军");
-		getProduct(18).addPercent(80).addMatch("销量领先",9);
-		getProduct(19).addPercent(60).addMatch("销量领先",9);
-		getProduct(20).addPercent(40);
-		getProduct(21).addPercent(20);
+		getProduct(17).addValue(100);
+		getProduct(18).addValue(80);
+		getProduct(19).addValue(60);
+		getProduct(20).addValue(40);
+		getProduct(21).addValue(20);
 		
 		
 		if(getAnswer(0)==0)
 		{
-			getProduct(17).addPercent(100).addMatch("适合油性皮肤");
-			getProduct(18).addPercent(100).addMatch("适合油性皮肤");
+			getProduct(17).addValue(100,"适合油性皮肤");
+			getProduct(18).addValue(100,"适合油性皮肤");
 		}
 		
 		switch (getAnswer(1)) {
 		case 0:
 		{
-			getProduct(17).addPercent(100);
-			getProduct(18).addPercent(100);
-			getProduct(19).addPercent(-100);
-			getProduct(20).addPercent(-300);
-			getProduct(21).addPercent(100);
+			getProduct(17).addValue(100);
+			getProduct(18).addValue(100);
+			getProduct(19).addValue(-100);
+			getProduct(20).addValue(-300);
+			getProduct(21).addValue(100);
 			break;
 		}
 		case 1:
 		{
-			getProduct(17).addPercent(0);
-			getProduct(18).addPercent(0);
-			getProduct(19).addPercent(100);
-			getProduct(20).addPercent(-200);
-			getProduct(21).addPercent(0);
+			getProduct(17).addValue(0);
+			getProduct(18).addValue(0);
+			getProduct(19).addValue(100);
+			getProduct(20).addValue(-200);
+			getProduct(21).addValue(0);
 			break;
 		}
 		case 2:
 		{
-			getProduct(17).addPercent(0);
-			getProduct(18).addPercent(0);
-			getProduct(19).addPercent(0);
-			getProduct(20).addPercent(100);
-			getProduct(21).addPercent(0);
+			getProduct(17).addValue(0);
+			getProduct(18).addValue(0);
+			getProduct(19).addValue(0);
+			getProduct(20).addValue(100);
+			getProduct(21).addValue(0);
 			break;
 		}
 		default:
@@ -75,13 +75,13 @@ public class XiMianNaiQuestionnaire extends BaseQuestionnaire<XiMianNaiProductRe
 		
 		if(getAnswer(2)==0)
 		{
-			getProduct(18).addPercent(-100);
+			getProduct(18).addValue(-100);
 		}
 		
 		if(getAnswer(3)==0)
 		{
-			getProduct(19).addPercent(100).addMatch("温和",10);
-			getProduct(20).addPercent(100).addMatch("温和",10);
+			getProduct(19).addValue(100,"温和");
+			getProduct(20).addValue(100,"温和");
 		}						
 	}
 }

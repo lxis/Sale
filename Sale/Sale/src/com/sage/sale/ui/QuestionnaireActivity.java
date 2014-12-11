@@ -11,7 +11,9 @@ import com.sage.sale.R;
 import com.sage.sale.domain.services.categories.Category;
 import com.sage.sale.domain.services.categories.CategoryFactory;
 import com.sage.sale.domain.services.categories.CategoryStorage;
-import com.sage.sale.domain.services.products.Match;
+import com.sage.sale.domain.services.products.ProductShowValue;
+import com.sage.sale.domain.services.products.ProductShowValueGenerator;
+import com.sage.sale.domain.services.products.ProductValue;
 import com.sage.sale.domain.services.products.Product;
 import com.sage.sale.domain.services.questionnaires.IQuestionnaire;
 import com.sage.sale.domain.services.questionnaires.Question;
@@ -236,7 +238,8 @@ public class QuestionnaireActivity extends Activity {
 		((TextView) findViewById(R.id.textViewEvaluation)).setText(Html.fromHtml(result.getEvaluation()));
 		LinearLayout listViewMatches = (LinearLayout) findViewById(R.id.listViewMatches);
 		listViewMatches.removeAllViews();
-		for (Match match : result.getMatches()) {
+		ArrayList<ProductShowValue> productShowValues = new ProductShowValueGenerator().getProductShowValue( result.getMatches());
+		for (ProductShowValue match : productShowValues) {
 			View matchView = createPercentMatchView(match);
 			listViewMatches.addView(matchView);
 		}
@@ -317,19 +320,17 @@ public class QuestionnaireActivity extends Activity {
 		return findViewById(R.id.questionLayout).getVisibility() == View.VISIBLE;
 	}
 
-	private View createPercentMatchView(Match item) {
+	private View createPercentMatchView(ProductShowValue item) {
 		View view = LayoutInflater.from(this).inflate(R.layout.questionnaire_match_listitem, null);
 
 		TextView textViewCategory = (TextView) view.findViewById(R.id.textViewMatchText);
 		textViewCategory.setText(item.getText());
 		ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBarMatch);
-
-		progressBar.setMax(10);
-		int score = item.getScore();
-		if (score != 0)
-			progressBar.setProgress(score);
-		else
-			progressBar.setProgress(10);
+		progressBar.setMax(100);		
+		progressBar.setProgress(100);
+		LayoutParams params = progressBar.getLayoutParams();
+		params.width =(int)(((double)params.width)*((double)item.getValue()));
+		progressBar.setLayoutParams(params);
 		return view;
 	}
 

@@ -26,7 +26,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100px"
+                android:layout_marginTop="50px"
                 android:orientation="vertical" >
 
                 <TextView
@@ -59,6 +59,20 @@
                     android:textColor="@color/plaint_text_color"
                     android:textSize="25sp" >
                 </TextView>
+                
+                <TextView
+                    android:id="@+id/textViewResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="100px"
+                    android:layout_marginLeft="100px"
+                    android:layout_marginRight="100px"
+                    android:textColor="@color/plaint_text_color"
+                    android:textSize="22sp"
+                    android:text="你们的缘分" 
+                    >
+                </TextView>
 
                 <LinearLayout
                     android:id="@+id/listViewMatches"
@@ -80,6 +94,7 @@
                     android:textColor="@color/plaint_text_color"
                     android:textSize="20sp" />
 
+                
                 <TextView
                     android:id="@+id/textViewEvaluation"
                     android:layout_width="wrap_content"
@@ -97,7 +112,8 @@
             android:id="@+id/linearLayoutResultButtons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50px"
+            android:layout_marginTop="30px"
+            android:layout_marginBottom="20px"
             android:orientation="horizontal" >
 
             <TextView

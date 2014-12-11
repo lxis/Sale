@@ -27,43 +27,43 @@ public class MianMoQuestionnaire extends BaseQuestionnaire<MianMoProductReposito
 	protected void CalculateScore() {
 		
 		//本身价值
-		getProduct(11).addPercent(100).addMatch("销量冠军");
-		getProduct(12).addPercent(80).addMatch("销量领先",9);
-		getProduct(13).addPercent(60).addMatch("销量领先",9);
-		getProduct(14).addPercent(40);
-		getProduct(15).addPercent(20);
+		getProduct(11).addValue(100);
+		getProduct(12).addValue(80);
+		getProduct(13).addValue(60);
+		getProduct(14).addValue(40);
+		getProduct(15).addValue(20);
 		
 		switch (getAnswer(0)) {
 		case 0: {
-			getProduct(11).addPercent(100);
-			getProduct(12).addPercent(-200);
-			getProduct(13).addPercent(-1000);
-			getProduct(14).addPercent(-200);
-			getProduct(15).addPercent(-500);
+			getProduct(11).addValue(100);
+			getProduct(12).addValue(-200);
+			getProduct(13).addValue(-1000);
+			getProduct(14).addValue(-200);
+			getProduct(15).addValue(-500);
 			break;
 		}
 		case 1: {
-			getProduct(11).addPercent(0);
-			getProduct(12).addPercent(100);
-			getProduct(13).addPercent(-750);
-			getProduct(14).addPercent(100);
-			getProduct(15).addPercent(-100);
+			getProduct(11).addValue(0);
+			getProduct(12).addValue(100);
+			getProduct(13).addValue(-750);
+			getProduct(14).addValue(100);
+			getProduct(15).addValue(-100);
 			break;
 		}
 		case 2: {
-			getProduct(11).addPercent(0);
-			getProduct(12).addPercent(0);
-			getProduct(13).addPercent(-500);
-			getProduct(14).addPercent(0);
-			getProduct(15).addPercent(100);
+			getProduct(11).addValue(0);
+			getProduct(12).addValue(0);
+			getProduct(13).addValue(-500);
+			getProduct(14).addValue(0);
+			getProduct(15).addValue(100);
 			break;
 		}
 		case 3: {
-			getProduct(11).addPercent(0);
-			getProduct(12).addPercent(0);
-			getProduct(13).addPercent(100);
-			getProduct(14).addPercent(0);
-			getProduct(15).addPercent(0);
+			getProduct(11).addValue(0);
+			getProduct(12).addValue(0);
+			getProduct(13).addValue(100);
+			getProduct(14).addValue(0);
+			getProduct(15).addValue(0);
 			break;
 		}
 		default:
@@ -72,29 +72,29 @@ public class MianMoQuestionnaire extends BaseQuestionnaire<MianMoProductReposito
 		
 		if(getAnswer(1)==0)
 		{
-			getProduct(12).addPercent(-100);
+			getProduct(12).addValue(-100);
 		}
 		
 		if(getAnswer(2)==0)
 		{
-			getProduct(11).addPercent(-100);
+			getProduct(11).addValue(-100);
 		}
 		
 		switch (getAnswer(3)) {
 		case 0:
 		case 1:
 		{
-			getProduct(13).addPercent(100).addMatch("温和",10);
-			getProduct(15).addPercent(100).addMatch("温和",10);
+			getProduct(13).addValue(100,"温和");
+			getProduct(15).addValue(100,"温和");
 			
 			break;
 		}
 		case 2:
 		case 3:
 		{
-			getProduct(11).addPercent(100).addMatch("抗衰老");
-			getProduct(12).addPercent(100).addMatch("抗衰老");
-			getProduct(14).addPercent(100).addMatch("抗衰老");
+			getProduct(11).addValue(100,"抗衰老");
+			getProduct(12).addValue(100,"抗衰老");
+			getProduct(14).addValue(100,"抗衰老");
 			break;
 		}
 		default:
