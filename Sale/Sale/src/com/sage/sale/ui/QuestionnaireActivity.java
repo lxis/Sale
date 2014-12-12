@@ -327,10 +327,10 @@ public class QuestionnaireActivity extends Activity {
 		textViewCategory.setText(item.getText());
 		ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBarMatch);
 		progressBar.setMax(100);		
-		progressBar.setProgress(100);
-		LayoutParams params = progressBar.getLayoutParams();
-		params.width =(int)(((double)params.width)*((double)item.getValue()));
-		progressBar.setLayoutParams(params);
+		progressBar.setProgress((int)(item.getValue()*100));
+		//LayoutParams params = progressBar.getLayoutParams();
+		//params.width =(int)(((double)params.width)*((double)item.getValue()));
+		//progressBar.setLayoutParams(params);
 		return view;
 	}
 

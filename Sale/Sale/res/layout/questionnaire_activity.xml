@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@drawable/background5"
     android:orientation="vertical"
     tools:context="com.sage.sale.ui.QuestionnaireActivity"
     tools:ignore="MergeRootFrame" >
@@ -20,37 +20,37 @@
             android:id="@+id/scrollViewResult"
             android:layout_width="match_parent"
             android:layout_height="0px"
+            android:layout_marginLeft="50px"
+            android:layout_marginRight="50px"
             android:layout_weight="1" >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50px"
                 android:orientation="vertical" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#ffffff" >
+                    android:layout_height="wrap_content" 
+                        android:layout_marginTop="50px"
+                        android:layout_marginBottom="50px">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_margin="20px"
                         android:text="推荐你购买"
-                        android:textColor="@color/button_text_color"
-                        android:textSize="22sp" >
+                        android:textColor="@color/plaint_text_color"
+                        android:textSize="20sp" 
+                        >
                     </TextView>
                 </LinearLayout>
 
                 <ImageView
                     android:id="@+id/imageViewResult"
-                    android:layout_width="1080px"
-                    android:layout_height="1080px"
+                    android:layout_width="800px"
+                    android:layout_height="800px"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="50px"
-                    android:layout_marginTop="50px"
                     android:scaleType="matrix" >
                 </ImageView>
 
@@ -59,28 +59,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="100px"
+                    android:layout_marginBottom="50px"
                     android:layout_marginLeft="100px"
                     android:layout_marginRight="100px"
+                    android:layout_marginTop="50px"
                     android:textColor="@color/plaint_text_color"
-                    android:textSize="25sp" >
+                    android:textSize="22sp" >
                 </TextView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#ffffff" >
+                    android:layout_height="1px"
+                    android:background="#88ffffff" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"             
+                        android:layout_marginTop="50px"
+                        android:layout_marginBottom="50px">
 
                     <TextView
                         android:id="@+id/textViewResult"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_margin="20px"
-                        android:background="#ffffff"
                         android:text="你们的缘分"
-                        android:textColor="@color/button_text_color"
-                        android:textSize="22sp" >
+                        android:textColor="@color/plaint_text_color"
+                        android:textSize="20sp"             
+                        >
                     </TextView>
                 </LinearLayout>
 
@@ -88,8 +95,6 @@
                     android:id="@+id/listViewMatches"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="100px"
-                    android:layout_marginRight="100px"
                     android:orientation="vertical" >
                 </LinearLayout>
 
@@ -103,12 +108,34 @@
                     android:textColor="@color/plaint_text_color"
                     android:textSize="20sp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#88ffffff" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"            
+                        android:layout_marginTop="50px"
+                        android:layout_marginBottom="50px">
+
+                    <TextView
+                        android:id="@+id/textViewResult"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="人气的口碑"
+                        android:textColor="@color/plaint_text_color"
+                        android:textSize="20sp"              
+                        >
+                    </TextView>
+                </LinearLayout>
+
                 <TextView
                     android:id="@+id/textViewEvaluation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="100px"
-                    android:layout_marginRight="100px"
                     android:gravity="center_vertical"
                     android:lineSpacingMultiplier="1.2"
                     android:textColor="@color/plaint_text_color"

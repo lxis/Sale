@@ -998,9 +998,10 @@ containing a value of this type.
         public static final int categories_mian_shuang=0x7f02005f;
         public static final int categories_xi_mian_nai=0x7f020060;
         public static final int categories_yan_shuang=0x7f020061;
-        public static final int ic_launcher=0x7f020062;
-        public static final int progress_bar=0x7f020063;
-        public static final int progress_bar_result_value=0x7f020064;
+        public static final int foreground=0x7f020062;
+        public static final int ic_launcher=0x7f020063;
+        public static final int progress_bar=0x7f020064;
+        public static final int progress_bar_result_value=0x7f020065;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
