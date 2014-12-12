@@ -220,7 +220,7 @@ public class QuestionnaireActivity extends Activity {
 
 				@Override
 				protected void onPostExecute(Drawable resultPic) {
-					imageViewResult.setImageDrawable(resultPic);
+					imageViewResult.setBackground(resultPic);
 					imageViewResult.setVisibility(View.VISIBLE);
 					showWithAnimation(imageViewResult);
 

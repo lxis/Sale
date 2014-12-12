@@ -105,33 +105,33 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 
 		switch (getAnswer(5)) {
 		case 0: {
-			getProduct(7).addValue(400 * 0.75 * 0 * ps, "¿¹Ë¥ÀÏ");
-			getProduct(8).addValue(400 * 0.5 * 0 * ps, "¿¹Ë¥ÀÏ");
-			getProduct(10).addValue(400 * 0.5 * 0 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(7).addValue(300 * 0.75 * 0 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(8).addValue(300 * 0.5 * 0 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(10).addValue(300 * 0.5 * 0 * ps, "¿¹Ë¥ÀÏ");
 			break;
 		}
 		case 1: {
-			getProduct(7).addValue(400 * 0.75 * 0.25 * ps, "¿¹Ë¥ÀÏ");
-			getProduct(8).addValue(400 * 0.5 * 0.25 * ps, "¿¹Ë¥ÀÏ");
-			getProduct(10).addValue(400 * 0.5 * 0.25 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(7).addValue(300 * 0.75 * 0.25 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(8).addValue(300 * 0.5 * 0.25 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(10).addValue(300 * 0.5 * 0.25 * ps, "¿¹Ë¥ÀÏ");
 			break;
 		}
 		case 2: {
-			getProduct(7).addValue(400 * 0.75 * 0.5 * ps, "¿¹Ë¥ÀÏ");
-			getProduct(8).addValue(400 * 0.5 * 0.5 * ps, "¿¹Ë¥ÀÏ");
-			getProduct(10).addValue(400 * 0.5 * 0.5 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(7).addValue(300 * 0.75 * 0.5 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(8).addValue(300 * 0.5 * 0.5 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(10).addValue(300 * 0.5 * 0.5 * ps, "¿¹Ë¥ÀÏ");
 			break;
 		}
 		case 3: {
-			getProduct(7).addValue(400 * 0.75 * 0.75 * ps, "¿¹Ë¥ÀÏ");
-			getProduct(8).addValue(400 * 0.5 * 0.75 * ps, "¿¹Ë¥ÀÏ");
-			getProduct(10).addValue(400 * 0.5 * 0.75 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(7).addValue(300 * 0.75 * 0.75 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(8).addValue(300 * 0.5 * 0.75 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(10).addValue(300 * 0.5 * 0.75 * ps, "¿¹Ë¥ÀÏ");
 			break;
 		}
 		case 4: {
-			getProduct(7).addValue(400 * 0.75 * 1 * ps, "¿¹Ë¥ÀÏ");
-			getProduct(8).addValue(400 * 0.5 * 1 * ps, "¿¹Ë¥ÀÏ");
-			getProduct(10).addValue(400 * 0.5 * 1 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(7).addValue(300 * 0.75 * 1 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(8).addValue(300 * 0.5 * 1 * ps, "¿¹Ë¥ÀÏ");
+			getProduct(10).addValue(300 * 0.5 * 1 * ps, "¿¹Ë¥ÀÏ");
 			break;
 		}
 		default:

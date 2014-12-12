@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import com.google.gson.internal.Primitives;
+
 import android.util.Log;
 
 public class ProductShowValueGenerator {
@@ -18,6 +20,9 @@ public class ProductShowValueGenerator {
 			if(productValue.getValue()!=0)
 			{
 				ProductShowValue productShowValue = new ProductShowValue(productValue.getText(),productValue.getValue()*mutipy);
+				//≤Óæ‡»ıªØ
+				productShowValue.setValue(((double)1 -((double)1-productShowValue.getValue())/2));
+				
 				productShowValues.add(productShowValue);
 				Log.i("", productValue.getText()+":"+productValue.getValue());
 			}
