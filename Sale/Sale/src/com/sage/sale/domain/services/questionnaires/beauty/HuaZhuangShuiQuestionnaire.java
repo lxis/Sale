@@ -16,75 +16,126 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 	// "雅诗兰黛 全新鲜亮焕采精粹水（清爽型）",10 360
 
 	protected void GenerateQuestionnaire() {
-		lists.add(new Question().setQuestion("美白功能是否特别重要？").addAnswer("非常重要").addAnswer("一般重要"));
-		lists.add(new Question().setQuestion("预算有多少（规格按150ML计算）？").addAnswer("200以内").addAnswer("200-400").addAnswer("400-800").addAnswer("800以上"));
-		lists.add(new Question().setQuestion("是不是特别看重使用时舒服？").addAnswer("必须舒服").addAnswer("有功效就行"));
-		lists.add(new Question().setQuestion("是否容易过敏？").addAnswer("很敏感").addAnswer("不敏感"));
+		lists.add(new Question().setQuestion("看重保湿还是美白？").addAnswer("保湿").addAnswer("美白"));
+		lists.add(new Question().setQuestion("是否油性皮肤？").addAnswer("油性").addAnswer("非油性"));
+		lists.add(new Question().setQuestion("月收入多少？").addAnswer("4000以内").addAnswer("4000-8000").addAnswer("8000-16000").addAnswer("16000-32000").addAnswer("32000以上"));
+		lists.add(new Question().setQuestion("是否敏感肤质？").addAnswer("很敏感").addAnswer("不敏感"));
+		lists.add(new Question().setQuestion("是否介意酒精味？").addAnswer("介意").addAnswer("不介意"));
 		lists.add(new Question().setQuestion("年龄是？").addAnswer("小于20").addAnswer("21-25").addAnswer("26-30").addAnswer("31-40").addAnswer("41以上"));
 	}
 
 	@Override
 	protected void CalculateScore() {
-		
-		// 本身价值			
+
+		// 基本功能价值
+		getProduct(6).addValue(100);
+		getProduct(7).addValue(100);
+		getProduct(8).addValue(100);
+		getProduct(9).addValue(100);
+		getProduct(10).addValue(100);
+
+		// 去除价格
+		getProduct(6).addValue(-340);
+		getProduct(7).addValue(-1040);
+		getProduct(8).addValue(-125);
+		getProduct(9).addValue(-285);
+		getProduct(10).addValue(-360);
+
+		// 本身价值
 		getProduct(6).addValue(100);
 		getProduct(7).addValue(80);
 		getProduct(8).addValue(60);
 		getProduct(9).addValue(40);
 		getProduct(10).addValue(20);
 
-		if (getAnswer(0) == 0) {
-			getProduct(6).addValue(100,"美白");
-			getProduct(9).addValue(100,"美白");
-		}
-
-		switch (getAnswer(1)) {
-		case 0: {
-			getProduct(6).addValue(-300);
-			getProduct(7).addValue(-1000);
-			getProduct(8).addValue(200,"性价比高");
-			getProduct(9).addValue(-100);
-			getProduct(10).addValue(-300);
+		double ps = 1;// priceSensitive
+		switch (getAnswer(2)) {
+		case 0:
+			ps = 0.5;
 			break;
-		}
-		case 1: {
-			getProduct(6).addValue(100);
-			getProduct(7).addValue(-300);
-			getProduct(8).addValue(0);
-			getProduct(9).addValue(100);
-			getProduct(10).addValue(100);
+		case 1:
+			ps = 1;
 			break;
-		}
-		case 2: {
-			getProduct(6).addValue(100);
-			getProduct(7).addValue(-500);
-			getProduct(8).addValue(100);
-			getProduct(9).addValue(0);
-			getProduct(10).addValue(100);
+		case 2:
+			ps = 2;
 			break;
-		}
-		case 3: {
-			getProduct(6).addValue(0);
-			getProduct(7).addValue(100);
-			getProduct(8).addValue(0);
-			getProduct(9).addValue(0);
-			getProduct(10).addValue(0);
+		case 3:
+			ps = 3;
 			break;
-		}
+		case 4:
+			ps = 4;
+			break;
 		default:
 			break;
 		}
 
-		if (getAnswer(2) == 0) {
-			getProduct(9).addValue(-100);
+		if (getAnswer(0) == 0) {
+			getProduct(6).addValue(200 * 0.75 * 0.5 * ps, "美白").addValue(200 * 0.5 * 1 * ps, "保湿");
+			getProduct(9).addValue(200 * 1 * 0.5 * ps, "美白").addValue(200 * 0.5 * 1 * ps, "保湿");
+			getProduct(10).addValue(200 * 1 * 1 * ps, "保湿");
+		} else {
+			getProduct(6).addValue(200 * 0.75 * 1 * ps, "美白").addValue(200 * 0.5 * 0.5 * ps, "保湿");
+			getProduct(9).addValue(200 * 1 * 1 * ps, "美白").addValue(200 * 0.5 * 0.5 * ps, "保湿");
+			getProduct(10).addValue(200 * 1 * 0.5 * ps, "保湿");
+		}
+
+		if (getAnswer(1) == 0) {
+			getProduct(6).addValue(100 * 0.5 * ps, "水油平衡");
+			getProduct(7).addValue(100 * ps, "水油平衡");
+			getProduct(8).addValue(100 * ps, "水油平衡");
+			getProduct(9).addValue(100 * 0.25 * ps, "水油平衡");
+			getProduct(10).addValue(100 * ps, "水油平衡");
 		}
 
 		if (getAnswer(3) == 0) {
-			getProduct(8).addValue(100,"温和");
+			getProduct(7).addValue(300 * 1 * 1 * ps, "温和不刺激");
+			getProduct(8).addValue(300 * 1 * 1 * ps, "温和不刺激");
+		} else {
+			getProduct(7).addValue(300 * 0.3 * 1 * ps, "温和不刺激");
+			getProduct(8).addValue(300 * 0.3 * 1 * ps, "温和不刺激");
+
+			getProduct(6).addValue(100 * 0.5 * 1 * ps, "软化角质");
+			getProduct(7).addValue(100 * 1 * 1 * ps, "软化角质");
+			getProduct(9).addValue(100 * 0.25 * 1 * ps, "软化角质");
 		}
 
-		if (getAnswer(4) == 3 || getAnswer(4) == 4) {
-			getProduct(10).addValue(100,"抗衰老");
+		if (getAnswer(4) == 0) {
+			getProduct(9).addValue(-200);
+		}
+
+		switch (getAnswer(5)) {
+		case 0: {
+			getProduct(7).addValue(400 * 0.75 * 0 * ps, "抗衰老");
+			getProduct(8).addValue(400 * 0.5 * 0 * ps, "抗衰老");
+			getProduct(10).addValue(400 * 0.5 * 0 * ps, "抗衰老");
+			break;
+		}
+		case 1: {
+			getProduct(7).addValue(400 * 0.75 * 0.25 * ps, "抗衰老");
+			getProduct(8).addValue(400 * 0.5 * 0.25 * ps, "抗衰老");
+			getProduct(10).addValue(400 * 0.5 * 0.25 * ps, "抗衰老");
+			break;
+		}
+		case 2: {
+			getProduct(7).addValue(400 * 0.75 * 0.5 * ps, "抗衰老");
+			getProduct(8).addValue(400 * 0.5 * 0.5 * ps, "抗衰老");
+			getProduct(10).addValue(400 * 0.5 * 0.5 * ps, "抗衰老");
+			break;
+		}
+		case 3: {
+			getProduct(7).addValue(400 * 0.75 * 0.75 * ps, "抗衰老");
+			getProduct(8).addValue(400 * 0.5 * 0.75 * ps, "抗衰老");
+			getProduct(10).addValue(400 * 0.5 * 0.75 * ps, "抗衰老");
+			break;
+		}
+		case 4: {
+			getProduct(7).addValue(400 * 0.75 * 1 * ps, "抗衰老");
+			getProduct(8).addValue(400 * 0.5 * 1 * ps, "抗衰老");
+			getProduct(10).addValue(400 * 0.5 * 1 * ps, "抗衰老");
+			break;
+		}
+		default:
+			break;
 		}
 	}
 }

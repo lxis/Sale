@@ -78,10 +78,10 @@ public class Product {
 		return this;
 	}
 	
-	public Product addValue(int value,String text)
+	public Product addValue(double value,String text)
 	{
 		this.value+=value;
-		matches.add(new ProductValue(text, value));
+		matches.add(new ProductValue(text, (int)value));
 		return this;
 	}
 

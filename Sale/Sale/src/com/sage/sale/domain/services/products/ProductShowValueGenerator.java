@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import android.util.Log;
+
 public class ProductShowValueGenerator {
 	@SuppressWarnings("unchecked")
 	public ArrayList<ProductShowValue> getProductShowValue(ArrayList<ProductValue> productValues)
@@ -12,7 +14,14 @@ public class ProductShowValueGenerator {
 		Collections.sort(productValues, new SortByValue());
 		double mutipy = (double)1/(double)(productValues.get(0).getValue()); 
 		for(ProductValue productValue:productValues)
-			productShowValues.add(new ProductShowValue(productValue.getText(),productValue.getValue()*mutipy));			
+		{
+			if(productValue.getValue()!=0)
+			{
+				ProductShowValue productShowValue = new ProductShowValue(productValue.getText(),productValue.getValue()*mutipy);
+				productShowValues.add(productShowValue);
+				Log.i("", productValue.getText()+":"+productValue.getValue());
+			}
+		}
 		return productShowValues;
 	}
 	
