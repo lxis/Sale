@@ -34,7 +34,7 @@ public class GeLiQuestionnaire extends BaseQuestionnaire<GeLiProductRepository> 
 		
 		if(getAnswer(0)==0)
 		{
-			getProduct(0).addValue(500,"∏ﬂ±∂∑¿…π");
+			getProduct(4).addValue(500,"∏ﬂ±∂∑¿…π");
 		}
 		
 		switch (getAnswer(1)) {
