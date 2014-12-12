@@ -20,14 +20,14 @@
             android:id="@+id/scrollViewResult"
             android:layout_width="match_parent"
             android:layout_height="0px"
-            android:layout_marginLeft="50px"
-            android:layout_marginRight="50px"
             android:layout_weight="1"
             android:scrollbars="vertical" >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="50px"
+                android:layout_marginRight="50px"
                 android:orientation="vertical" >
 
                 <LinearLayout
@@ -48,9 +48,9 @@
 
                 <ImageView
                     android:id="@+id/imageViewResult"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="800px"
-                    android:layout_height="800px" >
+                    android:layout_width="600px"
+                    android:layout_height="600px"
+                    android:layout_gravity="center_horizontal" >
                 </ImageView>
 
                 <TextView
@@ -95,36 +95,37 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical" >
                 </LinearLayout>
+
                 <LinearLayout
-                    android:layout_marginTop="50px" 
                     android:layout_width="match_parent"
                     android:layout_height="1px"
+                    android:layout_marginTop="50px"
                     android:background="#88ffffff" >
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/textViewMatches"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:textColor="@color/plaint_text_color"
-                    android:textSize="20sp" 
                     android:layout_marginBottom="50px"
-                    android:layout_marginTop="50px" 
+                    android:layout_marginTop="50px"
+                    android:gravity="left"
                     android:text="你们的缘分"
-                    />
-                <TextView 
-                    android:id="@+id/textViewResultPercent"                    
+                    android:textColor="@color/plaint_text_color"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewResultPercent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/plaint_text_color"
-                    android:textSize="30sp"
-                    />
+                    android:textSize="30sp" />
 
                 <LinearLayout
-                    android:layout_marginTop="50px" 
                     android:layout_width="match_parent"
                     android:layout_height="1px"
+                    android:layout_marginTop="50px"
                     android:background="#88ffffff" >
                 </LinearLayout>
 
