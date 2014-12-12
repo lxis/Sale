@@ -40,7 +40,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="推荐你选择"
+                        android:text="推荐选择"
                         android:textColor="@color/plaint_text_color"
                         android:textSize="20sp" >
                     </TextView>
@@ -83,7 +83,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="般配的条件"
+                        android:text="美丽缘分"
                         android:textColor="@color/plaint_text_color"
                         android:textSize="20sp" >
                     </TextView>
@@ -110,7 +110,7 @@
                     android:layout_marginBottom="50px"
                     android:layout_marginTop="50px"
                     android:gravity="left"
-                    android:text="你们的缘分"
+                    android:text="超值指数"
                     android:textColor="@color/plaint_text_color"
                     android:textSize="20sp" />
 
@@ -140,7 +140,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="人气的口碑"
+                        android:text="人气口碑"
                         android:textColor="@color/plaint_text_color"
                         android:textSize="20sp" >
                     </TextView>
