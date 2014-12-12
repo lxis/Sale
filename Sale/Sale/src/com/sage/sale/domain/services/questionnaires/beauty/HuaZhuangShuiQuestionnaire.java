@@ -35,11 +35,11 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 		getProduct(10).addValue(100);
 
 		// 去除价格
-		getProduct(6).addValue(-340);
-		getProduct(7).addValue(-1040);
-		getProduct(8).addValue(-125);
-		getProduct(9).addValue(-285);
-		getProduct(10).addValue(-360);
+		getProduct(6).setPrice(340);
+		getProduct(7).setPrice(1040);
+		getProduct(8).setPrice(125);
+		getProduct(9).setPrice(285);
+		getProduct(10).setPrice(360);
 
 		// 本身价值
 		getProduct(6).addValue(100);

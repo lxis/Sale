@@ -22,7 +22,8 @@
             android:layout_height="0px"
             android:layout_marginLeft="50px"
             android:layout_marginRight="50px"
-            android:layout_weight="1" >
+            android:layout_weight="1"
+            android:scrollbars="vertical" >
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -31,27 +32,25 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" 
-                        android:layout_marginTop="50px"
-                        android:layout_marginBottom="50px">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="50px"
+                    android:layout_marginTop="50px" >
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="推荐你购买"
+                        android:text="推荐你选择"
                         android:textColor="@color/plaint_text_color"
-                        android:textSize="20sp" 
-                        >
+                        android:textSize="20sp" >
                     </TextView>
                 </LinearLayout>
 
                 <ImageView
                     android:id="@+id/imageViewResult"
+                    android:layout_gravity="center_horizontal"
                     android:layout_width="800px"
-                    android:layout_height="800px"
-                    android:layout_gravity="center"
-                    android:scaleType="matrix" >
+                    android:layout_height="800px" >
                 </ImageView>
 
                 <TextView
@@ -75,19 +74,18 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"             
-                        android:layout_marginTop="50px"
-                        android:layout_marginBottom="50px">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="50px"
+                    android:layout_marginTop="50px" >
 
                     <TextView
                         android:id="@+id/textViewResult"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="你们的缘分"
+                        android:text="般配的条件"
                         android:textColor="@color/plaint_text_color"
-                        android:textSize="20sp"             
-                        >
+                        android:textSize="20sp" >
                     </TextView>
                 </LinearLayout>
 
@@ -97,18 +95,34 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical" >
                 </LinearLayout>
-
+                <LinearLayout
+                    android:layout_marginTop="50px" 
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#88ffffff" >
+                </LinearLayout>
                 <TextView
                     android:id="@+id/textViewMatches"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="100px"
-                    android:layout_marginRight="100px"
                     android:gravity="left"
                     android:textColor="@color/plaint_text_color"
-                    android:textSize="20sp" />
+                    android:textSize="20sp" 
+                    android:layout_marginBottom="50px"
+                    android:layout_marginTop="50px" 
+                    android:text="你们的缘分"
+                    />
+                <TextView 
+                    android:id="@+id/textViewResultPercent"                    
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/plaint_text_color"
+                    android:textSize="30sp"
+                    />
 
                 <LinearLayout
+                    android:layout_marginTop="50px" 
                     android:layout_width="match_parent"
                     android:layout_height="1px"
                     android:background="#88ffffff" >
@@ -116,9 +130,9 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"            
-                        android:layout_marginTop="50px"
-                        android:layout_marginBottom="50px">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="50px"
+                    android:layout_marginTop="50px" >
 
                     <TextView
                         android:id="@+id/textViewResult"
@@ -127,8 +141,7 @@
                         android:layout_gravity="center"
                         android:text="人气的口碑"
                         android:textColor="@color/plaint_text_color"
-                        android:textSize="20sp"              
-                        >
+                        android:textSize="20sp" >
                     </TextView>
                 </LinearLayout>
 

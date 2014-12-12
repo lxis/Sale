@@ -24,10 +24,13 @@ public class Product {
 	private String url;
 	private String name;
 	private int value;
+	private int price;
 	private int imageResourceId;
 	private String imageUrl;
 	private int id;
 	private ArrayList<ProductValue> matches = new ArrayList<ProductValue>();
+	
+	
 	
 	public Product addMatch(String matchText,int score)
 	{
@@ -66,15 +69,15 @@ public class Product {
 		return value;
 	}
 
-	public void setValue(int percent) {
-		this.value = percent;
+	public void setValue(int value) {
+		this.value = value;
 	}
 	
 	
 	
-	public Product addValue(int percent)
+	public Product addValue(int value)
 	{
-		this.value+=percent;
+		this.value+=value;
 		return this;
 	}
 	
@@ -115,5 +118,16 @@ public class Product {
 
 	public void setEvaluation(String evaluation) {
 		this.evaluation = evaluation;
+	}
+
+
+	public int getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(int price) {
+		this.price = price;
+		addValue(- price);
 	}
 }

@@ -245,6 +245,10 @@ public class QuestionnaireActivity extends Activity {
 		}
 
 		textViewResult.setText(result.getName());
+		
+		
+		double resultPercent = ((double)result.getValue()/(double)result.getPrice());
+		((TextView)findViewById(R.id.textViewResultPercent)).setText((int)(resultPercent*100)+"%");
 		showWithAnimation(resultLayout);
 	}
 
