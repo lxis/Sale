@@ -2,31 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal" >
-
-    <TextView
-        android:id="@+id/textViewMatchText"
-        android:layout_width="0px"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:gravity="center_vertical|left"
-        android:textColor="@color/plaint_text_color"
-        android:textSize="18sp" />
+    android:orientation="vertical" >
 
     <LinearLayout
-        android:layout_width="500px"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:gravity="center_vertical|left" >
+        android:layout_marginBottom="20px"
+        android:orientation="horizontal" >
 
-        <ProgressBar
-            android:id="@+id/progressBarMatch"
-            style="?android:attr/progressBarStyleHorizontal"
+        <TextView
+            android:id="@+id/textViewMatchText"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center_vertical|left"
+            android:textColor="@color/plaint_text_color"
+            android:textSize="18sp" />
+
+        <LinearLayout
             android:layout_width="500px"
-            android:layout_height="20px"
-            android:layout_gravity="center_vertical|left"                        
-            android:progressDrawable="@drawable/progress_bar_result_value" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical|left" >
+
+
+        </LinearLayout>
     </LinearLayout>
+            <ProgressBar
+                android:id="@+id/progressBarMatch"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="500px"
+                android:layout_height="20px"
+                android:layout_gravity="center_vertical|left"
+                android:progressDrawable="@drawable/progress_bar_result_value" 
+                android:layout_marginBottom="20px"
+                />
+    <TextView
+        android:id="@+id/textViewMatchDescrption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50px"
+        android:textColor="@color/plaint_text_color"
+        android:textSize="16sp" />
 
 </LinearLayout>

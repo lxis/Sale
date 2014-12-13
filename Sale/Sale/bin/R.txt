@@ -258,7 +258,7 @@ int id action_context_bar 0x7f05001d
 int id action_menu_divider 0x7f050016
 int id action_menu_presenter 0x7f050017
 int id action_mode_close_button 0x7f050024
-int id action_settings 0x7f050053
+int id action_settings 0x7f050054
 int id activity_chooser_view_content 0x7f050025
 int id always 0x7f05000b
 int id answerLayout 0x7f05004f
@@ -320,6 +320,7 @@ int id textViewBack 0x7f05004b
 int id textViewBuy 0x7f050049
 int id textViewCategory 0x7f05003e
 int id textViewEvaluation 0x7f050047
+int id textViewMatchDescrption 0x7f050053
 int id textViewMatchText 0x7f050051
 int id textViewMatches 0x7f050045
 int id textViewQuestion 0x7f05004e

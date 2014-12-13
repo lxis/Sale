@@ -248,6 +248,8 @@ public class QuestionnaireActivity extends Activity {
 		
 		
 		double resultPercent = ((double)result.getValue()/(double)result.getPrice());
+		if(result.getPrice()==0)
+			resultPercent = 1;
 		((TextView)findViewById(R.id.textViewResultPercent)).setText((int)(resultPercent*100)+"%");
 		showWithAnimation(resultLayout);
 	}
@@ -328,10 +330,11 @@ public class QuestionnaireActivity extends Activity {
 		View view = LayoutInflater.from(this).inflate(R.layout.questionnaire_match_listitem, null);
 
 		TextView textViewCategory = (TextView) view.findViewById(R.id.textViewMatchText);
-		textViewCategory.setText(item.getText());
+		textViewCategory.setText(item.getName());
 		ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBarMatch);
 		progressBar.setMax(100);		
 		progressBar.setProgress((int)(item.getValue()*100));
+		((TextView)view.findViewById(R.id.textViewMatchDescrption)).setText(item.getText());
 		//LayoutParams params = progressBar.getLayoutParams();
 		//params.width =(int)(((double)params.width)*((double)item.getValue()));
 		//progressBar.setLayoutParams(params);

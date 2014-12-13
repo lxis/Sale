@@ -14,17 +14,20 @@ public class ProductShowValueGenerator {
 	{
 		ArrayList<ProductShowValue> productShowValues = new ArrayList<ProductShowValue>();		
 		Collections.sort(productValues, new SortByValue());
-		double mutipy = (double)1/(double)(productValues.get(0).getValue()); 
+		if(productValues.size()==0)
+			return new ArrayList<ProductShowValue>();
+		ProductValue firstProductValue = productValues.get(0);				
+		double mutipy = (double)1/(double)(firstProductValue.getValue()); 
 		for(ProductValue productValue:productValues)
 		{
 			if(productValue.getValue()!=0)
 			{
-				ProductShowValue productShowValue = new ProductShowValue(productValue.getText(),productValue.getValue()*mutipy);
+				ProductShowValue productShowValue = new ProductShowValue(productValue.getName(),productValue.getValue()*mutipy,productValue.getText());
 				//≤Óæ‡»ıªØ
 				productShowValue.setValue(((double)1 -((double)1-productShowValue.getValue())/2));
 				
 				productShowValues.add(productShowValue);
-				Log.i("", productValue.getText()+":"+productValue.getValue());
+				Log.i("", productValue.getName()+":"+productValue.getValue());
 			}
 		}
 		return productShowValues;

@@ -81,10 +81,17 @@ public class Product {
 		return this;
 	}
 	
-	public Product addValue(double value,String text)
+	public Product addValue(double value,String name)
 	{
 		this.value+=value;
-		matches.add(new ProductValue(text, (int)value));
+		matches.add(new ProductValue(name, (int)value));
+		return this;
+	}
+	
+	public Product addValue(double value,String name,String text)
+	{
+		this.value+=value;
+		matches.add(new ProductValue(name, (int)value,text));
 		return this;
 	}
 

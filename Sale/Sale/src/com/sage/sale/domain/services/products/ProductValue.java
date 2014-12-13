@@ -1,28 +1,44 @@
 package com.sage.sale.domain.services.products;
 
 public class ProductValue {
-	private String text;
+	private String name;
 	private int value;
-	public ProductValue(String text,int score)
+	private String text;
+	public ProductValue(String name,int score)
 	{
-		this.setText(text);
+		this.setName(name);
 		this.setValue(score);
+	}
+	
+	public ProductValue(String name,int score,String text)
+	{
+		this.setName(name);
+		this.setValue(score);
+		this.setText(text);
 	}
 	
 	public ProductValue(String text)
 	{
-		this.setText(text);
+		this.setName(text);
 	}
-	public String getText() {
-		return text;
+	public String getName() {
+		return name;
 	}
-	public void setText(String text) {
-		this.text = text;
+	public void setName(String text) {
+		this.name = text;
 	}
 	public int getValue() {
 		return value;
 	}
 	public void setValue(int score) {
 		this.value = score;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
 	}
 }
