@@ -98,8 +98,8 @@ public class QuestionnaireActivity extends Activity {
 	}
 
 	private LinearLayout.LayoutParams getAnswerTextViewLayoutParam() {
-		LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(800, LayoutParams.WRAP_CONTENT);
-		layoutParam.setMargins(0, 50, 0, 50);
+		LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		layoutParam.setMargins(100, 50, 100, 50);
 		layoutParam.gravity = Gravity.CENTER;
 		return layoutParam;
 	}
