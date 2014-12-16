@@ -25,9 +25,6 @@ public class CategoryAdapter extends SimpleAdapter<Category> {
 	protected View createView(int layoutId, Category item) {
 		View view = super.createView(layoutId, item);
 
-		AbsListView.LayoutParams param = new AbsListView.LayoutParams(500, 500);// Magic
-																				// Number
-		view.setLayoutParams(param);
 
 		view.setOnClickListener(getClickListener(item));
 		TextView textViewCategory = (TextView) view.findViewById(R.id.textViewCategory);
