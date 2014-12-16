@@ -110,10 +110,10 @@
                     android:textSize="18sp" />
 
                 <FrameLayout
-                    android:layout_width="400px"
+                    android:layout_width="250px"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical|left" >
+                    android:gravity="center_vertical|right" >
 
                     <LinearLayout
                         android:id="@+id/linearTotalStars"
@@ -123,31 +123,7 @@
                         android:gravity="center_vertical|left" >
 
                         <ImageView
-                            android:layout_width="50px"
-                            android:layout_height="50px"
-                            android:src="@drawable/star" >
-                        </ImageView>
-
-                        <ImageView
-                            android:layout_width="50px"
-                            android:layout_height="50px"
-                            android:src="@drawable/star" >
-                        </ImageView>
-
-                        <ImageView
-                            android:layout_width="50px"
-                            android:layout_height="50px"
-                            android:src="@drawable/star" >
-                        </ImageView>
-
-                        <ImageView
-                            android:layout_width="50px"
-                            android:layout_height="50px"
-                            android:src="@drawable/star" >
-                        </ImageView>
-
-                        <ImageView
-                            android:layout_width="50px"
+                            android:layout_width="250px"
                             android:layout_height="50px"
                             android:src="@drawable/star" >
                         </ImageView>
@@ -161,31 +137,7 @@
                         android:gravity="center_vertical|left" >
 
                         <ImageView
-                            android:layout_width="50px"
-                            android:layout_height="50px"
-                            android:src="@drawable/star_empty" >
-                        </ImageView>
-
-                        <ImageView
-                            android:layout_width="50px"
-                            android:layout_height="50px"
-                            android:src="@drawable/star_empty" >
-                        </ImageView>
-
-                        <ImageView
-                            android:layout_width="50px"
-                            android:layout_height="50px"
-                            android:src="@drawable/star_empty" >
-                        </ImageView>
-
-                        <ImageView
-                            android:layout_width="50px"
-                            android:layout_height="50px"
-                            android:src="@drawable/star_empty" >
-                        </ImageView>
-
-                        <ImageView
-                            android:layout_width="50px"
+                            android:layout_width="250px"
                             android:layout_height="50px"
                             android:src="@drawable/star_empty" >
                         </ImageView>

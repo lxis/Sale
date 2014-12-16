@@ -401,9 +401,9 @@ public class QuestionnaireActivity extends Activity {
 
 		TextView textViewCategory = (TextView) view.findViewById(R.id.textViewMatchText);
 		textViewCategory.setText(item.getName());
-		ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBarMatch);
-		progressBar.setMax(100);
-		progressBar.setProgress((int) (item.getValue() * 100));
+		//ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBarMatch);
+		//progressBar.setMax(100);
+		//progressBar.setProgress((int) (item.getValue() * 100));
 		((TextView) view.findViewById(R.id.textViewMatchDescrption)).setText(item.getText());
 		LinearLayout linearStars = (LinearLayout) view.findViewById(R.id.linearStars);
 		LayoutParams params = linearStars.getLayoutParams();
