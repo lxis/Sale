@@ -249,7 +249,16 @@ public class QuestionnaireActivity extends Activity {
 
 				@Override
 				protected void onPostExecute(Drawable resultPic) {
-					imageViewResult.setBackground(resultPic);
+					imageViewResult.setImageDrawable(resultPic);
+					
+					
+					//这个地方是真不优雅!
+					int layoutWidth = ((LinearLayout)findViewById(R.id.linearResultContent)).getMeasuredWidth();
+					LayoutParams picLayoutParams =  imageViewResult.getLayoutParams();
+					picLayoutParams.width = layoutWidth;
+					picLayoutParams.height = layoutWidth;
+					imageViewResult.setLayoutParams(picLayoutParams);
+					
 					imageViewResult.setVisibility(View.VISIBLE);
 					showWithAnimation(imageViewResult);
 
