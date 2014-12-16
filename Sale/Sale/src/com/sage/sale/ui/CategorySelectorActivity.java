@@ -22,13 +22,10 @@ public class CategorySelectorActivity extends Activity {
 	}
 
 	private void InitDatas() {
-		
-		GridView listViewProducts = (GridView)findViewById(R.id.listViewProducts);
-		listViewProducts.setAdapter(new CategoryAdapter(new CategoryFactory().getAllCategory(),this,R.layout.category_listitem));
-		
-		
+		GridView listViewProducts = (GridView) findViewById(R.id.listViewProducts);
+		listViewProducts.setAdapter(new CategoryAdapter(new CategoryFactory().getAllCategory(), this, R.layout.category_listitem));
 	}
-	
+
 	long prePressBackTime;
 
 	@Override

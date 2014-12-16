@@ -31,7 +31,7 @@ public class CategoryAdapter extends SimpleAdapter<Category> {
 		textViewCategory.setText(item.getName());
 		
 		ImageView imageViewCategories = (ImageView) view.findViewById(R.id.imageViewCategories);
-		imageViewCategories.setImageResource(item.getImageId());
+		imageViewCategories.setImageResource(item.getImageId());		
 		
 		return view;
 	}
