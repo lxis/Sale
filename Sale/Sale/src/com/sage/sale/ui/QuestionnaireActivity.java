@@ -96,26 +96,19 @@ public class QuestionnaireActivity extends Activity {
 	}
 
 	private void addAnswer(String answer, final int index) {
-		TextView textView = getAnswerTextView();
+		View view = getAnswerTextView();
+		TextView textView = ((TextView)view.findViewById(R.id.textViewAnswer));				
 		textView.setText(answer);
 		textView.setOnClickListener(getMoveNextClickListener(index));
-		((LinearLayout) findViewById(R.id.answerLayout)).addView(textView, getAnswerTextViewLayoutParam());
+		((LinearLayout) findViewById(R.id.answerLayout)).addView(view, getAnswerTextViewLayoutParam());
 	}
 
-	private TextView getAnswerTextView() {
-		TextView textView = new TextView(this);
-		textView.setTextSize(20);
-		textView.setTextColor(this.getResources().getColor(R.color.button_text_color));
-		textView.setGravity(Gravity.CENTER);
-		textView.setBackgroundResource(R.drawable.button_press_style_selector);
-		textView.setPadding(50, 50, 50, 50);
-		return textView;
+	private View getAnswerTextView() {
+		return LayoutInflater.from(this).inflate(R.layout.questionnaire_question_answer_control, null);
 	}
 
 	private LinearLayout.LayoutParams getAnswerTextViewLayoutParam() {
 		LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-		layoutParam.setMargins(100, 50, 100, 50);
-		layoutParam.gravity = Gravity.CENTER;
 		return layoutParam;
 	}
 

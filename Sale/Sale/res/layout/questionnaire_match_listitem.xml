@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10px"
+        android:layout_marginBottom="4dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -21,34 +21,34 @@
             android:textSize="18sp" />
 
         <FrameLayout
-            android:layout_width="250px"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical|right" >
 
             <LinearLayout
                 android:id="@+id/linearStars"
-                android:layout_width="250px"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:gravity="center_vertical|left" >
 
                 <ImageView
-                    android:layout_width="250px"
-                    android:layout_height="50px"
+                    android:layout_width="100dp"
+                    android:layout_height="20dp"
                     android:src="@drawable/star" >
                 </ImageView>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="250px"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:gravity="center_vertical|left" >
 
                 <ImageView
-                    android:layout_width="250px"
-                    android:layout_height="50px"
+                    android:layout_width="100dp"
+                    android:layout_height="20dp"
                     android:src="@drawable/star_empty" >
                 </ImageView>
             </LinearLayout>
@@ -59,8 +59,8 @@
         android:id="@+id/textViewMatchDescrption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="70px"
-        android:layout_marginTop="10px"
+        android:layout_marginBottom="40dp"
+        android:layout_marginTop="6dp"
         android:textColor="@color/plaint_text_color"
         android:textSize="15sp" />
 

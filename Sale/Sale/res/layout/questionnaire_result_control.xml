@@ -28,15 +28,15 @@
             android:id="@+id/linearResultContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50px"
-            android:layout_marginRight="50px"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="50px"
-                android:layout_marginTop="50px" >
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp" >
 
                 <TextView
                     android:layout_width="match_parent"
@@ -60,8 +60,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="100px"
-                android:layout_marginTop="50px"
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="20dp"
                 android:textColor="@color/plaint_text_color"
                 android:textSize="22sp" >
             </TextView>
@@ -76,8 +76,8 @@
                 android:id="@+id/textViewMatches"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="50px"
-                android:layout_marginTop="50px"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
                 android:gravity="left"
                 android:text="综合分析"
                 android:textColor="@color/plaint_text_color"
@@ -87,7 +87,7 @@
                 android:id="@+id/textViewResultPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10px"
+                android:layout_marginBottom="4dp"
                 android:textColor="@color/plaint_text_color"
                 android:textSize="18sp"
                 android:visibility="gone" />
@@ -95,7 +95,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10px"
+                android:layout_marginBottom="4dp"
                 android:orientation="horizontal" >
 
                 <TextView
@@ -110,35 +110,35 @@
                     android:textSize="18sp" />
 
                 <FrameLayout
-                    android:layout_width="250px"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical|right" >
 
                     <LinearLayout
                         android:id="@+id/linearTotalStars"
-                        android:layout_width="250px"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
                         android:gravity="center_vertical|left" >
 
                         <ImageView
-                            android:layout_width="250px"
-                            android:layout_height="50px"
+                            android:layout_width="100dp"
+                            android:layout_height="20dp"
                             android:src="@drawable/star" >
                         </ImageView>
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/linearTotalStarsEmpty"
-                        android:layout_width="250px"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
                         android:gravity="center_vertical|left" >
 
                         <ImageView
-                            android:layout_width="250px"
-                            android:layout_height="50px"
+                            android:layout_width="100dp"
+                            android:layout_height="20dp"
                             android:src="@drawable/star_empty" >
                         </ImageView>
                     </LinearLayout>
@@ -148,15 +148,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:layout_marginTop="100px"
+                android:layout_marginTop="40dp"
                 android:background="#88ffffff" >
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="50px"
-                android:layout_marginTop="50px" >
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp" >
 
                 <TextView
                     android:id="@+id/textViewResult"
@@ -179,15 +179,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:layout_marginTop="50px"
+                android:layout_marginTop="20dp"
                 android:background="#88ffffff" >
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="50px"
-                android:layout_marginTop="50px" >
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp" >
 
                 <TextView
                     android:id="@+id/textViewResult"
@@ -214,8 +214,8 @@
         android:id="@+id/linearLayoutResultButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20px"
-        android:layout_marginTop="30px"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -223,12 +223,12 @@
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10px"
+            android:layout_margin="4dp"
             android:layout_weight="1"
             android:background="@drawable/button_empty_press_style_selector"
             android:gravity="center"
-            android:paddingBottom="25px"
-            android:paddingTop="25px"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
             android:text="再测一次"
             android:textColor="@color/plaint_text_color"
             android:textSize="16sp" />
@@ -238,14 +238,12 @@
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10px"
+            android:layout_margin="4dp"
             android:layout_weight="1"
             android:background="@drawable/button_press_style_selector"
             android:gravity="center"
-            android:paddingBottom="25px"
-            android:paddingLeft="0px"
-            android:paddingRight="0px"
-            android:paddingTop="25px"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
             android:text="查看详情"
             android:textColor="@color/button_text_color"
             android:textSize="16sp" >
@@ -256,12 +254,12 @@
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10px"
+            android:layout_margin="4dp"
             android:layout_weight="1"
             android:background="@drawable/button_empty_press_style_selector"
             android:gravity="center"
-            android:paddingBottom="25px"
-            android:paddingTop="25px"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
             android:text="返回首页"
             android:textColor="@color/plaint_text_color"
             android:textSize="16sp" />
