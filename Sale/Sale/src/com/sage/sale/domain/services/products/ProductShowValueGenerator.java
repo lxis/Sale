@@ -5,8 +5,10 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import com.google.gson.internal.Primitives;
+import com.sage.sale.R;
 
 import android.util.Log;
+import android.widget.TextView;
 
 public class ProductShowValueGenerator {
 	@SuppressWarnings("unchecked")
@@ -31,6 +33,39 @@ public class ProductShowValueGenerator {
 			}
 		}
 		return productShowValues;
+	}
+	
+	public double getProductTotalShowValue(Product product)
+	{
+		double resultPercent = ((double) product.getValue() / (double) product
+				.getPrice());
+		double resultShowPercent = resultPercent *0.4+0.2;
+		return resultShowPercent;
+	}
+	
+	public String getProductTatalShowValueText(Product product)
+	{
+		double resultPercent = getProductTotalShowValue(product);
+		if(resultPercent>=0.9)
+		{
+			return "此产品对您极为合适";
+		}
+		else if(resultPercent>=0.8)
+		{
+			return "此产品对您非常合适";
+		}
+		else if(resultPercent>=0.7)
+		{
+			return "此产品对您很合适";
+		}
+		else if(resultPercent>=0.6)
+		{
+			return "此产品对您比较合适";
+		}
+		else
+		{
+			return "没找到合适的产品";
+		}		
 	}
 	
 	class SortByValue implements Comparator {

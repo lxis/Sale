@@ -70,33 +70,37 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 		}
 
 		if (getAnswer(0) == 0) {
-			getProduct(6).addValue(200 * 0.75 * 0.5 * ps, "美白", "美白性好，在同类产品中属于优秀").addValue(200 * 0.5 * 1 * ps, "保湿", "保湿性能较好，能迅速补充肌肤水份。");
-			getProduct(9).addValue(200 * 1 * 0.5 * ps, "美白", "美白性好，在同类产品中属于优秀").addValue(200 * 0.5 * 1 * ps, "保湿", "保湿性能较好，能迅速补充肌肤水份。");
-			getProduct(10).addValue(200 * 1 * 1 * ps, "保湿", "保湿性能较好，能迅速补充肌肤水份。");
+			getProduct(6).addValue(200 * 0.75 * 0.5 * ps, "美白","美白性好，在同类产品中属于优秀")
+			.addValue(200 * 0.5 * 1 * ps, "保湿","保湿性能较好，能迅速补充肌肤水份。");
+			getProduct(9).addValue(200 * 1 * 0.5 * ps, "美白","美白性好，在同类产品中属于优秀")
+			.addValue(200 * 0.5 * 1 * ps, "保湿","保湿性能较好，能迅速补充肌肤水份。");
+			getProduct(10).addValue(200 * 1 * 1 * ps, "保湿","保湿性能较好，能迅速补充肌肤水份。");
 		} else {
-			getProduct(6).addValue(200 * 0.75 * 1 * ps, "美白", "美白性好，在同类产品中属于优秀").addValue(200 * 0.5 * 0.5 * ps, "保湿", "保湿性能较好，能迅速补充肌肤水份。");
-			getProduct(9).addValue(200 * 1 * 1 * ps, "美白", "美白性好，在同类产品中属于优秀").addValue(200 * 0.5 * 0.5 * ps, "保湿", "保湿性能较好，能迅速补充肌肤水份。");
-			getProduct(10).addValue(200 * 1 * 0.5 * ps, "保湿", "保湿性能较好，能迅速补充肌肤水份。");
+			getProduct(6).addValue(200 * 0.75 * 1 * ps, "美白","美白性好，在同类产品中属于优秀")
+			.addValue(200 * 0.5 * 0.5 * ps, "保湿","保湿性能较好，能迅速补充肌肤水份。");
+			getProduct(9).addValue(200 * 1 * 1 * ps, "美白","美白性好，在同类产品中属于优秀")
+			.addValue(200 * 0.5 * 0.5 * ps, "保湿","保湿性能较好，能迅速补充肌肤水份。");
+			getProduct(10).addValue(200 * 1 * 0.5 * ps, "保湿","保湿性能较好，能迅速补充肌肤水份。");
 		}
 
 		if (getAnswer(1) == 0) {
-			getProduct(6).addValue(100 * 0.5 * ps, "水油平衡", "使用控制水油平衡，肤质有明显改善.");
-			getProduct(7).addValue(100 * ps, "水油平衡", "使用控制水油平衡，肤质有明显改善.");
-			getProduct(8).addValue(100 * ps, "水油平衡", "使用控制水油平衡，肤质有明显改善.");
-			getProduct(9).addValue(100 * 0.25 * ps, "水油平衡", "使用控制水油平衡，肤质有明显改善.");
-			getProduct(10).addValue(100 * ps, "水油平衡", "使用控制水油平衡，肤质有明显改善.");
+			getProduct(6).addValue(100 * 0.5 * ps, "水油平衡","使用控制水油平衡，肤质有明显改善.");
+			getProduct(7).addValue(100 * ps, "水油平衡","使用控制水油平衡，肤质有明显改善.");
+			getProduct(8).addValue(100 * ps, "水油平衡","使用控制水油平衡，肤质有明显改善.");
+			getProduct(9).addValue(100 * 0.25 * ps, "水油平衡","使用控制水油平衡，肤质有明显改善.");
+			getProduct(10).addValue(100 * ps, "水油平衡","使用控制水油平衡，肤质有明显改善.");
 		}
 
 		if (getAnswer(3) == 0) {
-			getProduct(7).addValue(300 * 1 * 1 * ps, "温和不刺激", "可显著地减轻肌肤由于受到各种刺激而产生的反应现象");
-			getProduct(8).addValue(300 * 1 * 1 * ps, "温和不刺激", "可显著地减轻肌肤由于受到各种刺激而产生的反应现象");
+			getProduct(7).addValue(300 * 1 * 1 * ps, "温和不刺激","可显著地减轻肌肤由于受到各种刺激而产生的反应现象");
+			getProduct(8).addValue(300 * 1 * 1 * ps, "温和不刺激","可显著地减轻肌肤由于受到各种刺激而产生的反应现象");
 		} else {
-			getProduct(7).addValue(300 * 0.3 * 1 * ps, "温和不刺激", "可显著地减轻肌肤由于受到各种刺激而产生的反应现象");
-			getProduct(8).addValue(300 * 0.3 * 1 * ps, "温和不刺激", "可显著地减轻肌肤由于受到各种刺激而产生的反应现象");
+			getProduct(7).addValue(300 * 0.3 * 1 * ps, "温和不刺激","可显著地减轻肌肤由于受到各种刺激而产生的反应现象");
+			getProduct(8).addValue(300 * 0.3 * 1 * ps, "温和不刺激","可显著地减轻肌肤由于受到各种刺激而产生的反应现象");
 
-			getProduct(6).addValue(100 * 0.5 * 1 * ps, "软化角质", "能温和地清除老化角质细胞，并促进肌肤的新陈代谢。");
-			getProduct(7).addValue(100 * 1 * 1 * ps, "软化角质", "能温和地清除老化角质细胞，并促进肌肤的新陈代谢。");
-			getProduct(9).addValue(100 * 0.25 * 1 * ps, "软化角质", "能温和地清除老化角质细胞，并促进肌肤的新陈代谢。");
+			getProduct(6).addValue(100 * 0.5 * 1 * ps, "软化角质","能温和地清除老化角质细胞，并促进肌肤的新陈代谢。");
+			getProduct(7).addValue(100 * 1 * 1 * ps, "软化角质","能温和地清除老化角质细胞，并促进肌肤的新陈代谢。");
+			getProduct(9).addValue(100 * 0.25 * 1 * ps, "软化角质","能温和地清除老化角质细胞，并促进肌肤的新陈代谢。");
 		}
 
 		if (getAnswer(4) == 0) {
@@ -105,33 +109,33 @@ public class HuaZhuangShuiQuestionnaire extends BaseQuestionnaire<HuaZhuangShuiP
 
 		switch (getAnswer(5)) {
 		case 0: {
-			getProduct(7).addValue(300 * 0.75 * 0 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
-			getProduct(8).addValue(300 * 0.5 * 0 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
-			getProduct(10).addValue(300 * 0.5 * 0 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(7).addValue(300 * 0.75 * 0 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(8).addValue(300 * 0.5 * 0 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(10).addValue(300 * 0.5 * 0 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
 			break;
 		}
 		case 1: {
-			getProduct(7).addValue(300 * 0.75 * 0.25 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
-			getProduct(8).addValue(300 * 0.5 * 0.25 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
-			getProduct(10).addValue(300 * 0.5 * 0.25 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(7).addValue(300 * 0.75 * 0.25 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(8).addValue(300 * 0.5 * 0.25 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(10).addValue(300 * 0.5 * 0.25 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
 			break;
 		}
 		case 2: {
-			getProduct(7).addValue(300 * 0.75 * 0.5 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
-			getProduct(8).addValue(300 * 0.5 * 0.5 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
-			getProduct(10).addValue(300 * 0.5 * 0.5 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(7).addValue(300 * 0.75 * 0.5 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(8).addValue(300 * 0.5 * 0.5 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(10).addValue(300 * 0.5 * 0.5 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
 			break;
 		}
 		case 3: {
-			getProduct(7).addValue(300 * 0.75 * 0.75 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
-			getProduct(8).addValue(300 * 0.5 * 0.75 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
-			getProduct(10).addValue(300 * 0.5 * 0.75 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(7).addValue(300 * 0.75 * 0.75 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(8).addValue(300 * 0.5 * 0.75 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(10).addValue(300 * 0.5 * 0.75 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
 			break;
 		}
 		case 4: {
-			getProduct(7).addValue(300 * 0.75 * 1 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
-			getProduct(8).addValue(300 * 0.5 * 1 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
-			getProduct(10).addValue(300 * 0.5 * 1 * ps, "抗衰老", "可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(7).addValue(300 * 0.75 * 1 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(8).addValue(300 * 0.5 * 1 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
+			getProduct(10).addValue(300 * 0.5 * 1 * ps, "抗衰老","可帮助抵抗自由基，预防肌肤老化现象,减淡细纹及皱纹");
 			break;
 		}
 		default:

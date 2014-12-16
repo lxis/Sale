@@ -8,13 +8,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="1"
-        android:background="#666644" />
+        android:layout_weight="1" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#886644"
         android:orientation="vertical" >
 
         <TextView
@@ -22,27 +20,26 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="20px"
-            android:background="#666688"
-            android:text="请问你需要什么？"
+            android:text="请选择您需要的化妆品"
             android:textColor="@color/plaint_text_color"
             android:textSize="25sp" >
         </TextView>
     </LinearLayout>
 
-    <ListView
+    <GridView
         android:id="@+id/listViewProducts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30px"
         android:layout_marginRight="30px"
         android:layout_marginTop="75px"
-        android:background="#66bb88" >
-    </ListView>
+        android:numColumns="2" >
+    </GridView>
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="2"
-        android:background="#33bb88" />
+        android:layout_weight="2" />
 
 </LinearLayout>

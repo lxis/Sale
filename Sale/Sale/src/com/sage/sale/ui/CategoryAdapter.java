@@ -30,11 +30,11 @@ public class CategoryAdapter extends SimpleAdapter<Category> {
 		view.setLayoutParams(param);
 
 		view.setOnClickListener(getClickListener(item));
-		//TextView textViewCategory = (TextView) view.findViewById(R.id.textViewCategory);
-		//textViewCategory.setText(item.getName());
+		TextView textViewCategory = (TextView) view.findViewById(R.id.textViewCategory);
+		textViewCategory.setText(item.getName());
 		
 		ImageView imageViewCategories = (ImageView) view.findViewById(R.id.imageViewCategories);
-		//imageViewCategories.setImageResource(item.getImageId());
+		imageViewCategories.setImageResource(item.getImageId());
 		
 		return view;
 	}

@@ -21,6 +21,7 @@ import com.sage.sale.domain.services.questionnaires.QuestionnaireFactory;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -38,8 +39,11 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationSet;
+import android.webkit.WebView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -57,6 +61,7 @@ public class QuestionnaireActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.questionnaire_activity);
 
+		addProductView();				
 		String categoryJson = getIntent().getStringExtra("Category");
 		category = new Gson().fromJson(categoryJson, CategorySerializeHelper.class).getCategory();
 		questionnaire = new QuestionnaireFactory().getQuestionnaire(category);
@@ -66,6 +71,13 @@ public class QuestionnaireActivity extends Activity {
 			showQuestion();
 		else
 			showResult(testedProduct);
+	}
+
+	private void addProductView() {
+		View productView = LayoutInflater.from(this).inflate(R.layout.product_view, null);
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams (LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
+		((LinearLayout)findViewById(R.id.linearProduct)).addView(productView,params);
+		
 	}
 
 	private void addAnswer(String answer, final int index) {
@@ -184,7 +196,11 @@ public class QuestionnaireActivity extends Activity {
 	}
 
 	private void showResult(final Product result) {
-		((ScrollView)findViewById(R.id.scrollViewResult)).scrollTo(0, 0);
+		((ScrollView) findViewById(R.id.scrollViewResult)).scrollTo(0, 0);
+		(findViewById(R.id.linearProduct)).setVisibility(View.GONE);			
+		findViewById(R.id.scrollViewResult).setVisibility(View.VISIBLE);
+		((TextView)findViewById( R.id.textViewBuy)).setText("查看详情");
+		isShowingResult = true;
 		findViewById(R.id.questionLayout).setVisibility(View.GONE);
 		View resultLayout = findViewById(R.id.resultLayout);
 		resultLayout.setVisibility(View.VISIBLE);
@@ -232,23 +248,39 @@ public class QuestionnaireActivity extends Activity {
 		findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
 		findViewById(R.id.textViewBack).setOnClickListener(getBackListener());
 		TextView textViewResult = (TextView) findViewById(R.id.textViewResult);
+		TextView textViewEvaluation = (TextView) findViewById(R.id.textViewEvaluation);
+		textViewEvaluation.setText(Html.fromHtml(result.getEvaluation()));
 
-		((TextView) findViewById(R.id.textViewEvaluation)).setText(Html.fromHtml(result.getEvaluation()));
 		LinearLayout listViewMatches = (LinearLayout) findViewById(R.id.listViewMatches);
 		listViewMatches.removeAllViews();
-		ArrayList<ProductShowValue> productShowValues = new ProductShowValueGenerator().getProductShowValue( result.getMatches());
+		ArrayList<ProductShowValue> productShowValues = new ProductShowValueGenerator().getProductShowValue(result.getMatches());
 		for (ProductShowValue match : productShowValues) {
 			View matchView = createPercentMatchView(match);
 			listViewMatches.addView(matchView);
 		}
 
 		textViewResult.setText(result.getName());
+
+		double resultTotalPercent = new ProductShowValueGenerator().getProductTotalShowValue(result);
+
+		LinearLayout linearTotalStars = (LinearLayout) findViewById(R.id.linearTotalStars);
+		LinearLayout linearTotalStarsEmpty = (LinearLayout) findViewById(R.id.linearTotalStarsEmpty);
+
+		LayoutParams params = linearTotalStars.getLayoutParams();
+		params.width = (int) (((double) linearTotalStarsEmpty.getLayoutParams().width) * ((double) resultTotalPercent));
+		linearTotalStars.setLayoutParams(params);
+
+		((TextView) findViewById(R.id.textViewTotalValue)).setText(new ProductShowValueGenerator().getProductTatalShowValueText(result));
+		
+		LinearLayout linearProduct = (LinearLayout) findViewById( R.id.linearProduct);
+		WebView  webViewProduct = ((WebView)findViewById(R.id.webViewProduct));
+		String url =result.getUrl();
+		webViewProduct.loadUrl(url);
 		
 		
-		double resultPercent = ((double)result.getValue()/(double)result.getPrice());
-		if(result.getPrice()==0)
-			resultPercent = 1;
-		((TextView)findViewById(R.id.textViewResultPercent)).setText((int)(resultPercent*100)+"%");
+		//((WebView)findViewById(R.id.webViewProduct)).loadUrl(result.getUrl());
+		//((WebView)findViewById(R.id.webViewProduct)).loadUrl("http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3DWTPkbqcAxs3ghojqVNxKsV8SyO3xc7xDN6QO%252Bdd6jj6LltG5xFicOdXrTUTgh9sMDPIwxrc30rgx5xFFx04TdSznQSvJ8jguXAYRM2Y%252BniwwzXBeaT5xzlRmtaud%252B0v%252Bi3aFqZPZa9cYMvJ8itdRfg%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_106624709_8422695_28408068");
+
 		showWithAnimation(resultLayout);
 	}
 
@@ -278,11 +310,31 @@ public class QuestionnaireActivity extends Activity {
 		};
 	}
 
+	boolean isShowingResult = true;
 	OnClickListener getBuyProductListener(final String url) {
 		return new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				buyProduct(url);
+				if(isShowingResult)
+					showProduct();
+				else
+					showBackResult();
+
+			}
+
+			private void showBackResult() {
+				(findViewById(R.id.linearProduct)).setVisibility(View.GONE);			
+				findViewById(R.id.scrollViewResult).setVisibility(View.VISIBLE);
+				((TextView)findViewById( R.id.textViewBuy)).setText("查看详情");
+				isShowingResult = true;
+			}
+
+			private void showProduct() {
+				(findViewById(R.id.linearProduct)).setVisibility(View.VISIBLE);			
+				View scrollViewResult = findViewById(R.id.scrollViewResult);
+				scrollViewResult.setVisibility(View.GONE);
+				((TextView)findViewById( R.id.textViewBuy)).setText("查看评测");
+				isShowingResult = false;
 			}
 		};
 	}
@@ -330,12 +382,13 @@ public class QuestionnaireActivity extends Activity {
 		TextView textViewCategory = (TextView) view.findViewById(R.id.textViewMatchText);
 		textViewCategory.setText(item.getName());
 		ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBarMatch);
-		progressBar.setMax(100);		
-		progressBar.setProgress((int)(item.getValue()*100));
-		((TextView)view.findViewById(R.id.textViewMatchDescrption)).setText(item.getText());
-		//LayoutParams params = progressBar.getLayoutParams();
-		//params.width =(int)(((double)params.width)*((double)item.getValue()));
-		//progressBar.setLayoutParams(params);
+		progressBar.setMax(100);
+		progressBar.setProgress((int) (item.getValue() * 100));
+		((TextView) view.findViewById(R.id.textViewMatchDescrption)).setText(item.getText());
+		LinearLayout linearStars = (LinearLayout) view.findViewById(R.id.linearStars);
+		LayoutParams params = linearStars.getLayoutParams();
+		params.width = (int) (((double) params.width) * ((double) item.getValue()));
+		linearStars.setLayoutParams(params);
 		return view;
 	}
 

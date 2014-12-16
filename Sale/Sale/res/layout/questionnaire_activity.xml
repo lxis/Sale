@@ -16,6 +16,16 @@
         android:orientation="vertical"
         android:visibility="gone" >
 
+        <LinearLayout
+            android:id="@+id/linearProduct"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" >
+        </LinearLayout>
+
         <ScrollView
             android:id="@+id/scrollViewResult"
             android:layout_width="match_parent"
@@ -58,7 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="50px"
+                    android:layout_marginBottom="100px"
                     android:layout_marginLeft="100px"
                     android:layout_marginRight="100px"
                     android:layout_marginTop="50px"
@@ -69,6 +79,134 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="1px"
+                    android:background="#88ffffff" >
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textViewMatches"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="50px"
+                    android:layout_marginTop="50px"
+                    android:gravity="left"
+                    android:text="综合分析"
+                    android:textColor="@color/plaint_text_color"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewResultPercent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10px"
+                    android:textColor="@color/plaint_text_color"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10px"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/textViewTotalValue"
+                        android:layout_width="0px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|left"
+                        android:text="此产品对你非常适合"
+                        android:textColor="@color/plaint_text_color"
+                        android:textSize="18sp" />
+
+                    <FrameLayout
+                        android:layout_width="400px"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical|left" >
+
+                        <LinearLayout
+                            android:id="@+id/linearTotalStars"
+                            android:layout_width="250px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="center_vertical|left" >
+
+                            <ImageView
+                                android:layout_width="50px"
+                                android:layout_height="50px"
+                                android:src="@drawable/star" >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_width="50px"
+                                android:layout_height="50px"
+                                android:src="@drawable/star" >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_width="50px"
+                                android:layout_height="50px"
+                                android:src="@drawable/star" >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_width="50px"
+                                android:layout_height="50px"
+                                android:src="@drawable/star" >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_width="50px"
+                                android:layout_height="50px"
+                                android:src="@drawable/star" >
+                            </ImageView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linearTotalStarsEmpty"
+                            android:layout_width="250px"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="center_vertical|left" >
+
+                            <ImageView
+                                android:layout_width="50px"
+                                android:layout_height="50px"
+                                android:src="@drawable/star_empty" >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_width="50px"
+                                android:layout_height="50px"
+                                android:src="@drawable/star_empty" >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_width="50px"
+                                android:layout_height="50px"
+                                android:src="@drawable/star_empty" >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_width="50px"
+                                android:layout_height="50px"
+                                android:src="@drawable/star_empty" >
+                            </ImageView>
+
+                            <ImageView
+                                android:layout_width="50px"
+                                android:layout_height="50px"
+                                android:src="@drawable/star_empty" >
+                            </ImageView>
+                        </LinearLayout>
+                    </FrameLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="100px"
                     android:background="#88ffffff" >
                 </LinearLayout>
 
@@ -83,7 +221,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="美丽缘分"
+                        android:text="推荐理由"
                         android:textColor="@color/plaint_text_color"
                         android:textSize="20sp" >
                     </TextView>
@@ -103,32 +241,6 @@
                     android:background="#88ffffff" >
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textViewMatches"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="50px"
-                    android:layout_marginTop="50px"
-                    android:gravity="left"
-                    android:text="超值指数"
-                    android:textColor="@color/plaint_text_color"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/textViewResultPercent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:textColor="@color/plaint_text_color"
-                    android:textSize="30sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:layout_marginTop="50px"
-                    android:background="#88ffffff" >
-                </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -140,7 +252,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="人气口碑"
+                        android:text="专家点评"
                         android:textColor="@color/plaint_text_color"
                         android:textSize="20sp" >
                     </TextView>
@@ -153,7 +265,7 @@
                     android:gravity="center_vertical"
                     android:lineSpacingMultiplier="1.2"
                     android:textColor="@color/plaint_text_color"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
         </ScrollView>
 
@@ -165,45 +277,53 @@
             android:layout_marginTop="30px"
             android:orientation="horizontal" >
 
-            <TextView
-                android:id="@+id/textViewBuy"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="20px"
-                android:layout_weight="1"
-                android:background="@drawable/button_press_style_selector"
-                android:padding="40px"
-                android:text="立即购买"
-                android:textColor="@color/button_text_color"
-                android:textSize="20sp" >
-            </TextView>
+
 
             <TextView
                 android:id="@+id/textViewRestart"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="20px"
+                android:layout_margin="10px"
+                android:layout_weight="1"
+                android:background="@drawable/button_empty_press_style_selector"
+                android:gravity="center"
+                android:paddingBottom="25px"
+                android:paddingTop="25px"
+                android:text="再测一次"
+                android:textColor="@color/plaint_text_color"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/textViewBuy"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10px"
                 android:layout_weight="1"
                 android:background="@drawable/button_press_style_selector"
-                android:padding="40px"
-                android:text="再测一次"
+                android:gravity="center"
+                android:paddingBottom="25px"
+                android:paddingLeft="0px"
+                android:paddingRight="0px"
+                android:paddingTop="25px"
+                android:text="查看详情"
                 android:textColor="@color/button_text_color"
-                android:textSize="20sp" />
-
+                android:textSize="16sp" >
+            </TextView>
             <TextView
                 android:id="@+id/textViewBack"
                 android:layout_width="0px"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="20px"
+                android:layout_margin="10px"
                 android:layout_weight="1"
-                android:background="@drawable/button_press_style_selector"
-                android:padding="40px"
+                android:background="@drawable/button_empty_press_style_selector"
+                android:gravity="center"
+                android:paddingBottom="25px"
+                android:paddingTop="25px"
                 android:text="返回首页"
-                android:textColor="@color/button_text_color"
-                android:textSize="20sp" />
+                android:textColor="@color/plaint_text_color"
+                android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
 

@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 public class CategorySelectorActivity extends Activity {
@@ -24,7 +23,7 @@ public class CategorySelectorActivity extends Activity {
 
 	private void InitDatas() {
 		
-		ListView listViewProducts = (ListView)findViewById(R.id.listViewProducts);
+		GridView listViewProducts = (GridView)findViewById(R.id.listViewProducts);
 		listViewProducts.setAdapter(new CategoryAdapter(new CategoryFactory().getAllCategory(),this,R.layout.category_listitem));
 		
 		
