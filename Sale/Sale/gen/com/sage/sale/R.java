@@ -998,17 +998,15 @@ containing a value of this type.
         public static final int categories_ge_li=0x7f02005f;
         public static final int categories_hua_zhuang_shui=0x7f020060;
         public static final int categories_mian_mo=0x7f020061;
-        public static final int categories_mian_shuang=0x7f020062;
-        public static final int categories_xi_mian_nai=0x7f020063;
-        public static final int categories_yan_shuang=0x7f020064;
-        public static final int cover=0x7f020065;
-        public static final int foreground=0x7f020066;
-        public static final int ic_launcher=0x7f020067;
-        public static final int progress_bar=0x7f020068;
-        public static final int progress_bar_result_value=0x7f020069;
-        public static final int progress_bar_webview=0x7f02006a;
-        public static final int star=0x7f02006b;
-        public static final int star_empty=0x7f02006c;
+        public static final int categories_xi_mian_nai=0x7f020062;
+        public static final int cover=0x7f020063;
+        public static final int foreground=0x7f020064;
+        public static final int ic_launcher=0x7f020065;
+        public static final int progress_bar=0x7f020066;
+        public static final int progress_bar_result_value=0x7f020067;
+        public static final int progress_bar_webview=0x7f020068;
+        public static final int star=0x7f020069;
+        public static final int star_empty=0x7f02006a;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
