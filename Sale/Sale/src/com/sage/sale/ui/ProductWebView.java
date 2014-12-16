@@ -1,9 +1,12 @@
 package com.sage.sale.ui;
 
+import com.sage.sale.R;
+
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
@@ -47,7 +50,16 @@ public class ProductWebView extends WebView {
 		}
 
 		public void onProgressChanged(WebView view, int progress) {
-			activity.setProgress(progress * 100);
+			ProgressBar progressBar = (ProgressBar)activity.findViewById(R.id.progressBarProduct);
+			if(progress!=100)
+			{
+				progressBar.setVisibility(View.VISIBLE);
+				progressBar.setProgress(progress);
+			}
+			else
+			{
+				progressBar.setVisibility(View.GONE);			
+			}
 			Log.i("aa", String.valueOf(progress));
 			super.onProgressChanged(view, progress);
 		}

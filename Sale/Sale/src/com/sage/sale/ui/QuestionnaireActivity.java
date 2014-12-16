@@ -273,14 +273,10 @@ public class QuestionnaireActivity extends Activity {
 		((TextView) findViewById(R.id.textViewTotalValue)).setText(new ProductShowValueGenerator().getProductTatalShowValueText(result));
 		
 		LinearLayout linearProduct = (LinearLayout) findViewById( R.id.linearProduct);
-		WebView  webViewProduct = ((WebView)findViewById(R.id.webViewProduct));
+		WebView webViewProduct = (WebView)findViewById(R.id.webViewProduct);		
 		String url =result.getUrl();
 		webViewProduct.loadUrl(url);
 		
-		
-		//((WebView)findViewById(R.id.webViewProduct)).loadUrl(result.getUrl());
-		//((WebView)findViewById(R.id.webViewProduct)).loadUrl("http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3DWTPkbqcAxs3ghojqVNxKsV8SyO3xc7xDN6QO%252Bdd6jj6LltG5xFicOdXrTUTgh9sMDPIwxrc30rgx5xFFx04TdSznQSvJ8jguXAYRM2Y%252BniwwzXBeaT5xzlRmtaud%252B0v%252Bi3aFqZPZa9cYMvJ8itdRfg%253D%253D%26ptype%3D100010%26from%3Dbasic&k=5ccfdb950740ca16&c=un&b=alimm_0&p=mm_106624709_8422695_28408068");
-
 		showWithAnimation(resultLayout);
 	}
 
