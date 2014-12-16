@@ -60,6 +60,9 @@ public class QuestionnaireActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.questionnaire_activity);
+		
+		addQuestionnaireResult();
+		addQuestionnaireQuestion();
 
 		addProductView();				
 		String categoryJson = getIntent().getStringExtra("Category");
@@ -71,6 +74,18 @@ public class QuestionnaireActivity extends Activity {
 			showQuestion();
 		else
 			showResult(testedProduct);
+	}
+
+	private void addQuestionnaireQuestion() {
+		View resultView = LayoutInflater.from(this).inflate(R.layout.questionnaire_question_control, null);
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams (LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
+		((LinearLayout)findViewById(R.id.container)).addView(resultView,params);				
+	}
+
+	private void addQuestionnaireResult() {
+		View resultView = LayoutInflater.from(this).inflate(R.layout.questionnaire_result_control, null);
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams (LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
+		((LinearLayout)findViewById(R.id.container)).addView(resultView,params);		
 	}
 
 	private void addProductView() {
