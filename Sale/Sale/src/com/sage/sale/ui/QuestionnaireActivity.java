@@ -27,6 +27,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -49,117 +50,60 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class QuestionnaireActivity extends Activity {
+public class QuestionnaireActivity extends FragmentActivity {
 
 	// 全部的业务内容都在这
 	IQuestionnaire questionnaire;
 	Category category;
+	QuestionnaireQuestionFragment fragmentQuestion;
+	QuestionnaireResultFragment fragmentResult;
+	Product testedProduct;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.questionnaire_activity);
-		
-		addQuestionnaireResult();
-		addQuestionnaireQuestion();
 
-		addProductView();				
 		String categoryJson = getIntent().getStringExtra("Category");
 		category = new Gson().fromJson(categoryJson, CategorySerializeHelper.class).getCategory();
 		questionnaire = new QuestionnaireFactory().getQuestionnaire(category);
 
-		Product testedProduct = category.getTestedResult(this);
-		if (testedProduct == null)
-			showQuestion();
-		else
-			showResult(testedProduct);
+		testedProduct = category.getTestedResult(this);
+		if (testedProduct == null) {
+			addQuestionnaireQuestion();
+		} else {
+			createFragmentAndshowResult(testedProduct);
+		}
 	}
 
 	private void addQuestionnaireQuestion() {
-		View resultView = LayoutInflater.from(this).inflate(R.layout.questionnaire_question_control, null);
-		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams (LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
-		((LinearLayout)findViewById(R.id.container)).addView(resultView,params);				
+		fragmentQuestion = new QuestionnaireQuestionFragment();
+		getSupportFragmentManager().beginTransaction().add(R.id.container, fragmentQuestion).commit();
 	}
 
-	private void addQuestionnaireResult() {
-		View resultView = LayoutInflater.from(this).inflate(R.layout.questionnaire_result_control, null);
-		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams (LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
-		((LinearLayout)findViewById(R.id.container)).addView(resultView,params);		
-	}
-
-	private void addProductView() {
-		View productView = LayoutInflater.from(this).inflate(R.layout.product_view, null);
-		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams (LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT);
-		((LinearLayout)findViewById(R.id.linearProduct)).addView(productView,params);
-		
-	}
-
-	private void addAnswer(String answer, final int index) {
-		View view = getAnswerTextView();
-		TextView textView = ((TextView)view.findViewById(R.id.textViewAnswer));				
-		textView.setText(answer);
-		textView.setOnClickListener(getMoveNextClickListener(index));
-		((LinearLayout) findViewById(R.id.answerLayout)).addView(view, getAnswerTextViewLayoutParam());
-	}
-
-	private View getAnswerTextView() {
-		return LayoutInflater.from(this).inflate(R.layout.questionnaire_question_answer_control, null);
-	}
-
-	private LinearLayout.LayoutParams getAnswerTextViewLayoutParam() {
-		LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-		return layoutParam;
-	}
-
-	private void restart() {
+	void restart() {
 		hideWithAnimation(findViewById(R.id.resultLayout), new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
+				fragmentQuestion = new QuestionnaireQuestionFragment();
+				getSupportFragmentManager().beginTransaction().replace(R.id.container, fragmentQuestion).commit();
+
 				questionnaire = new QuestionnaireFactory().getQuestionnaire(category);
-				findViewById(R.id.questionLayout).setVisibility(View.VISIBLE);
-				findViewById(R.id.resultLayout).setVisibility(View.GONE);
-				ImageView imageViewResult = ((ImageView) findViewById(R.id.imageViewResult));
-				imageViewResult.setVisibility(View.INVISIBLE);
-				((TextView) findViewById(R.id.textViewResult)).setText("");
-				showQuestion();
+				// findViewById(R.id.questionLayout).setVisibility(View.VISIBLE);
+				// findViewById(R.id.resultLayout).setVisibility(View.GONE);
+				// ImageView imageViewResult = ((ImageView)
+				// findViewById(R.id.imageViewResult));
+				// imageViewResult.setVisibility(View.INVISIBLE);
+				// ((TextView) findViewById(R.id.textViewResult)).setText("");
+				// showQuestion();这个再说
 			}
 		});
 
 	}
 
-	private void showQuestion() {
-		Question question = questionnaire.getQuestion();
-		String questionText = question.getQuestion();
-		((TextView) findViewById(R.id.textViewQuestion)).setText(questionText);
-		((LinearLayout) findViewById(R.id.answerLayout)).removeAllViews();
-		ArrayList<String> answers = question.getAnswers();
-		for (int i = 0; i < answers.size(); i++)
-			addAnswer(answers.get(i), i);
-		ProgressBar progressBarProgress = (ProgressBar) findViewById(R.id.progressBarProgress);
-		progressBarProgress.setMax(100);
-		progressBarProgress.setProgress((int) (questionnaire.getProgress() * 100));
-		showWithAnimation(findViewById(R.id.linearLayoutQuestionContent));
-
-	}
-
-	private void setAnswer(final int index) {
-		questionnaire.setAnswer(index);
-		hideWithAnimation(findViewById(R.id.linearLayoutQuestionContent), new OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				if (questionnaire.getQuestion() == null)
-					generateAndShowResult();
-				else
-					showQuestion();
-			}
-		});
-
-	}
-
-	private void showWithAnimation(View view) {
+	void showWithAnimation(View view) {
 		AnimationSet animationSet = new AnimationSet(true);
 		AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
 		alphaAnimation.setDuration(500);
@@ -168,7 +112,7 @@ public class QuestionnaireActivity extends Activity {
 		view.setAnimation(animationSet);
 	}
 
-	private void hideWithAnimation(final View view, final OnClickListener listener) {
+	void hideWithAnimation(final View view, final OnClickListener listener) {
 		AnimationSet animationSet = new AnimationSet(true);
 		AlphaAnimation alphaAnimation = new AlphaAnimation(1, 0);
 		alphaAnimation.setDuration(500);
@@ -197,107 +141,21 @@ public class QuestionnaireActivity extends Activity {
 		view.setAnimation(animationSet);
 	}
 
-	private void generateAndShowResult() {
-		final Product result = questionnaire.getResult();
-		showResult(result);
-		category.saveTestedResult(this, result);
+	void generateAndShowResult() {
+		testedProduct = questionnaire.getResult();
+		category.saveTestedResult(this, testedProduct);
+		createFragmentAndshowResult(testedProduct);
 	}
 
-	private void showResult(final Product result) {
-		((ScrollView) findViewById(R.id.scrollViewResult)).scrollTo(0, 0);
-		(findViewById(R.id.linearProduct)).setVisibility(View.GONE);			
-		findViewById(R.id.scrollViewResult).setVisibility(View.VISIBLE);
-		((TextView)findViewById( R.id.textViewBuy)).setText("查看详情");
-		isShowingResult = true;
-		findViewById(R.id.questionLayout).setVisibility(View.GONE);
-		View resultLayout = findViewById(R.id.resultLayout);
-		resultLayout.setVisibility(View.VISIBLE);
-		findViewById(R.id.questionLayout).setVisibility(View.GONE);
-		resultLayout.setVisibility(View.VISIBLE);
+	private void createFragmentAndshowResult(final Product result) {
 
-		final ImageView imageViewResult = ((ImageView) findViewById(R.id.imageViewResult));
-		int imageResourceId = result.getImageResourceId();
-		if (imageResourceId > 0) {
-			imageViewResult.setImageResource(imageResourceId);
-		} else {
-			new AsyncTask<String, Integer, Drawable>() {
+		fragmentResult = new QuestionnaireResultFragment();
+		getSupportFragmentManager().beginTransaction().replace(R.id.container, fragmentResult).commit();
 
-				@Override
-				protected Drawable doInBackground(String... params) {
-					URL thumb_u = null;
-					try {
-						thumb_u = new URL(result.getImageUrl());
-					} catch (MalformedURLException e) {
-						e.printStackTrace();
-					}
-					Drawable thumb_d = null;
-					try {
-						thumb_d = Drawable.createFromStream(thumb_u.openStream(), "src");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-
-					return thumb_d;
-				}
-
-				@Override
-				protected void onPostExecute(Drawable resultPic) {
-					imageViewResult.setImageDrawable(resultPic);
-					
-					
-					//这个地方是真不优雅!
-					int layoutWidth = ((LinearLayout)findViewById(R.id.linearResultContent)).getMeasuredWidth();
-					LayoutParams picLayoutParams =  imageViewResult.getLayoutParams();
-					picLayoutParams.width = layoutWidth;
-					picLayoutParams.height = layoutWidth;
-					imageViewResult.setLayoutParams(picLayoutParams);
-					
-					imageViewResult.setVisibility(View.VISIBLE);
-					showWithAnimation(imageViewResult);
-
-					// showWithAnimation(textViewResult);
-
-				}
-			}.execute("");
-
-		}
-		findViewById(R.id.textViewBuy).setOnClickListener(getBuyProductListener(result.getUrl()));
-		findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
-		findViewById(R.id.textViewBack).setOnClickListener(getBackListener());
-		TextView textViewResult = (TextView) findViewById(R.id.textViewResult);
-		TextView textViewEvaluation = (TextView) findViewById(R.id.textViewEvaluation);
-		textViewEvaluation.setText(Html.fromHtml(result.getEvaluation()));
-
-		LinearLayout listViewMatches = (LinearLayout) findViewById(R.id.listViewMatches);
-		listViewMatches.removeAllViews();
-		ArrayList<ProductShowValue> productShowValues = new ProductShowValueGenerator().getProductShowValue(result.getMatches());
-		for (ProductShowValue match : productShowValues) {
-			View matchView = createPercentMatchView(match);
-			listViewMatches.addView(matchView);
-		}
-
-		textViewResult.setText(result.getName());
-
-		double resultTotalPercent = new ProductShowValueGenerator().getProductTotalShowValue(result);
-
-		LinearLayout linearTotalStars = (LinearLayout) findViewById(R.id.linearTotalStars);
-		LinearLayout linearTotalStarsEmpty = (LinearLayout) findViewById(R.id.linearTotalStarsEmpty);
-
-		LayoutParams params = linearTotalStars.getLayoutParams();
-		params.width = (int) (((double) linearTotalStarsEmpty.getLayoutParams().width) * ((double) resultTotalPercent));
-		linearTotalStars.setLayoutParams(params);
-
-		((TextView) findViewById(R.id.textViewTotalValue)).setText(new ProductShowValueGenerator().getProductTatalShowValueText(result));
-		
-		LinearLayout linearProduct = (LinearLayout) findViewById( R.id.linearProduct);
-		WebView webViewProduct = (WebView)findViewById(R.id.webViewProduct);		
-		String url =result.getUrl();
-		webViewProduct.loadUrl(url);
-		
-		showWithAnimation(resultLayout);
+		// showResult(result);
 	}
 
-	private OnClickListener getBackListener() {
+	OnClickListener getBackListener() {
 		return new OnClickListener() {
 
 			@Override
@@ -314,53 +172,7 @@ public class QuestionnaireActivity extends Activity {
 		startActivity(intent);
 	}
 
-	OnClickListener getRestartListener() {
-		return new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				restart();
-			}
-		};
-	}
-
 	boolean isShowingResult = true;
-	OnClickListener getBuyProductListener(final String url) {
-		return new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				if(isShowingResult)
-					showProduct();
-				else
-					showBackResult();
-
-			}
-
-			private void showBackResult() {
-				(findViewById(R.id.linearProduct)).setVisibility(View.GONE);			
-				findViewById(R.id.scrollViewResult).setVisibility(View.VISIBLE);
-				((TextView)findViewById( R.id.textViewBuy)).setText("查看详情");
-				isShowingResult = true;
-			}
-
-			private void showProduct() {
-				(findViewById(R.id.linearProduct)).setVisibility(View.VISIBLE);			
-				View scrollViewResult = findViewById(R.id.scrollViewResult);
-				scrollViewResult.setVisibility(View.GONE);
-				((TextView)findViewById( R.id.textViewBuy)).setText("查看评测");
-				isShowingResult = false;
-			}
-		};
-	}
-
-	OnClickListener getMoveNextClickListener(final int index) {
-		return new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				arg0.setOnClickListener(null);
-				setAnswer(index);
-			}
-		};
-	}
 
 	long prePressBackTime;
 
@@ -387,22 +199,6 @@ public class QuestionnaireActivity extends Activity {
 
 	private boolean isTesting() {
 		return findViewById(R.id.questionLayout).getVisibility() == View.VISIBLE;
-	}
-
-	private View createPercentMatchView(ProductShowValue item) {
-		View view = LayoutInflater.from(this).inflate(R.layout.questionnaire_match_listitem, null);
-
-		TextView textViewCategory = (TextView) view.findViewById(R.id.textViewMatchText);
-		textViewCategory.setText(item.getName());
-		//ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBarMatch);
-		//progressBar.setMax(100);
-		//progressBar.setProgress((int) (item.getValue() * 100));
-		((TextView) view.findViewById(R.id.textViewMatchDescrption)).setText(item.getText());
-		LinearLayout linearStars = (LinearLayout) view.findViewById(R.id.linearStars);
-		LayoutParams params = linearStars.getLayoutParams();
-		params.width = (int) (((double) params.width) * ((double) item.getValue()));
-		linearStars.setLayoutParams(params);
-		return view;
 	}
 
 }

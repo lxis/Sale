@@ -7,12 +7,13 @@ import com.sage.sale.domain.services.categories.*;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.widget.GridView;
 import android.widget.Toast;
 
-public class CategorySelectorActivity extends Activity {
+public class CategorySelectorActivity extends FragmentActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

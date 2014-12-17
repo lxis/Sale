@@ -7,9 +7,4 @@
     android:orientation="vertical"
     tools:context="com.sage.sale.ui.QuestionnaireActivity"
     tools:ignore="MergeRootFrame" >
-
-    
-
-    
-
 </LinearLayout>

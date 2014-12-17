@@ -42,15 +42,15 @@ public class ProductWebView extends WebView {
 	}
 
 	public class ProductWebChromeClient extends android.webkit.WebChromeClient {
-		Activity activity;
+		QuestionnaireActivity activity;
 
 		public ProductWebChromeClient(Context context) {
 			Log.i("bb", "1");
-			activity = (Activity) context;
+			activity = (QuestionnaireActivity) context;
 		}
 
 		public void onProgressChanged(WebView view, int progress) {
-			ProgressBar progressBar = (ProgressBar)activity.findViewById(R.id.progressBarProduct);
+			ProgressBar progressBar = (ProgressBar)activity.fragmentResult.fragment.findViewById(R.id.progressBarProduct);
 			if(progress!=100)
 			{
 				progressBar.setVisibility(View.VISIBLE);
