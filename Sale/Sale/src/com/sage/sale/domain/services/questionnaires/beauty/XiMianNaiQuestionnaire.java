@@ -1,6 +1,5 @@
 package com.sage.sale.domain.services.questionnaires.beauty;
 
-import com.sage.sale.domain.services.products.Product;
 import com.sage.sale.domain.services.products.beauty.XiMianNaiProductRepository;
 import com.sage.sale.domain.services.questionnaires.Question;
 

@@ -1,54 +1,25 @@
 package com.sage.sale.ui;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Date;
 
-import com.google.gson.Gson;
-import com.sage.sale.R;
-import com.sage.sale.domain.services.categories.Category;
-import com.sage.sale.domain.services.categories.CategoryFactory;
-import com.sage.sale.domain.services.categories.CategoryStorage;
-import com.sage.sale.domain.services.products.ProductShowValue;
-import com.sage.sale.domain.services.products.ProductShowValueGenerator;
-import com.sage.sale.domain.services.products.ProductValue;
-import com.sage.sale.domain.services.products.Product;
-import com.sage.sale.domain.services.questionnaires.IQuestionnaire;
-import com.sage.sale.domain.services.questionnaires.Question;
-import com.sage.sale.domain.services.questionnaires.QuestionnaireFactory;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
-import android.text.Html;
-import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationSet;
-import android.webkit.WebView;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.sage.sale.R;
+import com.sage.sale.domain.services.categories.Category;
+import com.sage.sale.domain.services.products.Product;
+import com.sage.sale.domain.services.questionnaires.IQuestionnaire;
+import com.sage.sale.domain.services.questionnaires.QuestionnaireFactory;
 
 public class QuestionnaireActivity extends FragmentActivity {
 

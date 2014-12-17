@@ -1,8 +1,5 @@
 package com.sage.sale.ui;
 
-import com.sage.sale.R;
-
-import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -10,6 +7,8 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+
+import com.sage.sale.R;
 
 public class ProductWebView extends WebView {
 

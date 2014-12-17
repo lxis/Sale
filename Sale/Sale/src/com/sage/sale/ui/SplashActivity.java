@@ -2,7 +2,6 @@ package com.sage.sale.ui;
 
 import com.sage.sale.R;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;

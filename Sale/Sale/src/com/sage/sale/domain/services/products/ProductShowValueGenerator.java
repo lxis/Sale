@@ -4,11 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import com.google.gson.internal.Primitives;
-import com.sage.sale.R;
-
 import android.util.Log;
-import android.widget.TextView;
 
 public class ProductShowValueGenerator {
 	@SuppressWarnings("unchecked")

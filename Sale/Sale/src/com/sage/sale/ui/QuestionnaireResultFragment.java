@@ -118,7 +118,7 @@ public class QuestionnaireResultFragment extends Fragment {
 
 		((TextView) fragment.findViewById(R.id.textViewTotalValue)).setText(new ProductShowValueGenerator().getProductTatalShowValueText(result));
 
-		LinearLayout linearProduct = (LinearLayout) fragment.findViewById(R.id.linearProduct);
+		
 		WebView webViewProduct = (WebView) fragment.findViewById(R.id.webViewProduct);
 		String url = result.getUrl();
 		webViewProduct.loadUrl(url);
