@@ -47,7 +47,7 @@ public class QuestionnaireResultFragment extends Fragment {
 		final Product result = activity.testedProduct;
 		((ScrollView) fragment.findViewById(R.id.scrollViewResult)).scrollTo(0, 0);
 		(fragment.findViewById(R.id.linearProduct)).setVisibility(View.GONE);
-		fragment.findViewById(R.id.scrollViewResult).setVisibility(View.VISIBLE);
+		fragment.findViewById(R.id.linearResult).setVisibility(View.VISIBLE);
 		((TextView) fragment.findViewById(R.id.textViewBuy)).setText("查看详情");
 		isShowingResult = true;
 		View resultLayout = fragment.findViewById(R.id.resultLayout);
@@ -158,16 +158,16 @@ public class QuestionnaireResultFragment extends Fragment {
 
 			private void showBackResult() {
 				(fragment.findViewById(R.id.linearProduct)).setVisibility(View.GONE);
-				fragment.findViewById(R.id.scrollViewResult).setVisibility(View.VISIBLE);
-				((TextView) fragment.findViewById(R.id.textViewBuy)).setText("查看详情");
+				fragment.findViewById(R.id.linearResult).setVisibility(View.VISIBLE);
+				((TextView) fragment.findViewById(R.id.textViewBuy)).setText("产品详情");
 				isShowingResult = true;
 			}
 
 			private void showProduct() {
 				(fragment.findViewById(R.id.linearProduct)).setVisibility(View.VISIBLE);
-				View scrollViewResult = fragment.findViewById(R.id.scrollViewResult);
-				scrollViewResult.setVisibility(View.GONE);
-				((TextView) fragment.findViewById(R.id.textViewBuy)).setText("查看评测");
+				View linearResult = fragment.findViewById(R.id.linearResult);
+				linearResult.setVisibility(View.GONE);
+				((TextView) fragment.findViewById(R.id.textViewBuy)).setText("评测结果");
 				isShowingResult = false;
 			}
 		};
