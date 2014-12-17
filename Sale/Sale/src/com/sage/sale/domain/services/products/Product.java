@@ -25,7 +25,6 @@ public class Product {
 	private String name;
 	private int value;
 	private int price;
-	private int imageResourceId;
 	private String imageUrl;
 	private int id;
 	private ArrayList<ProductValue> matches = new ArrayList<ProductValue>();
@@ -93,14 +92,6 @@ public class Product {
 		this.value+=value;
 		matches.add(new ProductValue(name, (int)value,text));
 		return this;
-	}
-
-	public int getImageResourceId() {
-		return imageResourceId;
-	}
-
-	public void setImageResourceId(int imageResourceId) {
-		this.imageResourceId = imageResourceId;
 	}
 
 	public String getImageUrl() {

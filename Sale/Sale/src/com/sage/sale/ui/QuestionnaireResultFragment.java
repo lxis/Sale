@@ -49,58 +49,50 @@ public class QuestionnaireResultFragment extends Fragment {
 		(fragment.findViewById(R.id.linearProduct)).setVisibility(View.GONE);
 		fragment.findViewById(R.id.scrollViewResult).setVisibility(View.VISIBLE);
 		((TextView) fragment.findViewById(R.id.textViewBuy)).setText("查看详情");
-		activity.isShowingResult = true;
+		isShowingResult = true;
 		View resultLayout = fragment.findViewById(R.id.resultLayout);
 		resultLayout.setVisibility(View.VISIBLE);
 
 		final ImageView imageViewResult = ((ImageView) fragment.findViewById(R.id.imageViewResult));
-		int imageResourceId = result.getImageResourceId();
-		if (imageResourceId > 0) {
-			imageViewResult.setImageResource(imageResourceId);
-		} else {
-			new AsyncTask<String, Integer, Drawable>() {
+		new AsyncTask<String, Integer, Drawable>() {
 
-				@Override
-				protected Drawable doInBackground(String... params) {
-					URL thumb_u = null;
-					try {
-						thumb_u = new URL(result.getImageUrl());
-					} catch (MalformedURLException e) {
-						e.printStackTrace();
-					}
-					Drawable thumb_d = null;
-					try {
-						thumb_d = Drawable.createFromStream(thumb_u.openStream(), "src");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-
-					return thumb_d;
+			@Override
+			protected Drawable doInBackground(String... params) {
+				URL thumb_u = null;
+				try {
+					thumb_u = new URL(result.getImageUrl());
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+				}
+				Drawable thumb_d = null;
+				try {
+					thumb_d = Drawable.createFromStream(thumb_u.openStream(), "src");
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 
-				@Override
-				protected void onPostExecute(Drawable resultPic) {
-					imageViewResult.setImageDrawable(resultPic);
+				return thumb_d;
+			}
 
-					// 这个地方是真不优雅!
-					int layoutWidth = ((LinearLayout) fragment.findViewById(R.id.linearResultContent)).getMeasuredWidth();
-					LayoutParams picLayoutParams = imageViewResult.getLayoutParams();
-					picLayoutParams.width = layoutWidth;
-					picLayoutParams.height = layoutWidth;
-					imageViewResult.setLayoutParams(picLayoutParams);
+			@Override
+			protected void onPostExecute(Drawable resultPic) {
+				imageViewResult.setImageDrawable(resultPic);
 
-					imageViewResult.setVisibility(View.VISIBLE);
-					activity.showWithAnimation(imageViewResult);
+				// 这个地方是真不优雅!
+				int layoutWidth = ((LinearLayout) fragment.findViewById(R.id.linearResultContent)).getMeasuredWidth();
+				LayoutParams picLayoutParams = imageViewResult.getLayoutParams();
+				picLayoutParams.width = layoutWidth;
+				picLayoutParams.height = layoutWidth;
+				imageViewResult.setLayoutParams(picLayoutParams);
 
-					// showWithAnimation(textViewResult);
+				imageViewResult.setVisibility(View.VISIBLE);
+				activity.showWithAnimation(imageViewResult);
+			}
+		}.execute("");
 
-				}
-			}.execute("");
-
-		}
 		fragment.findViewById(R.id.textViewBuy).setOnClickListener(getBuyProductListener(result.getUrl()));
 		fragment.findViewById(R.id.textViewRestart).setOnClickListener(getRestartListener());
-		fragment.findViewById(R.id.textViewBack).setOnClickListener(activity.getBackListener());
+		fragment.findViewById(R.id.textViewBack).setOnClickListener(getBackListener());
 		TextView textViewResult = (TextView) fragment.findViewById(R.id.textViewResult);
 		TextView textViewEvaluation = (TextView) fragment.findViewById(R.id.textViewEvaluation);
 		textViewEvaluation.setText(Html.fromHtml(result.getEvaluation()));
@@ -157,7 +149,7 @@ public class QuestionnaireResultFragment extends Fragment {
 		return new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				if (activity.isShowingResult)
+				if (isShowingResult)
 					showProduct();
 				else
 					showBackResult();
@@ -168,7 +160,7 @@ public class QuestionnaireResultFragment extends Fragment {
 				(fragment.findViewById(R.id.linearProduct)).setVisibility(View.GONE);
 				fragment.findViewById(R.id.scrollViewResult).setVisibility(View.VISIBLE);
 				((TextView) fragment.findViewById(R.id.textViewBuy)).setText("查看详情");
-				activity.isShowingResult = true;
+				isShowingResult = true;
 			}
 
 			private void showProduct() {
@@ -176,15 +168,28 @@ public class QuestionnaireResultFragment extends Fragment {
 				View scrollViewResult = fragment.findViewById(R.id.scrollViewResult);
 				scrollViewResult.setVisibility(View.GONE);
 				((TextView) fragment.findViewById(R.id.textViewBuy)).setText("查看评测");
-				activity.isShowingResult = false;
+				isShowingResult = false;
 			}
 		};
 	}
+
 	OnClickListener getRestartListener() {
 		return new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				activity.restart();
+			}
+		};
+	}
+
+	boolean isShowingResult = true;
+
+	private OnClickListener getBackListener() {
+		return new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				activity.finish();
 			}
 		};
 	}

@@ -21,22 +21,22 @@ public class QuestionnaireQuestionFragment extends Fragment {
 	LayoutInflater inflater;
 	QuestionnaireActivity activity;
 	View fragment;
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		this.inflater = inflater;
-		fragment = inflater.inflate(R.layout.questionnaire_question_control, container, false);	
-		activity = (QuestionnaireActivity)getActivity();	
-		showQuestion();		
+		fragment = inflater.inflate(R.layout.questionnaire_question_control, container, false);
+		activity = (QuestionnaireActivity) getActivity();
+		showQuestion();
 		return fragment;
 	}
-	
+
 	public void showQuestion() {
 		Question question = activity.questionnaire.getQuestion();
 		String questionText = question.getQuestion();
 
 		View findedView = fragment.findViewById(R.id.textViewQuestion);
-		((TextView)findedView ).setText(questionText);
+		((TextView) findedView).setText(questionText);
 		((LinearLayout) fragment.findViewById(R.id.answerLayout)).removeAllViews();
 		ArrayList<String> answers = question.getAnswers();
 		for (int i = 0; i < answers.size(); i++)
@@ -47,7 +47,7 @@ public class QuestionnaireQuestionFragment extends Fragment {
 		activity.showWithAnimation(fragment.findViewById(R.id.linearLayoutQuestionContent));
 
 	}
-	
+
 	void addAnswer(String answer, final int index) {
 		View view = getAnswerTextView();
 		TextView textView = ((TextView) view.findViewById(R.id.textViewAnswer));
@@ -55,7 +55,7 @@ public class QuestionnaireQuestionFragment extends Fragment {
 		textView.setOnClickListener(getMoveNextClickListener(index));
 		((LinearLayout) fragment.findViewById(R.id.answerLayout)).addView(view, getAnswerTextViewLayoutParam());
 	}
-	
+
 	private View getAnswerTextView() {
 		return inflater.inflate(R.layout.questionnaire_question_answer_control, null);
 	}
@@ -64,7 +64,7 @@ public class QuestionnaireQuestionFragment extends Fragment {
 		LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		return layoutParam;
 	}
-	
+
 	OnClickListener getMoveNextClickListener(final int index) {
 		return new OnClickListener() {
 			@Override
@@ -74,19 +74,16 @@ public class QuestionnaireQuestionFragment extends Fragment {
 			}
 		};
 	}
-	
+
 	private void setAnswer(final int index) {
 		activity.questionnaire.setAnswer(index);
 		activity.hideWithAnimation(fragment.findViewById(R.id.linearLayoutQuestionContent), new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-				if (activity.questionnaire.getQuestion() == null)
-				{
+				if (activity.questionnaire.getQuestion() == null) {
 					activity.generateAndShowResult();
-				}
-				else
-				{
+				} else {
 					showQuestion();
 				}
 			}

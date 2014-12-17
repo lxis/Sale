@@ -91,13 +91,6 @@ public class QuestionnaireActivity extends FragmentActivity {
 				getSupportFragmentManager().beginTransaction().replace(R.id.container, fragmentQuestion).commit();
 
 				questionnaire = new QuestionnaireFactory().getQuestionnaire(category);
-				// findViewById(R.id.questionLayout).setVisibility(View.VISIBLE);
-				// findViewById(R.id.resultLayout).setVisibility(View.GONE);
-				// ImageView imageViewResult = ((ImageView)
-				// findViewById(R.id.imageViewResult));
-				// imageViewResult.setVisibility(View.INVISIBLE);
-				// ((TextView) findViewById(R.id.textViewResult)).setText("");
-				// showQuestion();这个再说
 			}
 		});
 
@@ -151,28 +144,7 @@ public class QuestionnaireActivity extends FragmentActivity {
 
 		fragmentResult = new QuestionnaireResultFragment();
 		getSupportFragmentManager().beginTransaction().replace(R.id.container, fragmentResult).commit();
-
-		// showResult(result);
 	}
-
-	OnClickListener getBackListener() {
-		return new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				finish();
-			}
-		};
-	}
-
-	private void buyProduct(final String url) {
-		Intent intent = new Intent();
-		intent.setAction("android.intent.action.VIEW");
-		intent.setData(Uri.parse(url));
-		startActivity(intent);
-	}
-
-	boolean isShowingResult = true;
 
 	long prePressBackTime;
 
