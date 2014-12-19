@@ -48,7 +48,7 @@ public class QuestionnaireResultFragment extends Fragment {
 		((ScrollView) fragment.findViewById(R.id.scrollViewResult)).scrollTo(0, 0);
 		(fragment.findViewById(R.id.linearProduct)).setVisibility(View.GONE);
 		fragment.findViewById(R.id.linearResult).setVisibility(View.VISIBLE);
-		((TextView) fragment.findViewById(R.id.textViewBuy)).setText("查看详情");
+		((TextView) fragment.findViewById(R.id.textViewBuy)).setText("产品详情");
 		isShowingResult = true;
 		View resultLayout = fragment.findViewById(R.id.resultLayout);
 		resultLayout.setVisibility(View.VISIBLE);

@@ -1,8 +1,10 @@
 package com.sage.sale.ui;
 
 import java.util.Date;
+import java.util.List;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -141,7 +143,8 @@ public class QuestionnaireActivity extends FragmentActivity {
 	}
 
 	private boolean isTesting() {
-		return findViewById(R.id.questionLayout).getVisibility() == View.VISIBLE;
+		List<Fragment> framents = getSupportFragmentManager().getFragments();
+		return framents.get(0) instanceof QuestionnaireQuestionFragment ;
 	}
 
 }
